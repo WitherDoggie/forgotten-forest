@@ -3,27 +3,27 @@
   "id": "modid",
   "version": "${version}",
 
-  "name": "Example Mod",
+  "name": "The Forgotten Forest",
   "description": "This is an example description! Tell everyone what your mod is about!",
   "authors": [
-    "Me!"
+    "WitherDoggie"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
     "sources": "https://github.com/FabricMC/fabric-example-mod"
   },
 
-  "license": "CC0-1.0",
+  "license": "GPL 3.0",
   "icon": "assets/modid/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "io.github.witherdoggie.forgottenforest.ForgottenForest"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "forgottenforest.mixins.json"
   ],
 
   "depends": {
