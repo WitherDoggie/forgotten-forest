@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "forgotten_forest:block/gloomy_dirt"
+      },
+      {
+        "model": "forgotten_forest:block/gloomy_dirt",
+        "y": 90
+      },
+      {
+        "model": "forgotten_forest:block/gloomy_dirt",
+        "y": 180
+      },
+      {
+        "model": "forgotten_forest:block/gloomy_dirt",
+        "y": 270
+      }
+    ]
+  }
+}
