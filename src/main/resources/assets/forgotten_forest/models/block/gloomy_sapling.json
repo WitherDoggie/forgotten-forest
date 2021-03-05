@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "forgotten_forest:block/gloomy_sapling"
+  }
+}

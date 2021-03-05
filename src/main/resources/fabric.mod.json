@@ -20,6 +20,9 @@
   "entrypoints": {
     "main": [
       "io.github.witherdoggie.forgottenforest.ForgottenForest"
+    ],
+    "client": [
+      "io.github.witherdoggie.forgottenforest.client.ForgottenForestClient"
     ]
   },
   "mixins": [
