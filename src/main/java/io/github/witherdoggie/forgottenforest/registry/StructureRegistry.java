@@ -19,8 +19,8 @@ import net.minecraft.world.gen.feature.StructureFeature;
 public class StructureRegistry {
 
     public static final StructurePieceType PIECE = CryptGenerator.Piece::new;
-    private static final StructureFeature<DefaultFeatureConfig> CRYPT = new CryptFeature(DefaultFeatureConfig.CODEC);
-    private static final ConfiguredStructureFeature<?, ?> CRYPT_CONFIGURED = CRYPT.configure(DefaultFeatureConfig.DEFAULT);
+    public static final StructureFeature<DefaultFeatureConfig> CRYPT = new CryptFeature(DefaultFeatureConfig.CODEC);
+    public static final ConfiguredStructureFeature<?, ?> CRYPT_CONFIGURED = CRYPT.configure(DefaultFeatureConfig.DEFAULT);
 
     public static void initStructures(){
 
@@ -28,6 +28,7 @@ public class StructureRegistry {
         FabricStructureBuilder.create(new Identifier(ForgottenForest.MODID, "crypt"), CRYPT)
                 .step(GenerationStep.Feature.SURFACE_STRUCTURES)
                 .defaultConfig(32, 8, 12345)
+                .adjustsSurface()
                 .register();
 
         RegistryKey<ConfiguredStructureFeature<?, ?>> myConfigured = RegistryKey.of(Registry.CONFIGURED_STRUCTURE_FEATURE_WORLDGEN,

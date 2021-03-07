@@ -1,13 +1,13 @@
 {
 
-  "name": "forgotten_forest:crypt_pool",
+  "name": "forgotten_forest:crypt_pool_top",
   "fallback": "minecraft:empty",
   "elements": [
     {
       "weight": 1,
       "element": {
 
-        "location": "forgotten_forest:crypt_lower",
+        "location": "forgotten_forest:crypt_top",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
