@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "forgotten_forest:orchium_ore"
+  },
+  "result": "forgotten_forest:orchium_ingot",
+  "experience": 0.7,
+  "cookingtime": 200
+}

@@ -8,7 +8,7 @@ import net.minecraft.util.math.BlockPos;
 
 import java.util.Random;
 
-public class GloomyGrassBlock extends ModBlockSpreadable{
+public class GloomyGrassBlock extends ModBlockSpreadable {
 
     public GloomyGrassBlock(Settings settings) {
         super(settings);

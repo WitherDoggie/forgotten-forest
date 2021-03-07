@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "forgotten_forest:gloomy_logs"
+    }
+  ],
+  "result": {
+    "item": "forgotten_forest:gloomy_planks",
+    "count": 4
+  }
+}

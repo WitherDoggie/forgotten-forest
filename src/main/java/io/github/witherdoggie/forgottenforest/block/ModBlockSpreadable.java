@@ -4,17 +4,23 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SnowBlock;
 import net.minecraft.block.SpreadableBlock;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.tag.FluidTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.chunk.light.ChunkLightProvider;
 
+import java.util.Random;
+
 public abstract class ModBlockSpreadable extends SpreadableBlock {
 
     public ModBlockSpreadable(Settings settings) {
         super(settings);
     }
+
+    public abstract void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random);
+
     /* Methods are private in SpreadableBlock. Implement them here for all modded spreadable blocks to use */
     protected static boolean canSurvive(BlockState state, WorldView worldView, BlockPos pos) {
         BlockPos blockPos = pos.up();

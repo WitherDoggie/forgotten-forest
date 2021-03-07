@@ -1,0 +1,24 @@
+{
+  "config": {
+    "top_material": {
+      "Name": "forgotten_forest:gloomy_grass_block",
+      "Properties": {
+        "snowy": "false"
+      }
+    },
+    "under_material": {
+      "Name": "forgotten_forest:gloomy_dirt",
+      "Properties": {
+
+      }
+    },
+    "underwater_material": {
+      "Name": "forgotten_forest:gloomy_dirt",
+      "Properties": {
+
+      }
+    },
+    "generate_quick_soil": true
+  },
+  "type": "minecraft:default"
+}

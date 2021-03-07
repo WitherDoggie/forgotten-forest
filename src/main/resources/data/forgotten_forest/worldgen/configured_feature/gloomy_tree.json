@@ -1,0 +1,45 @@
+{
+  "type": "minecraft:decorated",
+  "config": {
+    "decorator": {
+      "type": "minecraft:count",
+      "config": {
+        "count": 80
+      }
+    },
+    "feature": {
+      "type": "minecraft:tree",
+      "config": {
+        "max_water_depth": 0,
+        "ignore_vines": true,
+        "heightmap": "MOTION_BLOCKING",
+        "minimum_size": {},
+        "trunk_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "forgotten_forest:gloomy_log"
+          }
+        },
+        "leaves_provider": {
+          "type": "minecraft:simple_state_provider",
+          "state": {
+            "Name": "forgotten_forest:gloomy_leaves"
+          }
+        },
+        "trunk_placer": {
+          "type": "minecraft:straight_trunk_placer",
+          "base_height": 5,
+          "height_rand_a": 2,
+          "height_rand_b": 0
+        },
+        "foliage_placer": {
+          "type": "minecraft:pine_foliage_placer",
+          "radius": 2,
+          "offset": 0,
+          "height": 3
+        },
+        "decorators": []
+      }
+    }
+  }
+}

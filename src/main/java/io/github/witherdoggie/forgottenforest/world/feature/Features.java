@@ -25,7 +25,7 @@ public class Features {
 
     public static void initFeatures(){
 
-        GLOOMY_TREE = register(ForgottenForest.MODID, Feature.TREE.configure(
+        GLOOMY_TREE = register(ForgottenForest.MODID + ":gloomy_tree", Feature.TREE.configure(
                 (new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(States.GLOOMY_LOG),
                         new SimpleBlockStateProvider(Features.States.GLOOMY_LEAVES),
                         new BlobFoliagePlacer(UniformIntDistribution.of(2), UniformIntDistribution.of(0), 3),

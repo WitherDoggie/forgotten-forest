@@ -1,0 +1,15 @@
+{
+  "block.forgotten_forest.gloomy_sapling" : "Gloomy Sapling",
+  "block.forgotten_forest.gloomy_dirt" : "Gloomy Dirt",
+  "block.forgotten_forest.gloomy_grass_block" : "Gloomy Grass Block",
+  "block.forgotten_forest.gloomy_planks" : "Gloomy Planks",
+  "block.forgotten_forest.gloomy_log" : "Gloomy Log",
+  "block.forgotten_forest.gloomy_bricks" : "Gloomy Bricks",
+  "block.forgotten_forest.cracked_gloomy_bricks" : "Cracked Gloomy Bricks",
+  "block.forgotten_forest.chiseled_gloomy_bricks" : "Chiseled Gloomy Bricks",
+  "block.forgotten_forest.gloomy_leaves" : "Gloomy Leaves",
+  "block.forgotten_forest.orchium_ore" : "Orchium Ore",
+  "item.forgotten_forest.orchium_ingot" : "Orchium Ingot",
+  "item.forgotten_forest.rotten_apple" : "Rotten Apple",
+  "item.forgotten_forest.rotten_apple.tooltip" : "I wouldn't eat this if I were you"
+}
