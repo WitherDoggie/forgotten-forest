@@ -5,7 +5,10 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "FeatureMixin",
-    "LakeFeatureMixin"
+    "LakeFeatureMixin",
+    "LivingEntityAccessor",
+    "BrewingRecipeRegistryAccessor",
+    "BrewingRecipeRegistryMixin"
   ],
   "client": [
 

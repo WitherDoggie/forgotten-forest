@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.util.Random;
 
-
+/* Stop lakes from interrupting crypt generation */
 @Mixin(LakeFeature.class)
 public class LakeFeatureMixin {
 

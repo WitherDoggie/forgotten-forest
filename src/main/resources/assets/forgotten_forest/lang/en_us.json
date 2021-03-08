@@ -11,5 +11,14 @@
   "block.forgotten_forest.orchium_ore" : "Orchium Ore",
   "item.forgotten_forest.orchium_ingot" : "Orchium Ingot",
   "item.forgotten_forest.rotten_apple" : "Rotten Apple",
-  "item.forgotten_forest.rotten_apple.tooltip" : "I wouldn't eat this if I were you"
+  "item.forgotten_forest.rotten_apple.tooltip" : "I wouldn't eat this if I were you",
+  "item.forgotten_forest.left_shadow_amulet" : "Mysterious Amulet Half",
+  "item.forgotten_forest.right_shadow_amulet" : "Mysterious Amulet Half",
+  "item.forgotten_forest.full_shadow_amulet" : "Shadow Amulet",
+  "item.forgotten_forest.shadow_amulet_half.tooltip" : "Part of a weird orb. I should find the other half",
+  "item.forgotten_forest.shadow_amulet_full.tooltip" : "[WIP] The orb is at full power. Right click to enter the Forgotten Forest",
+  "entity.forgotten_forest.soul_spider" : "Soul Spider",
+  "item.forgotten_forest.soulless_soul.tooltip" : "I wonder what happens if I try to brew with it...",
+  "item.forgotten_forest.soulless_soul" : "Soulless Soul",
+  "effect.forgotten_forest.soul_serum" : "Soul Serum"
 }

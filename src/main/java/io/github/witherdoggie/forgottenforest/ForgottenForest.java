@@ -20,6 +20,9 @@ public class ForgottenForest implements ModInitializer {
         BlockRegistry.initBlocks();
         ModItemGroups.initItemGroups();
         ItemRegistry.initItems();
+        StatusEffectRegistry.initEffects();
+        PotionRegistry.initPotions();
+        EntityRegistry.initEntities();
         Features.initFeatures();
         BiomeRegistry.initBiomes();
         StructureRegistry.initStructures();

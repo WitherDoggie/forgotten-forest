@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ODO",
+    "LOR",
+    "ODO"
+  ],
+  "key": {
+    "O": {
+      "item": "forgotten_forest:orchium_ingot"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "L": {
+      "item": "forgotten_forest:left_shadow_amulet"
+    },
+    "R": {
+      "item": "forgotten_forest:right_shadow_amulet"
+    }
+  },
+  "result": {
+    "item": "forgotten_forest:full_shadow_amulet"
+  }
+}
