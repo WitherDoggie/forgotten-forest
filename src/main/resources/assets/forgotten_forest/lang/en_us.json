@@ -23,5 +23,8 @@
   "effect.forgotten_forest.soul_serum" : "Soul Serum",
   "entity.forgotten_forest.soul_skeleton" : "Soul Skeleton",
   "entity.forgotten_forest.soul_chicken" : "Soul Chicken",
-  "item.minecraft.potion.effect.soul_serum" : "Potion of Soul Serum"
+  "item.minecraft.potion.effect.soul_serum" : "Potion of Soul Serum",
+  "item.forgotten_forest.soul_skeleton_spawn_egg" : "Soul Skeleton Spawn Egg",
+  "item.forgotten_forest.soul_spider_spawn_egg" : "Soul Spider Spawn Egg",
+  "item.forgotten_forest.soul_chicken_spawn_egg" : "Soul Chicken Spawn Egg"
 }
