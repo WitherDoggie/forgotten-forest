@@ -8,10 +8,7 @@ import io.github.witherdoggie.forgottenforest.item.SoullessSoulItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.FoodComponent;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
+import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -33,6 +30,11 @@ public class ItemRegistry {
     public static final Item LEFT_SHADOW_AMULET = new ShadowAmuletHalfItem(new FabricItemSettings().group(ItemGroup.MATERIALS));
     public static final Item RIGHT_SHADOW_AMULET = new ShadowAmuletHalfItem(new FabricItemSettings().group(ItemGroup.MATERIALS));
     public static final Item FULL_SHADOW_AMULET = new ShadowAmuletFullItem(new FabricItemSettings().group(ItemGroup.MATERIALS));
+
+    public static final Item SOUL_SKELETON_SPAWN_EGG = new SpawnEggItem(EntityRegistry.SOUL_SKELETON, 0x0c3ff, 0xFFFFFF, new Item.Settings().group(ItemGroup.MISC));
+    public static final Item SOUL_SPIDER_SPAWN_EGG = new SpawnEggItem(EntityRegistry.SOUL_SPIDER, 0xe3e3e3, 0xFFFFFF, new Item.Settings().group(ItemGroup.MISC));
+    public static final Item SOUL_CHICKEN_SPAWN_EGG = new SpawnEggItem(EntityRegistry.SOUL_CHICKEN, 0xffb8b8, 0xFFFFFF, new Item.Settings().group(ItemGroup.MISC));
+
 
 
     public static void initItems(){
@@ -56,6 +58,10 @@ public class ItemRegistry {
         Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "right_shadow_amulet"), RIGHT_SHADOW_AMULET);
         Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "full_shadow_amulet"), FULL_SHADOW_AMULET);
         Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "soulless_soul"), SOULLESS_SOUL);
+
+        Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "soul_skeleton_spawn_egg"), SOUL_SKELETON_SPAWN_EGG);
+        Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "soul_spider_spawn_egg"), SOUL_SPIDER_SPAWN_EGG);
+        Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "soul_chicken_spawn_egg"), SOUL_CHICKEN_SPAWN_EGG);
 
     }
 }
