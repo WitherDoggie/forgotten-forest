@@ -20,5 +20,8 @@
   "entity.forgotten_forest.soul_spider" : "Soul Spider",
   "item.forgotten_forest.soulless_soul.tooltip" : "I wonder what happens if I try to brew with it...",
   "item.forgotten_forest.soulless_soul" : "Soulless Soul",
-  "effect.forgotten_forest.soul_serum" : "Soul Serum"
+  "effect.forgotten_forest.soul_serum" : "Soul Serum",
+  "entity.forgotten_forest.soul_skeleton" : "Soul Skeleton",
+  "entity.forgotten_forest.soul_chicken" : "Soul Chicken",
+  "item.minecraft.potion.effect.soul_serum" : "Potion of Soul Serum"
 }

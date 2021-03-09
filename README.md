@@ -1,9 +1,7 @@
-# Fabric Example Mod
+# The Forgotten Forest
 
-## Setup
-
-For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
+Enter the forgotten lands and face the new dangers and adventures trapped within.
 
 ## License
 
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+Available under the LGPL-3.0 license.
