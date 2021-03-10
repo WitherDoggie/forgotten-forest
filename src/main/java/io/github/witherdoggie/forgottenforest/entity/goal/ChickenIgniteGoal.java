@@ -3,7 +3,6 @@ package io.github.witherdoggie.forgottenforest.entity.goal;
 import io.github.witherdoggie.forgottenforest.entity.SoulChickenEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.Goal;
-import net.minecraft.entity.passive.ChickenEntity;
 
 import java.util.EnumSet;
 

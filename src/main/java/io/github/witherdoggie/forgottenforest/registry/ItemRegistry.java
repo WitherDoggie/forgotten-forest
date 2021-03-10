@@ -36,17 +36,16 @@ public class ItemRegistry {
     public static final Item SOUL_CHICKEN_SPAWN_EGG = new SpawnEggItem(EntityRegistry.SOUL_CHICKEN, 0xffb8b8, 0xFFFFFF, new Item.Settings().group(ItemGroup.MISC));
 
 
-
-    public static void initItems(){
+    public static void initItems() {
 
         /* Block Items */
-        Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID,"gloomy_grass_block"), new BlockItem(BlockRegistry.GLOOMY_GRASS_BLOCK, new Item.Settings().group(ModItemGroups.BLOCKS)));
-        Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID,"gloomy_dirt"), new BlockItem(BlockRegistry.GLOOMY_DIRT, new Item.Settings().group(ModItemGroups.BLOCKS)));
-        Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID,"orchium_ore"), new BlockItem(BlockRegistry.ORCHIUM_ORE, new Item.Settings().group(ModItemGroups.BLOCKS)));
-        Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID,"gloomy_bricks"), new BlockItem(BlockRegistry.GLOOMY_BRICKS, new Item.Settings().group(ModItemGroups.BLOCKS)));
-        Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID,"chiseled_gloomy_bricks"), new BlockItem(BlockRegistry.CHISELED_GLOOMY_BRICKS, new Item.Settings().group(ModItemGroups.BLOCKS)));
-        Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID,"cracked_gloomy_bricks"), new BlockItem(BlockRegistry.CRACKED_GLOOMY_BRICKS, new Item.Settings().group(ModItemGroups.BLOCKS)));
-        Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID,"gloomy_log"), new BlockItem(BlockRegistry.GLOOMY_LOG, new Item.Settings().group(ModItemGroups.BLOCKS)));
+        Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "gloomy_grass_block"), new BlockItem(BlockRegistry.GLOOMY_GRASS_BLOCK, new Item.Settings().group(ModItemGroups.BLOCKS)));
+        Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "gloomy_dirt"), new BlockItem(BlockRegistry.GLOOMY_DIRT, new Item.Settings().group(ModItemGroups.BLOCKS)));
+        Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "orchium_ore"), new BlockItem(BlockRegistry.ORCHIUM_ORE, new Item.Settings().group(ModItemGroups.BLOCKS)));
+        Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "gloomy_bricks"), new BlockItem(BlockRegistry.GLOOMY_BRICKS, new Item.Settings().group(ModItemGroups.BLOCKS)));
+        Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "chiseled_gloomy_bricks"), new BlockItem(BlockRegistry.CHISELED_GLOOMY_BRICKS, new Item.Settings().group(ModItemGroups.BLOCKS)));
+        Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "cracked_gloomy_bricks"), new BlockItem(BlockRegistry.CRACKED_GLOOMY_BRICKS, new Item.Settings().group(ModItemGroups.BLOCKS)));
+        Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "gloomy_log"), new BlockItem(BlockRegistry.GLOOMY_LOG, new Item.Settings().group(ModItemGroups.BLOCKS)));
         Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "gloomy_planks"), new BlockItem(BlockRegistry.GLOOMY_PLANKS, new Item.Settings().group(ModItemGroups.BLOCKS)));
         Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "gloomy_leaves"), new BlockItem(BlockRegistry.GLOOMY_LEAVES, new Item.Settings().group(ModItemGroups.BLOCKS)));
         Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "gloomy_sapling"), new BlockItem(BlockRegistry.GLOOMY_SAPLING, new Item.Settings().group(ModItemGroups.BLOCKS)));

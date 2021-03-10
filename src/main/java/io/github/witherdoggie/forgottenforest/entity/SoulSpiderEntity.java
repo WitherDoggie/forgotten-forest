@@ -7,14 +7,9 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.mob.SpiderEntity;
 import net.minecraft.world.World;
-
-import java.util.Collection;
-import java.util.List;
 
 public class SoulSpiderEntity extends SpiderEntity {
 
@@ -27,20 +22,20 @@ public class SoulSpiderEntity extends SpiderEntity {
     }
 
     @Override
-    public boolean tryAttack(Entity target){
+    public boolean tryAttack(Entity target) {
         boolean bl = super.tryAttack(target);
 
-        if(bl == true){
+        if (bl == true) {
             heal((LivingEntity) target);
         }
         return bl;
     }
 
-    private void heal(LivingEntity target){
+    private void heal(LivingEntity target) {
 
-        if(target.hasStatusEffect(StatusEffectRegistry.SOUL_SERUM)){
+        if (target.hasStatusEffect(StatusEffectRegistry.SOUL_SERUM)) {
             return;
         }
-        this.heal(((LivingEntityAccessor)target).getLastDamageTaken());
+        this.heal(((LivingEntityAccessor) target).getLastDamageTaken());
     }
 }

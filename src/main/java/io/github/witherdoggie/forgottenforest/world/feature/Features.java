@@ -17,13 +17,13 @@ import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 
 public class Features {
 
-    public static ConfiguredFeature<?,?> GLOOMY_TREE;
+    public static ConfiguredFeature<?, ?> GLOOMY_TREE;
 
     private static <FC extends FeatureConfig> ConfiguredFeature<FC, ?> register(String id, ConfiguredFeature<?, ?> configuredFeature) {
         return (ConfiguredFeature) Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, id, configuredFeature);
     }
 
-    public static void initFeatures(){
+    public static void initFeatures() {
 
         GLOOMY_TREE = register(ForgottenForest.MODID + ":gloomy_tree", Feature.TREE.configure(
                 (new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(States.GLOOMY_LOG),

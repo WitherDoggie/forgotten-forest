@@ -21,8 +21,9 @@ import net.minecraft.world.explosion.Explosion;
 
 public class SoulChickenEntity extends ChickenEntity {
 
-    private static TrackedData<Boolean> IGNITE;
-    private static TrackedData<Integer> FUSE;
+    private static TrackedData<Boolean> IGNITE = DataTracker.registerData(ChickenEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+    ;
+    private static TrackedData<Integer> FUSE = DataTracker.registerData(ChickenEntity.class, TrackedDataHandlerRegistry.INTEGER);
     private int lastFuseTime;
     private int currentFuseTime;
     private int fuseTime = 30;
@@ -48,7 +49,7 @@ public class SoulChickenEntity extends ChickenEntity {
         if (!this.world.isClient) {
             Explosion.DestructionType destructionType = this.world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING) ? Explosion.DestructionType.DESTROY : Explosion.DestructionType.NONE;
             this.dead = true;
-            this.world.createExplosion(this, this.getX(), this.getY(), this.getZ(), (float)4.0, destructionType);
+            this.world.createExplosion(this, this.getX(), this.getY(), this.getZ(), (float) 4.0, destructionType);
             this.remove();
         }
     }
@@ -103,7 +104,7 @@ public class SoulChickenEntity extends ChickenEntity {
     public void writeCustomDataToTag(CompoundTag tag) {
         super.writeCustomDataToTag(tag);
         tag.putBoolean("ignited", this.getIgnited());
-        tag.putShort("Fuse", (short)this.fuseTime);
+        tag.putShort("Fuse", (short) this.fuseTime);
     }
 
     public int getFuseSpeed() {
@@ -120,10 +121,5 @@ public class SoulChickenEntity extends ChickenEntity {
 
     public void ignite() {
         this.dataTracker.set(IGNITE, true);
-    }
-
-    static {
-        IGNITE = DataTracker.registerData(ChickenEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
-        FUSE = DataTracker.registerData(ChickenEntity.class, TrackedDataHandlerRegistry.INTEGER);
     }
 }

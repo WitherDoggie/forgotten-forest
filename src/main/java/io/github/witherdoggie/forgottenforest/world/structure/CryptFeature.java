@@ -44,7 +44,7 @@ public class CryptFeature extends StructureFeature<DefaultFeatureConfig> {
                     registryManager,
                     new StructurePoolFeatureConfig(() -> registryManager.get(Registry.TEMPLATE_POOL_WORLDGEN)
                             .get(new Identifier(ForgottenForest.MODID, "crypt_pool_top")), 10), PoolStructurePiece::new,
-                            chunkGenerator, manager, blockpos, this.children, this.random, false, true);
+                    chunkGenerator, manager, blockpos, this.children, this.random, false, true);
 
             this.children.forEach(piece -> piece.translate(0, 1, 0));
             this.children.forEach(piece -> piece.getBoundingBox().minY -= 1);

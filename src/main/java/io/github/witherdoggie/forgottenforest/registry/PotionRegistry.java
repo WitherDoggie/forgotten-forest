@@ -10,7 +10,7 @@ public class PotionRegistry {
 
     public static final Potion SOUL_SERUM = new Potion((new StatusEffectInstance[]{new StatusEffectInstance(StatusEffectRegistry.SOUL_SERUM, 3600)}));
 
-    public static void initPotions(){
+    public static void initPotions() {
 
         Registry.register(Registry.POTION, new Identifier(ForgottenForest.MODID, "soul_serum"), SOUL_SERUM);
     }

@@ -17,7 +17,7 @@ import java.util.Random;
 
 public class CryptGenerator {
 
-    private static final Identifier CRYPT = new Identifier(ForgottenForest.MODID,"crypt");
+    private static final Identifier CRYPT = new Identifier(ForgottenForest.MODID, "crypt");
 
     public static void addPiece(StructureManager manager, BlockPos pos, BlockRotation rotation, List<StructurePiece> pieces) {
         pieces.add(new Piece(manager, pos, CRYPT, rotation));

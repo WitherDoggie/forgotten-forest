@@ -22,7 +22,7 @@ public class StructureRegistry {
     public static final StructureFeature<DefaultFeatureConfig> CRYPT = new CryptFeature(DefaultFeatureConfig.CODEC);
     public static final ConfiguredStructureFeature<?, ?> CRYPT_CONFIGURED = CRYPT.configure(DefaultFeatureConfig.DEFAULT);
 
-    public static void initStructures(){
+    public static void initStructures() {
 
         Registry.register(Registry.STRUCTURE_PIECE, new Identifier(ForgottenForest.MODID, "piece"), PIECE);
         FabricStructureBuilder.create(new Identifier(ForgottenForest.MODID, "crypt"), CRYPT)

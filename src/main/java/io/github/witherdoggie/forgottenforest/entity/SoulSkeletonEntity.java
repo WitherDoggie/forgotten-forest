@@ -30,20 +30,20 @@ public class SoulSkeletonEntity extends WitherSkeletonEntity {
     }
 
     @Override
-    public boolean tryAttack(Entity target){
+    public boolean tryAttack(Entity target) {
         boolean bl = super.tryAttack(target);
 
-        if(bl == true){
+        if (bl == true) {
             heal((LivingEntity) target);
         }
         return bl;
     }
 
-    private void heal(LivingEntity target){
+    private void heal(LivingEntity target) {
 
-        if(target.hasStatusEffect(StatusEffectRegistry.SOUL_SERUM)){
+        if (target.hasStatusEffect(StatusEffectRegistry.SOUL_SERUM)) {
             return;
         }
-        this.heal(((LivingEntityAccessor)target).getLastDamageTaken());
+        this.heal(((LivingEntityAccessor) target).getLastDamageTaken());
     }
 }

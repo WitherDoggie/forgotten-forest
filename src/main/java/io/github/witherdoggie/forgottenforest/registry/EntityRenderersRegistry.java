@@ -7,7 +7,7 @@ import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 
 public class EntityRenderersRegistry {
 
-    public static void initRenderers(){
+    public static void initRenderers() {
 
         EntityRendererRegistry.INSTANCE.register(EntityRegistry.SOUL_SPIDER, (dispatcher, context) -> new SoulSpiderEntityRenderer(dispatcher));
         EntityRendererRegistry.INSTANCE.register(EntityRegistry.SOUL_SKELETON, ((entityRenderDispatcher, context) -> new SoulSkeletonEntityRenderer(entityRenderDispatcher)));

@@ -14,7 +14,7 @@ public class BiomeRegistry {
 
     public static final RegistryKey<Biome> GLOOMY_FOREST_KEY = RegistryKey.of(Registry.BIOME_KEY, new Identifier(ForgottenForest.MODID, "gloomy_forest"));
 
-    public static void initBiomes(){
+    public static void initBiomes() {
 
         Registry.register(BuiltinRegistries.BIOME, new Identifier(ForgottenForest.MODID, "gloomy_forest"), DefaultBiomeCreator.createTheVoid());
 

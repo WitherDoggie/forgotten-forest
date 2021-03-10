@@ -6,7 +6,7 @@ import net.minecraft.client.render.RenderLayer;
 
 public class BlockRenderLayerUtil {
 
-    public static void initRenderFixes(){
+    public static void initRenderFixes() {
 
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.GLOOMY_SAPLING, RenderLayer.getCutout());
     }

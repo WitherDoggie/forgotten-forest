@@ -9,7 +9,7 @@ public class StatusEffectRegistry {
 
     public static final SoulSerumEffect SOUL_SERUM = new SoulSerumEffect();
 
-    public static void initEffects(){
+    public static void initEffects() {
 
         Registry.register(Registry.STATUS_EFFECT, new Identifier(ForgottenForest.MODID, "soul_serum"), SOUL_SERUM);
     }

@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class BrewingRecipeRegistryMixin {
 
     @Inject(method = "registerDefaults", at = @At("TAIL"))
-    private static void addPotionRecipes(CallbackInfo ci){
+    private static void addPotionRecipes(CallbackInfo ci) {
 
         BrewingRecipeRegistryAccessor.getPotionRegistry(Potions.AWKWARD, ItemRegistry.SOULLESS_SOUL, PotionRegistry.SOUL_SERUM);
     }

@@ -26,7 +26,7 @@ public class LakeFeatureMixin {
     private void stopLakeGeneration(StructureWorldAccess structureWorldAccess, ChunkGenerator chunkGenerator, Random random, BlockPos blockPos, SingleStateFeatureConfig singleStateFeatureConfig, CallbackInfoReturnable<Boolean> cir) {
 
         if (structureWorldAccess.getStructures(ChunkSectionPos.from(blockPos), StructureRegistry.CRYPT).findAny().isPresent()) {
-                cir.setReturnValue(false);
+            cir.setReturnValue(false);
         }
     }
 }
