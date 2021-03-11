@@ -43,13 +43,10 @@ public class ShadowAmuletFullItem extends Item {
             MinecraftServer minecraftServer = serverWorld.getServer();
             RegistryKey<World> registryKey = World.NETHER;
             ServerWorld serverWorld2 = minecraftServer.getWorld(registryKey);
-            //TeleportTarget target = ((EntityAccessor) user).invokeGetTeleportTarget(serverWorld2);
-           // FabricDimensions.teleport(user, serverWorld2, target);
 
             if (serverWorld2 != null) {
                 user.moveToWorld(serverWorld2);
             }
-            //user.moveToWorld(serverWorld2);
 
             return TypedActionResult.success(itemStack);
         }
