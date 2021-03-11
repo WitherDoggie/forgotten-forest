@@ -8,7 +8,8 @@
     "LakeFeatureMixin",
     "LivingEntityAccessor",
     "BrewingRecipeRegistryAccessor",
-    "BrewingRecipeRegistryMixin"
+    "BrewingRecipeRegistryMixin",
+    "EntityAccessor"
   ],
   "client": [
 
