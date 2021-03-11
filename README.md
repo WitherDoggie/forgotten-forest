@@ -6,7 +6,7 @@ Enter the forgotten lands and face the new dangers and adventures trapped within
 
 Available under the LGPL-3.0 license.
 
-##F.A.Q  
+## F.A.Q  
 
 - Will there be a Forge version?
    - I will not be developing a Forge version of this mod, however,   
