@@ -9,7 +9,8 @@
     "LivingEntityAccessor",
     "BrewingRecipeRegistryAccessor",
     "BrewingRecipeRegistryMixin",
-    "EntityAccessor"
+    "EntityAccessor",
+    "CarverInvoker"
   ],
   "client": [
 

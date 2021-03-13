@@ -33,7 +33,7 @@ public class GloomyBiomeSurfaceBuilder extends SurfaceBuilder<QuadarySurfaceConf
             BlockState blockState3 = chunk.getBlockState(mutable);
             if (blockState3.isAir()) {
                 i = -1;
-            } else if (blockState3.isOf(defaultBlock.getBlock())) {
+            } else if (blockState3.getFluidState().isEmpty()) {
                 if (i == -1) {
                     if (j <= 0) {
                         blockState = Blocks.AIR.getDefaultState();
@@ -62,10 +62,9 @@ public class GloomyBiomeSurfaceBuilder extends SurfaceBuilder<QuadarySurfaceConf
                 } else if (i > 0) {
                     --i;
                     chunk.setBlockState(mutable, blockState2, false);
-                    if (i == 0 && blockState2.isOf(Blocks.SAND) && j > 1) {
-                        i = random.nextInt(4) + Math.max(0, m - 63);
-                        blockState2 = blockState2.isOf(Blocks.RED_SAND) ? Blocks.RED_SANDSTONE.getDefaultState() : Blocks.SANDSTONE.getDefaultState();
-                    }
+
+                } else {
+                    chunk.setBlockState(mutable, defaultBlock, false);
                 }
             }
         }
