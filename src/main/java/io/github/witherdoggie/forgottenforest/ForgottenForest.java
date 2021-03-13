@@ -2,6 +2,7 @@ package io.github.witherdoggie.forgottenforest;
 
 import io.github.witherdoggie.forgottenforest.registry.*;
 import io.github.witherdoggie.forgottenforest.world.feature.Features;
+import io.github.witherdoggie.forgottenforest.world.surface.SurfaceBuilders;
 import net.fabricmc.api.ModInitializer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -18,6 +19,7 @@ public class ForgottenForest implements ModInitializer {
         LOGGER.info("Began Loading Forgotten Forest");
 
         BlockRegistry.initBlocks();
+        SurfaceBuilders.initSurfaceBuilders();
         ModItemGroups.initItemGroups();
         ItemRegistry.initItems();
         StatusEffectRegistry.initEffects();
