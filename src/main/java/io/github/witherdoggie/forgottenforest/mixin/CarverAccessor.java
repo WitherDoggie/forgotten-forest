@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 import java.util.Set;
 
 @Mixin(Carver.class)
-public interface CarverInvoker {
+public interface CarverAccessor {
 
     @Accessor("alwaysCarvableBlocks")
     Set<Block> getCarvableBlocks();

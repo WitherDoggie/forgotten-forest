@@ -10,7 +10,7 @@
     "BrewingRecipeRegistryAccessor",
     "BrewingRecipeRegistryMixin",
     "EntityAccessor",
-    "CarverInvoker"
+    "CarverAccessor"
   ],
   "client": [
 
