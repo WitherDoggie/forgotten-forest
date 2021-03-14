@@ -52,6 +52,11 @@ public class ItemRegistry {
         Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "arkian_stone"), new BlockItem(BlockRegistry.ARKIAN_STONE, new Item.Settings().group(ModItemGroups.BLOCKS)));
         Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "gloomy_stone"), new BlockItem(BlockRegistry.GLOOMY_STONE, new Item.Settings().group(ModItemGroups.BLOCKS)));
         Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "mod_iron_ore"), new BlockItem(BlockRegistry.FF_IRON_ORE, new Item.Settings().group(ModItemGroups.BLOCKS)));
+        Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "mod_gold_ore"), new BlockItem(BlockRegistry.FF_GOLD_ORE, new Item.Settings().group(ModItemGroups.BLOCKS)));
+        Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "mod_coal_ore"), new BlockItem(BlockRegistry.FF_COAL_ORE, new Item.Settings().group(ModItemGroups.BLOCKS)));
+        Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "mod_diamond_ore"), new BlockItem(BlockRegistry.FF_DIAMOND_ORE, new Item.Settings().group(ModItemGroups.BLOCKS)));
+        Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "mod_lapis_ore"), new BlockItem(BlockRegistry.FF_LAPIS_ORE, new Item.Settings().group(ModItemGroups.BLOCKS)));
+        Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "mod_redstone_ore"), new BlockItem(BlockRegistry.FF_REDSTONE_ORE, new Item.Settings().group(ModItemGroups.BLOCKS)));
 
         Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "orchium_ingot"), ORCHIUM_INGOT);
         Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "rotten_apple"), ROTTEN_APPLE);

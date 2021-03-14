@@ -1,8 +1,7 @@
 package io.github.witherdoggie.forgottenforest.render;
 
 import io.github.witherdoggie.forgottenforest.ForgottenForest;
-import io.github.witherdoggie.forgottenforest.render.block.FFGoldOre;
-import io.github.witherdoggie.forgottenforest.render.block.FFIronOre;
+import io.github.witherdoggie.forgottenforest.render.block.*;
 import net.fabricmc.fabric.api.client.model.ModelProviderContext;
 import net.fabricmc.fabric.api.client.model.ModelProviderException;
 import net.fabricmc.fabric.api.client.model.ModelResourceProvider;
@@ -20,19 +19,19 @@ public class ForgottenForestModelProvider implements ModelResourceProvider {
     public static final Identifier FF_GOLD_ORE_MODEL_BLOCK = new Identifier(ForgottenForest.MODID, "block/mod_gold_ore");
     public static final Identifier FF_GOLD_ORE_MODEL_ITEM = new Identifier(ForgottenForest.MODID, "item/mod_gold_ore");
 
-    public static final FFGoldOre FF_COAL_ORE_MODEL = new FFGoldOre();
+    public static final FFCoalOre FF_COAL_ORE_MODEL = new FFCoalOre();
     public static final Identifier FF_COAL_ORE_MODEL_BLOCK = new Identifier(ForgottenForest.MODID, "block/mod_coal_ore");
     public static final Identifier FF_COAL_ORE_MODEL_ITEM = new Identifier(ForgottenForest.MODID, "item/mod_coal_ore");
 
-    public static final FFGoldOre FF_LAPIS_ORE_MODEL = new FFGoldOre();
+    public static final FFLapisOre FF_LAPIS_ORE_MODEL = new FFLapisOre();
     public static final Identifier FF_LAPIS_ORE_MODEL_BLOCK = new Identifier(ForgottenForest.MODID, "block/mod_lapis_ore");
     public static final Identifier FF_LAPIS_ORE_MODEL_ITEM = new Identifier(ForgottenForest.MODID, "item/mod_lapis_ore");
 
-    public static final FFGoldOre FF_DIAMOND_ORE_MODEL = new FFGoldOre();
+    public static final FFDiamondOre FF_DIAMOND_ORE_MODEL = new FFDiamondOre();
     public static final Identifier FF_DIAMOND_ORE_MODEL_BLOCK = new Identifier(ForgottenForest.MODID, "block/mod_diamond_ore");
     public static final Identifier FF_DIAMOND_ORE_MODEL_ITEM = new Identifier(ForgottenForest.MODID, "item/mod_diamond_ore");
 
-    public static final FFGoldOre FF_REDSTONE_ORE_MODEL = new FFGoldOre();
+    public static final FFRedstoneOre FF_REDSTONE_ORE_MODEL = new FFRedstoneOre();
     public static final Identifier FF_REDSTONE_ORE_MODEL_BLOCK = new Identifier(ForgottenForest.MODID, "block/mod_redstone_ore");
     public static final Identifier FF_REDSTONE_ORE_MODEL_ITEM = new Identifier(ForgottenForest.MODID, "item/mod_redstone_ore");
 
