@@ -33,7 +33,7 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-public class FFIronOre implements BakedModel, UnbakedModel, FabricBakedModel {
+public class FFCoalOre implements BakedModel, UnbakedModel, FabricBakedModel {
 
     private Mesh [] meshes = new Mesh[2];
     private Mesh mesh_gloomy = meshes[0];
@@ -43,8 +43,8 @@ public class FFIronOre implements BakedModel, UnbakedModel, FabricBakedModel {
     private static final Identifier DEFAULT_BLOCK_MODEL = new Identifier("minecraft:block/block");
 
     private static final SpriteIdentifier[] SPRITE_IDENTIFIERS = new SpriteIdentifier[] {
-            new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, new Identifier(ForgottenForest.MODID, "block/mod_iron_ore_gloomy")),
-            new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, new Identifier(ForgottenForest.MODID, "block/mod_iron_ore_arkian"))
+            new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, new Identifier(ForgottenForest.MODID, "block/mod_coal_ore_gloomy")),
+            new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, new Identifier(ForgottenForest.MODID, "block/mod_coal_ore_arkian"))
     };
     private Sprite[] SPRITES = new Sprite[2];
 
@@ -73,7 +73,7 @@ public class FFIronOre implements BakedModel, UnbakedModel, FabricBakedModel {
 
     @Override
     public void emitItemQuads(ItemStack itemStack, Supplier<Random> supplier, RenderContext renderContext) {
-       renderContext.meshConsumer().accept(meshes[inBiome]);
+        renderContext.meshConsumer().accept(meshes[inBiome]);
     }
 
     @Override
@@ -156,3 +156,4 @@ public class FFIronOre implements BakedModel, UnbakedModel, FabricBakedModel {
         return this;
     }
 }
+

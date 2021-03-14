@@ -16,6 +16,12 @@ public class BlockRegistry {
 
     //Ores
     public static final OrchiumOreBlock ORCHIUM_ORE = new OrchiumOreBlock(FabricBlockSettings.of(Material.STONE, MaterialColor.STONE).sounds(BlockSoundGroup.STONE).requiresTool().strength(3.0f, 3.0f).breakByTool(FabricToolTags.PICKAXES, 3));
+    public static final Block FF_IRON_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(3.0F, 3.0F));
+    public static final Block FF_GOLD_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(3.0F, 3.0F));
+    public static final Block FF_COAL_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(3.0F, 3.0F));
+    public static final Block FF_LAPIS_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(3.0F, 3.0F));
+    public static final Block FF_DIAMOND_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(3.0F, 3.0F));
+    public static final Block FF_REDSTONE_ORE = new RedstoneOreBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(3.0F, 3.0F));
 
     //Gloomy Blocks
     public static final Block GLOOMY_GRASS_BLOCK = new GloomyGrassBlock(AbstractBlock.Settings.of(Material.SOLID_ORGANIC).ticksRandomly().strength(0.6F).sounds(BlockSoundGroup.GRASS));
@@ -28,8 +34,6 @@ public class BlockRegistry {
     public static final Block GLOOMY_LEAVES = new LeavesBlock(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque());
     public static final Block GLOOMY_SAPLING = new ModSaplingBlock(new GloomySaplingGenerator(), FabricBlockSettings.of(Material.PLANT).noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.GRASS));
     public static final Block GLOOMY_STONE = new Block(FabricBlockSettings.of(Material.STONE, MaterialColor.STONE).requiresTool().strength(1.5F, 6.0F));
-
-    public static final Block FF_IRON_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(3.0F, 3.0F));
 
     //Arkian Blocks
     public static Block ARKIAN_STONE = new Block(AbstractBlock.Settings.of(Material.STONE).requiresTool().strength(1.5F, 6.0F));
@@ -49,6 +53,11 @@ public class BlockRegistry {
         Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "arkian_stone"), ARKIAN_STONE);
         Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "gloomy_stone"), GLOOMY_STONE);
         Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "mod_iron_ore"), FF_IRON_ORE);
+        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "mod_gold_ore"), FF_GOLD_ORE);
+        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "mod_coal_ore"), FF_COAL_ORE);
+        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "mod_lapis_ore"), FF_LAPIS_ORE);
+        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "mod_diamond_ore"), FF_DIAMOND_ORE);
+        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "mod_redstone_ore"), FF_REDSTONE_ORE);
 
     }
 }
