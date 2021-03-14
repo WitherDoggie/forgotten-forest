@@ -20,19 +20,19 @@
     "monster": [
       {
         "type": "forgotten_forest:soul_spider",
-        "weight": 20,
+        "weight": 2,
         "minCount": 1,
         "maxCount": 3
       },
       {
         "type": "forgotten_forest:soul_skeleton",
-        "weight": 100,
+        "weight": 1,
         "minCount": 1,
         "maxCount": 3
       },
       {
         "type": "forgotten_forest:soul_chicken",
-        "weight": 20,
+        "weight": 2,
         "minCount": 1,
         "maxCount": 3
       }
@@ -54,12 +54,12 @@
 ],
 [],
     [
-      "minecraft:ore_iron",
-      "minecraft:ore_coal",
-      "minecraft:ore_gold",
-      "minecraft:ore_diamond",
-      "minecraft:ore_redstone",
-      "minecraft:ore_lapis",
+      "forgotten_forest:ore_mod_iron",
+      "forgotten_forest:ore_mod_coal",
+      "forgotten_forest:ore_mod_gold",
+      "forgotten_forest:ore_mod_diamond",
+      "forgotten_forest:ore_mod_redstone",
+      "forgotten_forest:ore_mod_lapis",
       "forgotten_forest:ore_orchium_overworld"
     ],
 [],
