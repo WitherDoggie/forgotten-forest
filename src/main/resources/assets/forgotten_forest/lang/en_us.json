@@ -26,5 +26,11 @@
   "item.minecraft.potion.effect.soul_serum" : "Potion of Soul Serum",
   "item.forgotten_forest.soul_skeleton_spawn_egg" : "Soul Skeleton Spawn Egg",
   "item.forgotten_forest.soul_spider_spawn_egg" : "Soul Spider Spawn Egg",
-  "item.forgotten_forest.soul_chicken_spawn_egg" : "Soul Chicken Spawn Egg"
+  "item.forgotten_forest.soul_chicken_spawn_egg" : "Soul Chicken Spawn Egg",
+  "block.forgotten_forest.mod_iron_ore" : "Iron Ore",
+  "block.forgotten_forest.mod_gold_ore" : "Gold Ore",
+  "block.forgotten_forest.mod_coal_ore" : "Coal Ore",
+  "block.forgotten_forest.mod_lapis_ore" : "Lapis Ore",
+  "block.forgotten_forest.mod_diamond_ore" : "Diamond Ore",
+  "block.forgotten_forest.mod_redstone_ore" : "Redstone Ore"
 }
