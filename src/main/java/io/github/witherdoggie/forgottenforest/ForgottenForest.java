@@ -7,7 +7,6 @@ import io.github.witherdoggie.forgottenforest.world.feature.Features;
 import io.github.witherdoggie.forgottenforest.world.surface.SurfaceBuilders;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.registry.Registry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -37,7 +36,7 @@ public class ForgottenForest implements ModInitializer {
 
         Registry.CARVER.forEach(carver -> {
             HashSet<Block> newList = new HashSet<>(ImmutableSet.copyOf(((CarverAccessor) carver).getCarvableBlocks()));
-            newList.add(Blocks.IRON_BLOCK);
+            newList.add(BlockRegistry.GLOOMY_STONE);
             ((CarverAccessor) carver).setCarvableBlocks(newList);
         });
 

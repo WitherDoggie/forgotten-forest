@@ -50,6 +50,8 @@ public class ItemRegistry {
         Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "gloomy_leaves"), new BlockItem(BlockRegistry.GLOOMY_LEAVES, new Item.Settings().group(ModItemGroups.BLOCKS)));
         Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "gloomy_sapling"), new BlockItem(BlockRegistry.GLOOMY_SAPLING, new Item.Settings().group(ModItemGroups.BLOCKS)));
         Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "arkian_stone"), new BlockItem(BlockRegistry.ARKIAN_STONE, new Item.Settings().group(ModItemGroups.BLOCKS)));
+        Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "gloomy_stone"), new BlockItem(BlockRegistry.GLOOMY_STONE, new Item.Settings().group(ModItemGroups.BLOCKS)));
+
 
         Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "orchium_ingot"), ORCHIUM_INGOT);
         Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "rotten_apple"), ROTTEN_APPLE);

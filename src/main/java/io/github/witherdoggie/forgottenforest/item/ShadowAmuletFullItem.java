@@ -41,13 +41,12 @@ public class ShadowAmuletFullItem extends Item {
         if(!world.isClient()) {
             ServerWorld serverWorld = (ServerWorld)world;
             MinecraftServer minecraftServer = serverWorld.getServer();
-            RegistryKey<World> registryKey = World.NETHER;
+            RegistryKey<World> registryKey = World.END;
             ServerWorld serverWorld2 = minecraftServer.getWorld(registryKey);
 
             if (serverWorld2 != null) {
                 user.moveToWorld(serverWorld2);
             }
-
             return TypedActionResult.success(itemStack);
         }
 

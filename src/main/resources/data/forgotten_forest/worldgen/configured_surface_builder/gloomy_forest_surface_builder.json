@@ -20,7 +20,7 @@
       }
     },
     "default_block": {
-      "Name": "minecraft:iron_block",
+      "Name": "forgotten_forest:gloomy_stone",
       "Properties": {
 
       }

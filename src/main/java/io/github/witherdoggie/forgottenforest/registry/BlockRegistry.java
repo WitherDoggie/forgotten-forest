@@ -27,6 +27,9 @@ public class BlockRegistry {
     public static final Block GLOOMY_PLANKS = new Block(FabricBlockSettings.of(Material.WOOD, MaterialColor.ORANGE).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD));
     public static final Block GLOOMY_LEAVES = new LeavesBlock(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).nonOpaque());
     public static final Block GLOOMY_SAPLING = new ModSaplingBlock(new GloomySaplingGenerator(), FabricBlockSettings.of(Material.PLANT).noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.GRASS));
+    public static final Block GLOOMY_STONE = new Block(FabricBlockSettings.of(Material.STONE, MaterialColor.STONE).requiresTool().strength(1.5F, 6.0F));
+
+    public static final Block FF_IRON_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(3.0F, 3.0F));
 
     //Arkian Blocks
     public static Block ARKIAN_STONE = new Block(AbstractBlock.Settings.of(Material.STONE).requiresTool().strength(1.5F, 6.0F));
@@ -44,6 +47,8 @@ public class BlockRegistry {
         Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "gloomy_leaves"), GLOOMY_LEAVES);
         Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "gloomy_sapling"), GLOOMY_SAPLING);
         Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "arkian_stone"), ARKIAN_STONE);
+        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "gloomy_stone"), GLOOMY_STONE);
+        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "mod_iron_ore"), FF_IRON_ORE);
 
     }
 }
