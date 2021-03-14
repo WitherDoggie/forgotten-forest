@@ -44,7 +44,7 @@ public class FFCoalOre implements BakedModel, UnbakedModel, FabricBakedModel {
 
     private static final SpriteIdentifier[] SPRITE_IDENTIFIERS = new SpriteIdentifier[] {
             new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, new Identifier(ForgottenForest.MODID, "block/mod_coal_ore_gloomy")),
-            new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, new Identifier(ForgottenForest.MODID, "block/mod_coal_ore_arkian"))
+            new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, new Identifier("minecraft:block/coal_ore"))
     };
     private Sprite[] SPRITES = new Sprite[2];
 
