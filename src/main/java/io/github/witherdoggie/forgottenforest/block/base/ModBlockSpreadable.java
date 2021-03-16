@@ -1,4 +1,4 @@
-package io.github.witherdoggie.forgottenforest.block;
+package io.github.witherdoggie.forgottenforest.block.base;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;

@@ -2,9 +2,7 @@ package io.github.witherdoggie.forgottenforest.entity;
 
 import io.github.witherdoggie.forgottenforest.mixin.LivingEntityAccessor;
 import io.github.witherdoggie.forgottenforest.registry.StatusEffectRegistry;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.HostileEntity;
@@ -19,6 +17,10 @@ public class SoulSpiderEntity extends SpiderEntity {
 
     public static DefaultAttributeContainer.Builder createSoulSpiderAttributes() {
         return HostileEntity.createHostileAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 20.0D).add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.4D);
+    }
+
+    protected float getActiveEyeHeight(EntityPose pose, EntityDimensions dimensions) {
+        return 0.45F;
     }
 
     @Override
