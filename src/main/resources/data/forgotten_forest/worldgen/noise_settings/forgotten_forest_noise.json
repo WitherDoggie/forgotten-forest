@@ -12,7 +12,7 @@
   "default_fluid": {
     "Name": "minecraft:water",
     "Properties": {
-      "level": "8"
+      "level": "0"
     }
   },
   "noise": {

@@ -32,5 +32,9 @@
   "block.forgotten_forest.mod_coal_ore" : "Coal Ore",
   "block.forgotten_forest.mod_lapis_ore" : "Lapis Ore",
   "block.forgotten_forest.mod_diamond_ore" : "Diamond Ore",
-  "block.forgotten_forest.mod_redstone_ore" : "Redstone Ore"
+  "block.forgotten_forest.mod_redstone_ore" : "Redstone Ore",
+  "block.forgotten_forest.gloomy_grass" : "Gloomy Grass",
+  "block.forgotten_forest.gloomy_plank_slab" : "Gloomy Slab",
+  "block.forgotten_forest.gloomy_plank_stairs" : "Gloomy Stairs",
+  "block.forgotten_forest.gloomy_stone" : "Gloomy Stone"
 }

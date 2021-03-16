@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_stairs",
+  "pattern": [
+    "#  ",
+    "## ",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "forgotten_forest:gloomy_planks"
+    }
+  },
+  "result": {
+    "item": "forgotten_forest:gloomy_plank_stairs",
+    "count": 4
+  }
+}

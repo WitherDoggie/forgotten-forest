@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "forgotten_forest:block/gloomy_bricks",
+    "top": "forgotten_forest:block/gloomy_bricks",
+    "side": "forgotten_forest:block/gloomy_bricks"
+  }
+}

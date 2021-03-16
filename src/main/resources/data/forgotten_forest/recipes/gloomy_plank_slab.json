@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_slab",
+  "pattern": [
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "forgotten_forest:gloomy_planks"
+    }
+  },
+  "result": {
+    "item": "forgotten_forest:gloomy_plank_slab",
+    "count": 6
+  }
+}

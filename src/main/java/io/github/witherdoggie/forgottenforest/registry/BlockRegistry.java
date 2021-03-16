@@ -29,9 +29,11 @@ public class BlockRegistry {
     //Gloomy Blocks
     public static final Block GLOOMY_GRASS_BLOCK = new GloomyGrassBlock(AbstractBlock.Settings.of(Material.SOLID_ORGANIC).ticksRandomly().strength(0.6F).sounds(BlockSoundGroup.GRASS));
     public static final Block GLOOMY_DIRT = new Block(AbstractBlock.Settings.of(Material.SOIL, MaterialColor.DIRT).strength(0.5F).sounds(BlockSoundGroup.GRAVEL));
-    public static final Block GLOOMY_BRICKS = new Block(AbstractBlock.Settings.of(Material.STONE).requiresTool().strength(1.5F, 6.0F));
+    public static final Block GLOOMY_BRICKS = new Block(FabricBlockSettings.of(Material.STONE).requiresTool().strength(1.5F, 6.0F));
     public static final Block CHISELED_GLOOMY_BRICKS = new Block(AbstractBlock.Settings.of(Material.STONE).requiresTool().strength(1.5F, 6.0F));
     public static final Block CRACKED_GLOOMY_BRICKS = new Block(AbstractBlock.Settings.of(Material.STONE).requiresTool().strength(1.5F, 6.0F));
+    public static final Block GLOOMY_BRICKS_SLAB = new SlabBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(1.5F, 6.0F));
+    public static final Block GLOOMY_BRICKS_STAIRS = new ModStairsBlock(GLOOMY_BRICKS.getDefaultState(), FabricBlockSettings.copyOf(GLOOMY_BRICKS));
     public static final Block GLOOMY_LOG = new PillarBlock(FabricBlockSettings.of(Material.WOOD, MaterialColor.WOOD).strength(2.0F).sounds(BlockSoundGroup.WOOD));
     public static final Block GLOOMY_PLANKS = new Block(FabricBlockSettings.of(Material.WOOD, MaterialColor.ORANGE).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD));
     public static final Block GLOOMY_PLANK_SLAB = new SlabBlock(FabricBlockSettings.of(Material.WOOD, MaterialColor.WOOD).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD));
@@ -65,6 +67,8 @@ public class BlockRegistry {
         Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "gloomy_grass"), GLOOMY_GRASS);
         Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "gloomy_plank_slab"), GLOOMY_PLANK_SLAB);
         Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "gloomy_plank_stairs"), GLOOMY_PLANK_STAIRS);
+        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "gloomy_bricks_slab"), GLOOMY_BRICKS_SLAB);
+        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "gloomy_bricks_stairs"), GLOOMY_BRICKS_STAIRS);
 
         Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "mod_iron_ore"), FF_IRON_ORE);
         Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "mod_gold_ore"), FF_GOLD_ORE);
