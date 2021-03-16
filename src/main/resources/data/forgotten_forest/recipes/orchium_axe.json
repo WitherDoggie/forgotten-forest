@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XX",
+    "X#",
+    " #"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "forgotten_forest:orchium_ingot"
+    }
+  },
+  "result": {
+    "item": "forgotten_forest:orchium_axe"
+  }
+}

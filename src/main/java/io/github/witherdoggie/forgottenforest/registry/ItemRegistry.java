@@ -5,6 +5,8 @@ import io.github.witherdoggie.forgottenforest.item.RottenAppleItem;
 import io.github.witherdoggie.forgottenforest.item.ShadowAmuletFullItem;
 import io.github.witherdoggie.forgottenforest.item.ShadowAmuletHalfItem;
 import io.github.witherdoggie.forgottenforest.item.SoullessSoulItem;
+import io.github.witherdoggie.forgottenforest.item.materials.OrchiumToolMaterial;
+import io.github.witherdoggie.forgottenforest.item.tools.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -15,6 +17,13 @@ import net.minecraft.util.registry.Registry;
 public class ItemRegistry {
 
     public static final Item ORCHIUM_INGOT = new Item(new FabricItemSettings().group(ItemGroup.MATERIALS));
+
+
+    public static ToolItem ORCHIUM_PICKAXE = new ModPickaxeItem(OrchiumToolMaterial.INSTANCE, 1, -2.8F, new Item.Settings().group(ItemGroup.TOOLS));
+    public static ToolItem ORCHIUM_AXE = new ModAxeItem(OrchiumToolMaterial.INSTANCE, 7.0F, -3.2F, new Item.Settings().group(ItemGroup.TOOLS));
+    public static ToolItem ORCHIUM_HOE = new ModHoeItem(OrchiumToolMaterial.INSTANCE, 7, -3.2F, new Item.Settings().group(ItemGroup.TOOLS));
+    public static ToolItem ORCHIUM_SWORD = new ModSwordItem(OrchiumToolMaterial.INSTANCE, 3, -2.4F, new Item.Settings().group(ItemGroup.COMBAT));
+    public static ToolItem ORCHIUM_SHOVEL = new ModShovelItem(OrchiumToolMaterial.INSTANCE, 1.5F, -3.0F, new Item.Settings().group(ItemGroup.TOOLS));
 
     public static final Item ROTTEN_APPLE = new RottenAppleItem(new FabricItemSettings().food(new FoodComponent.Builder().hunger(2).saturationModifier(0.2F)
             .statusEffect(new StatusEffectInstance(StatusEffects.POISON, 100, 0), 1.0F)
@@ -74,6 +83,12 @@ public class ItemRegistry {
         Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "soul_skeleton_spawn_egg"), SOUL_SKELETON_SPAWN_EGG);
         Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "soul_spider_spawn_egg"), SOUL_SPIDER_SPAWN_EGG);
         Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "soul_chicken_spawn_egg"), SOUL_CHICKEN_SPAWN_EGG);
+
+        Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "orchium_pickaxe"), ORCHIUM_PICKAXE);
+        Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "orchium_axe"), ORCHIUM_AXE);
+        Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "orchium_hoe"), ORCHIUM_HOE);
+        Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "orchium_sword"), ORCHIUM_SWORD);
+        Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "orchium_shovel"), ORCHIUM_SHOVEL);
 
     }
 }

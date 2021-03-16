@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "forgotten_forest:item/orchium_hoe"
+  }
+}

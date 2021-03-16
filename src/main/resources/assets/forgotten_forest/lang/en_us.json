@@ -36,5 +36,10 @@
   "block.forgotten_forest.gloomy_grass" : "Gloomy Grass",
   "block.forgotten_forest.gloomy_plank_slab" : "Gloomy Slab",
   "block.forgotten_forest.gloomy_plank_stairs" : "Gloomy Stairs",
-  "block.forgotten_forest.gloomy_stone" : "Gloomy Stone"
+  "block.forgotten_forest.gloomy_stone" : "Gloomy Stone",
+  "item.forgotten_forest.orchium_pickaxe" : "Orchium Pickaxe",
+  "item.forgotten_forest.orchium_axe" : "Orchium Axe",
+  "item.forgotten_forest.orchium_shovel" : "Orchium Shovel",
+  "item.forgotten_forest.orchium_hoe" : "Orchium Hoe",
+  "item.forgotten_forest.orchium_sword" : "Orchium Sword"
 }
