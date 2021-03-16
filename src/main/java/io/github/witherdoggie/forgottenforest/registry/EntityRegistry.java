@@ -1,6 +1,7 @@
 package io.github.witherdoggie.forgottenforest.registry;
 
 import io.github.witherdoggie.forgottenforest.ForgottenForest;
+import io.github.witherdoggie.forgottenforest.entity.GhostEntity;
 import io.github.witherdoggie.forgottenforest.entity.SoulChickenEntity;
 import io.github.witherdoggie.forgottenforest.entity.SoulSkeletonEntity;
 import io.github.witherdoggie.forgottenforest.entity.SoulSpiderEntity;
@@ -17,6 +18,7 @@ public class EntityRegistry {
     public static EntityType<SoulSpiderEntity> SOUL_SPIDER = FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, SoulSpiderEntity::new).dimensions(EntityDimensions.fixed(0.4f, 0.4f)).build();
     public static EntityType<SoulSkeletonEntity> SOUL_SKELETON = FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, SoulSkeletonEntity::new).dimensions(EntityDimensions.fixed(0.7f, 2.4f)).build();
     public static EntityType<SoulChickenEntity> SOUL_CHICKEN = FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, SoulChickenEntity::new).dimensions(EntityDimensions.fixed(0.7f, 0.5f)).build();
+    public static EntityType<GhostEntity> GHOST = FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, GhostEntity::new).dimensions(EntityDimensions.fixed(0.7f, 1.7f)).build();
 
     public static void initEntities() {
 
@@ -28,5 +30,8 @@ public class EntityRegistry {
 
         Registry.register(Registry.ENTITY_TYPE, new Identifier(ForgottenForest.MODID, "soul_chicken"), SOUL_CHICKEN);
         FabricDefaultAttributeRegistry.register(SOUL_CHICKEN, SoulChickenEntity.createSoulChickenAttributes());
+
+        Registry.register(Registry.ENTITY_TYPE, new Identifier(ForgottenForest.MODID, "ghost"), GHOST);
+        FabricDefaultAttributeRegistry.register(GHOST, GhostEntity.createGhostAttributes());
     }
 }
