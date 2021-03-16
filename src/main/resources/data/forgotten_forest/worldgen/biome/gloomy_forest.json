@@ -1,7 +1,7 @@
 {
   "surface_builder": "forgotten_forest:gloomy_forest_surface_builder",
-  "depth": 0.125,
-  "scale": 0.05,
+  "depth": 0.1,
+  "scale": 0.2,
   "temperature": 0.8,
   "downfall": 0.4,
   "precipitation": "rain",
@@ -65,7 +65,8 @@
     ],
 [],
 [
-"forgotten_forest:gloomy_forest_vegetation"
+"forgotten_forest:gloomy_forest_vegetation",
+  "forgotten_forest:gloomy_grass_gen"
 ],
 []
   ]

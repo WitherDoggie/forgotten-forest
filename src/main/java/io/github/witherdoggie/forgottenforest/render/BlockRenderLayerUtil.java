@@ -9,5 +9,6 @@ public class BlockRenderLayerUtil {
     public static void initRenderFixes() {
 
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.GLOOMY_SAPLING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.GLOOMY_GRASS, RenderLayer.getCutout());
     }
 }

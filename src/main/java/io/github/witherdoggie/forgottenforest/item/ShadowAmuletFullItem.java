@@ -1,6 +1,7 @@
 package io.github.witherdoggie.forgottenforest.item;
 
 import io.github.witherdoggie.forgottenforest.mixin.EntityAccessor;
+import io.github.witherdoggie.forgottenforest.world.dimension.ForgottenForestDimension;
 import net.fabricmc.fabric.api.dimension.v1.FabricDimensions;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
@@ -41,7 +42,7 @@ public class ShadowAmuletFullItem extends Item {
         if(!world.isClient()) {
             ServerWorld serverWorld = (ServerWorld)world;
             MinecraftServer minecraftServer = serverWorld.getServer();
-            RegistryKey<World> registryKey = World.END;
+            RegistryKey<World> registryKey = ForgottenForestDimension.FORGOTTEN_FOREST_WORLD_KEY;
             ServerWorld serverWorld2 = minecraftServer.getWorld(registryKey);
 
             if (serverWorld2 != null) {

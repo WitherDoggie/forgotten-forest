@@ -9,9 +9,9 @@ import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 
 import java.util.Random;
 
-public class GloomyBiomeSurfaceBuilder extends SurfaceBuilder<QuadarySurfaceConfig> {
+public class ModBiomeSurfaceBuilder extends SurfaceBuilder<QuadarySurfaceConfig> {
 
-    public GloomyBiomeSurfaceBuilder() {
+    public ModBiomeSurfaceBuilder() {
         super(QuadarySurfaceConfig.CODEC);
     }
 

@@ -60,7 +60,7 @@ public class FFGoldOre implements BakedModel, UnbakedModel, FabricBakedModel {
         Biome biome = MinecraftClient.getInstance().world.getBiome(blockPos);
         World world = MinecraftClient.getInstance().world;
 
-        if(BiomeRegistry.biomeMatches(world, biome, BiomeRegistry.GLOOMY_FOREST_KEY)){
+        if(BiomeRegistry.biomeMatches(world, biome, BiomeRegistry.GLOOMY_FOREST_KEY) || BiomeRegistry.biomeMatches(world, biome, BiomeRegistry.GLOOMY_MOUNTAINS_KEY)){
             inBiome = 0;
         }
         else {

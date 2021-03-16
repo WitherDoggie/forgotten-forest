@@ -1,0 +1,29 @@
+{
+  "type": "forgotten_forest:shadow_surface_builder",
+  "config": {
+    "top_material": {
+      "Name": "forgotten_forest:shadow_grass_block",
+      "Properties": {
+        "snowy": "false"
+      }
+    },
+    "under_material": {
+      "Name": "forgotten_forest:shadow_dirt",
+      "Properties": {
+
+      }
+    },
+    "underwater_material": {
+      "Name": "forgotten_forest:shadow_dirt",
+      "Properties": {
+
+      }
+    },
+    "default_block": {
+      "Name": "forgotten_forest:shadow_stone",
+      "Properties": {
+
+      }
+    }
+  }
+}
