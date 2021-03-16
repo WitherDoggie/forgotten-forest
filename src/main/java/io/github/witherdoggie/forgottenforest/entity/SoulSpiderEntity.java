@@ -20,7 +20,7 @@ public class SoulSpiderEntity extends SpiderEntity {
     }
 
     protected float getActiveEyeHeight(EntityPose pose, EntityDimensions dimensions) {
-        return 0.45F;
+        return 0.35F;
     }
 
     @Override

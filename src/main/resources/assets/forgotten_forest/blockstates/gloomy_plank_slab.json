@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "forgotten_forest:block/gloomy_plank_slab"
+    },
+    "type=double": {
+      "model": "forgotten_forest:block/gloomy_planks"
+    },
+    "type=top": {
+      "model": "forgotten_forest:block/gloomy_plank_slab_top"
+    }
+  }
+}

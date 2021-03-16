@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "forgotten_forest:block/gloomy_planks",
+    "top": "forgotten_forest:block/gloomy_planks",
+    "side": "forgotten_forest:block/gloomy_planks"
+  }
+}
