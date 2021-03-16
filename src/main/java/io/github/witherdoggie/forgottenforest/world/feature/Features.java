@@ -45,26 +45,13 @@ public class Features {
     public static ConfiguredFeature<?, ?> FF_REDSTONE_ORE = Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, BlockRegistry.FF_REDSTONE_ORE.getDefaultState(),
             8)).spreadHorizontally().repeat(8);
 
-    public static RegistryKey<ConfiguredFeature<?, ?>> oreOrchiumOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
-            new Identifier(ForgottenForest.MODID, "ore_orchium_overworld"));
-
-    public static RegistryKey<ConfiguredFeature<?, ?>> modIronOre = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
-            new Identifier(ForgottenForest.MODID, "ore_mod_iron"));
-
-    public static RegistryKey<ConfiguredFeature<?, ?>> modGoldOre = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
-            new Identifier(ForgottenForest.MODID, "ore_mod_gold"));
-
-    public static RegistryKey<ConfiguredFeature<?, ?>> modCoalOre = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
-            new Identifier(ForgottenForest.MODID, "ore_mod_coal"));
-
-    public static RegistryKey<ConfiguredFeature<?, ?>> modLapisOre = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
-            new Identifier(ForgottenForest.MODID, "ore_mod_lapis"));
-
-    public static RegistryKey<ConfiguredFeature<?, ?>> modDiamondOre = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
-            new Identifier(ForgottenForest.MODID, "ore_mod_diamond"));
-
-    public static RegistryKey<ConfiguredFeature<?, ?>> modRedstoneOre = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
-            new Identifier(ForgottenForest.MODID, "ore_mod_redstone"));
+    public static RegistryKey<ConfiguredFeature<?, ?>> oreOrchiumOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN, new Identifier(ForgottenForest.MODID, "ore_orchium_overworld"));
+    public static RegistryKey<ConfiguredFeature<?, ?>> modIronOre = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN, new Identifier(ForgottenForest.MODID, "ore_mod_iron"));
+    public static RegistryKey<ConfiguredFeature<?, ?>> modGoldOre = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN, new Identifier(ForgottenForest.MODID, "ore_mod_gold"));
+    public static RegistryKey<ConfiguredFeature<?, ?>> modCoalOre = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN, new Identifier(ForgottenForest.MODID, "ore_mod_coal"));
+    public static RegistryKey<ConfiguredFeature<?, ?>> modLapisOre = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN, new Identifier(ForgottenForest.MODID, "ore_mod_lapis"));
+    public static RegistryKey<ConfiguredFeature<?, ?>> modDiamondOre = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN, new Identifier(ForgottenForest.MODID, "ore_mod_diamond"));
+    public static RegistryKey<ConfiguredFeature<?, ?>> modRedstoneOre = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN, new Identifier(ForgottenForest.MODID, "ore_mod_redstone"));
 
     public static void initFeatures() {
 

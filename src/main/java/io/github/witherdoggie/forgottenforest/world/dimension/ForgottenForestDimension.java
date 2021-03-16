@@ -10,9 +10,6 @@ import net.minecraft.world.dimension.DimensionType;
 public class ForgottenForestDimension {
 
     public static final RegistryKey<World> FORGOTTEN_FOREST_WORLD_KEY = RegistryKey.of(Registry.DIMENSION, new Identifier(ForgottenForest.MODID, "forgotten_forest"));
-    public static final RegistryKey<DimensionType> TYPE = RegistryKey.of(Registry.DIMENSION_TYPE_KEY, new Identifier(ForgottenForest.MODID, "forgotten_forest"));
-
-    //public static final SurfaceBuilder<AetherSurfaceBuilderConfig> AETHER_SURFACE_BUILDER =
-     //      Registry.register(Registry.SURFACE_BUILDER, Aether.locate("surface_builder"), new AetherSurfaceBuilder());
+    public static final RegistryKey<DimensionType> TYPE = RegistryKey.of(Registry.DIMENSION_TYPE_KEY, new Identifier(ForgottenForest.MODID, "forgotten_forest_default"));
 
 }

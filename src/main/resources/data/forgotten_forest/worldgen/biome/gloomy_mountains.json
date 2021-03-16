@@ -1,17 +1,24 @@
 {
   "surface_builder": "forgotten_forest:gloomy_forest_surface_builder",
-  "depth": 0.125,
-  "scale": 0.05,
-  "temperature": 0.8,
-  "downfall": 0.4,
+  "depth": 1,
+  "scale": 0.5,
+  "temperature": 0.2,
+  "downfall": 0.3,
   "precipitation": "rain",
-  "category": "forest",
+  "category": "extreme_hills",
+  "player_spawn_friendly": false,
   "effects": {
     "sky_color": 11130,
     "fog_color": 12638463,
     "water_color": 462365,
     "water_fog_color": 329011,
-    "grass_color_modifier": "none"
+    "grass_color_modifier": "none",
+    "mood_sound": {
+      "sound": "minecraft:ambient.cave",
+      "tick_delay": 6000,
+      "block_search_extent": 8,
+      "offset": 2
+    }
   },
   "starts": [
     "minecraft:mineshaft"
@@ -46,14 +53,14 @@
     ]
   },
   "features": [
-[],
-[],
-[],
-[],
-[
-"forgotten_forest:crypt"
-],
-[],
+    [],
+    [],
+    [],
+    [],
+    [
+      "forgotten_forest:crypt"
+    ],
+    [],
     [
       "forgotten_forest:ore_mod_iron",
       "forgotten_forest:ore_mod_coal",
@@ -63,10 +70,9 @@
       "forgotten_forest:ore_mod_lapis",
       "forgotten_forest:ore_orchium_overworld"
     ],
-[],
-[
-"forgotten_forest:gloomy_forest_vegetation"
-],
-[]
+    [],
+    [
+    ],
+    []
   ]
 }

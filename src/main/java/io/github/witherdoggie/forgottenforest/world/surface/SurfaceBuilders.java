@@ -10,8 +10,5 @@ public class SurfaceBuilders {
     public static final SurfaceBuilder<QuadarySurfaceConfig> GLOOMY_SURFACE_BUILDER = Registry.register(Registry.SURFACE_BUILDER, new Identifier(ForgottenForest.MODID, "gloomy_surface_builder"), new GloomyBiomeSurfaceBuilder());
 
     public static void initSurfaceBuilders(){
-        System.out.println(Registry.SURFACE_BUILDER.getKey(GLOOMY_SURFACE_BUILDER));
     }
-
-
 }
