@@ -1,9 +1,7 @@
 package io.github.witherdoggie.forgottenforest.item;
 
-import io.github.witherdoggie.forgottenforest.mixin.EntityAccessor;
 import io.github.witherdoggie.forgottenforest.world.dimension.ForgottenForestDimension;
 import net.fabricmc.fabric.api.dimension.v1.FabricDimensions;
-import net.minecraft.block.BlockState;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -12,7 +10,6 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
-import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
@@ -22,7 +19,6 @@ import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.TeleportTarget;
 import net.minecraft.world.World;
-import net.minecraft.world.dimension.DimensionOptions;
 
 import java.util.List;
 
@@ -46,10 +42,18 @@ public class ShadowAmuletFullItem extends Item {
         if(!world.isClient()) {
             ServerWorld serverWorld = (ServerWorld)world;
             MinecraftServer minecraftServer = serverWorld.getServer();
-            RegistryKey<World> registryKey = ForgottenForestDimension.FORGOTTEN_FOREST_WORLD_KEY;
-            ServerWorld serverWorld2 = minecraftServer.getWorld(registryKey);
+            RegistryKey<World> registryKey;
 
+            if(user.getEntityWorld() == minecraftServer.getWorld(World.OVERWORLD)){
+                registryKey = ForgottenForestDimension.FORGOTTEN_FOREST_WORLD_KEY;
+            }
+            else {
+                registryKey = World.OVERWORLD;
+            }
+
+            ServerWorld serverWorld2 = minecraftServer.getWorld(registryKey);
             if (serverWorld2 != null) {
+                serverWorld2.getChunk(serverWorld2.getSpawnPos());
                 blockPos2 = serverWorld2.getTopPosition(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, serverWorld2.getSpawnPos());
                 FabricDimensions.teleport(user, serverWorld2, (new TeleportTarget(new Vec3d((double)blockPos2.getX() + 0.5D, (double)blockPos2.getY(), (double)blockPos2.getZ() + 0.5D), user.getVelocity(), user.yaw, user.pitch)));
             }

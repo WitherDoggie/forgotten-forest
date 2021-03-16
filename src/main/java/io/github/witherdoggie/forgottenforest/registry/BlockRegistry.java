@@ -2,10 +2,10 @@ package io.github.witherdoggie.forgottenforest.registry;
 
 import io.github.witherdoggie.forgottenforest.ForgottenForest;
 import io.github.witherdoggie.forgottenforest.block.GloomyGrassBlock;
+import io.github.witherdoggie.forgottenforest.block.OrchiumOreBlock;
 import io.github.witherdoggie.forgottenforest.block.ShadowGrassBlock;
 import io.github.witherdoggie.forgottenforest.block.base.ModFernBlock;
 import io.github.witherdoggie.forgottenforest.block.base.ModSaplingBlock;
-import io.github.witherdoggie.forgottenforest.block.OrchiumOreBlock;
 import io.github.witherdoggie.forgottenforest.block.base.ModStairsBlock;
 import io.github.witherdoggie.forgottenforest.generator.GloomySaplingGenerator;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
