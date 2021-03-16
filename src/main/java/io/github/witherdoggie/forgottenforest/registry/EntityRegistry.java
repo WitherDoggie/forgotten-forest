@@ -14,9 +14,9 @@ import net.minecraft.util.registry.Registry;
 
 public class EntityRegistry {
 
-    public static EntityType<SoulSpiderEntity> SOUL_SPIDER = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, SoulSpiderEntity::new).dimensions(EntityDimensions.fixed(0.4f, 0.4f)).build();
-    public static EntityType<SoulSkeletonEntity> SOUL_SKELETON = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, SoulSkeletonEntity::new).dimensions(EntityDimensions.fixed(0.7f, 2.4f)).build();
-    public static EntityType<SoulChickenEntity> SOUL_CHICKEN = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, SoulChickenEntity::new).dimensions(EntityDimensions.fixed(0.7f, 0.5f)).build();
+    public static EntityType<SoulSpiderEntity> SOUL_SPIDER = FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, SoulSpiderEntity::new).dimensions(EntityDimensions.fixed(0.4f, 0.4f)).build();
+    public static EntityType<SoulSkeletonEntity> SOUL_SKELETON = FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, SoulSkeletonEntity::new).dimensions(EntityDimensions.fixed(0.7f, 2.4f)).build();
+    public static EntityType<SoulChickenEntity> SOUL_CHICKEN = FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, SoulChickenEntity::new).dimensions(EntityDimensions.fixed(0.7f, 0.5f)).build();
 
     public static void initEntities() {
 
