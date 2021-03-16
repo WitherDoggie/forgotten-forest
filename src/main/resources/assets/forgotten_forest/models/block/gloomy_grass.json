@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/tinted_cross",
+  "textures": {
+    "cross": "forgotten_forest:block/gloomy_grass"
+  }
+}
