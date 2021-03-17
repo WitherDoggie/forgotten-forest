@@ -8,6 +8,7 @@ import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 public class SurfaceBuilders {
 
     public static final SurfaceBuilder<QuadarySurfaceConfig> GLOOMY_SURFACE_BUILDER = Registry.register(Registry.SURFACE_BUILDER, new Identifier(ForgottenForest.MODID, "gloomy_surface_builder"), new ModBiomeSurfaceBuilder());
+    public static final SurfaceBuilder<QuadarySurfaceConfig> FIRE_SURFACE_BUILDER = Registry.register(Registry.SURFACE_BUILDER, new Identifier(ForgottenForest.MODID, "fire_surface_builder"), new ModBiomeSurfaceBuilder());
 
     public static void initSurfaceBuilders(){
     }

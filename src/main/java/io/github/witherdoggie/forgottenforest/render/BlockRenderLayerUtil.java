@@ -10,5 +10,6 @@ public class BlockRenderLayerUtil {
 
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.GLOOMY_SAPLING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.GLOOMY_GRASS, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.FIRE_GRASS, RenderLayer.getCutout());
     }
 }

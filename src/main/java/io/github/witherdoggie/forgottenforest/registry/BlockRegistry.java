@@ -4,6 +4,7 @@ import io.github.witherdoggie.forgottenforest.ForgottenForest;
 import io.github.witherdoggie.forgottenforest.block.GloomyGrassBlock;
 import io.github.witherdoggie.forgottenforest.block.OrchiumOreBlock;
 import io.github.witherdoggie.forgottenforest.block.ShadowGrassBlock;
+import io.github.witherdoggie.forgottenforest.block.base.FireGrassBlock;
 import io.github.witherdoggie.forgottenforest.block.base.ModFernBlock;
 import io.github.witherdoggie.forgottenforest.block.base.ModSaplingBlock;
 import io.github.witherdoggie.forgottenforest.block.base.ModStairsBlock;
@@ -48,6 +49,12 @@ public class BlockRegistry {
     public static final Block SHADOW_DIRT = new Block(AbstractBlock.Settings.of(Material.SOIL, MaterialColor.DIRT).strength(0.5F).sounds(BlockSoundGroup.GRAVEL));
     public static final Block SHADOW_GRASS_BLOCK = new ShadowGrassBlock(AbstractBlock.Settings.of(Material.SOLID_ORGANIC).ticksRandomly().strength(0.6F).sounds(BlockSoundGroup.GRASS));
 
+    //Fire Blocks
+    public static final Block FIRE_STONE = new Block(FabricBlockSettings.of(Material.STONE, MaterialColor.STONE).requiresTool().strength(1.5F, 6.0F));
+    public static final Block FIRE_DIRT = new Block(AbstractBlock.Settings.of(Material.SOIL, MaterialColor.DIRT).strength(0.5F).sounds(BlockSoundGroup.GRAVEL));
+    public static final Block FIRE_GRASS_BLOCK = new FireGrassBlock(AbstractBlock.Settings.of(Material.SOLID_ORGANIC).ticksRandomly().strength(0.6F).sounds(BlockSoundGroup.GRASS));
+    public static final Block FIRE_GRASS = new ModFernBlock(FabricBlockSettings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
+
     //Arkian Blocks
     public static Block ARKIAN_STONE = new Block(AbstractBlock.Settings.of(Material.STONE).requiresTool().strength(1.5F, 6.0F));
 
@@ -69,6 +76,11 @@ public class BlockRegistry {
         Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "gloomy_plank_stairs"), GLOOMY_PLANK_STAIRS);
         Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "gloomy_bricks_slab"), GLOOMY_BRICKS_SLAB);
         Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "gloomy_bricks_stairs"), GLOOMY_BRICKS_STAIRS);
+
+        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "fire_grass_block"), FIRE_GRASS_BLOCK);
+        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "fire_dirt"), FIRE_DIRT);
+        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "fire_stone"), FIRE_STONE);
+        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "fire_grass"), FIRE_GRASS);
 
         Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "mod_iron_ore"), FF_IRON_ORE);
         Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "mod_gold_ore"), FF_GOLD_ORE);

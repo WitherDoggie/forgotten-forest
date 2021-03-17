@@ -16,11 +16,13 @@ public class BiomeRegistry {
 
     public static final RegistryKey<Biome> GLOOMY_FOREST_KEY = RegistryKey.of(Registry.BIOME_KEY, new Identifier(ForgottenForest.MODID, "gloomy_forest"));
     public static final RegistryKey<Biome> GLOOMY_MOUNTAINS_KEY = RegistryKey.of(Registry.BIOME_KEY, new Identifier(ForgottenForest.MODID, "gloomy_mountains"));
+    public static final RegistryKey<Biome> FIRE_PLAINS_KEY = RegistryKey.of(Registry.BIOME_KEY, new Identifier(ForgottenForest.MODID, "fire_plains"));
 
     public static void initBiomes() {
 
         Registry.register(BuiltinRegistries.BIOME, new Identifier(ForgottenForest.MODID, "gloomy_forest"), DefaultBiomeCreator.createTheVoid());
         Registry.register(BuiltinRegistries.BIOME, new Identifier(ForgottenForest.MODID, "gloomy_mountains"), DefaultBiomeCreator.createTheVoid());
+        Registry.register(BuiltinRegistries.BIOME, new Identifier(ForgottenForest.MODID, "fire_plains"), DefaultBiomeCreator.createTheVoid());
 
         OverworldBiomes.addContinentalBiome(GLOOMY_FOREST_KEY, OverworldClimate.TEMPERATE, 2D);
     }

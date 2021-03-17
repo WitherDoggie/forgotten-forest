@@ -2,12 +2,14 @@ package io.github.witherdoggie.forgottenforest.world.feature;
 
 import io.github.witherdoggie.forgottenforest.ForgottenForest;
 import io.github.witherdoggie.forgottenforest.registry.BlockRegistry;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.gen.UniformIntDistribution;
+import net.minecraft.world.gen.decorator.CountNoiseDecoratorConfig;
 import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.decorator.DepthAverageDecoratorConfig;
 import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
@@ -22,6 +24,8 @@ public class Features {
 
     public static ConfiguredFeature<?, ?> GLOOMY_TREE;
     public static ConfiguredFeature<?, ?> GLOOMY_GRASS = Feature.RANDOM_PATCH.configure(Configs.GLOOMY_GRASS_CONFIG).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(2);
+    public static ConfiguredFeature<?, ?> FIRE_GRASS = Feature.RANDOM_PATCH.configure(Configs.FIRE_GRASS_CONFIG).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE)
+            .decorate(Decorator.COUNT_NOISE.configure(new CountNoiseDecoratorConfig(-0.8D, 5, 10)));
 
     public static ConfiguredFeature<?, ?> ORCHIUM_ORE = Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, BlockRegistry.ORCHIUM_ORE.getDefaultState(),
                         8)).decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(0, 0, 16))).spreadHorizontally().repeat(3);
@@ -53,6 +57,7 @@ public class Features {
     public static RegistryKey<ConfiguredFeature<?, ?>> modRedstoneOre = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN, new Identifier(ForgottenForest.MODID, "ore_mod_redstone"));
 
     public static RegistryKey<ConfiguredFeature<?, ?>> gloomyGrass = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN, new Identifier(ForgottenForest.MODID, "gloomy_grass_gen"));
+    public static RegistryKey<ConfiguredFeature<?, ?>> fireGrass = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN, new Identifier(ForgottenForest.MODID, "fire_grass_gen"));
 
     public static void initFeatures() {
 
@@ -71,6 +76,7 @@ public class Features {
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, modDiamondOre.getValue(), FF_DIAMOND_ORE);
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, modRedstoneOre.getValue(), FF_REDSTONE_ORE);
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, gloomyGrass.getValue(), GLOOMY_GRASS);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, fireGrass.getValue(), FIRE_GRASS);
 
     }
 
@@ -78,9 +84,11 @@ public class Features {
         return (ConfiguredFeature) Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, id, configuredFeature);
     }
 
-    public static class Configs{
+    public static class Configs {
 
         public static final RandomPatchFeatureConfig GLOOMY_GRASS_CONFIG = new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(States.GLOOMY_GRASS), SimpleBlockPlacer.INSTANCE).tries(32).build();
+        public static final RandomPatchFeatureConfig FIRE_GRASS_CONFIG = new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(States.FIRE_GRASS), SimpleBlockPlacer.INSTANCE).tries(32).build();
+
     }
 
     public static class States {
@@ -88,5 +96,6 @@ public class Features {
         protected static final BlockState GLOOMY_LOG = BlockRegistry.GLOOMY_LOG.getDefaultState();
         protected static final BlockState GLOOMY_LEAVES = BlockRegistry.GLOOMY_LEAVES.getDefaultState();
         protected static final BlockState GLOOMY_GRASS = BlockRegistry.GLOOMY_GRASS.getDefaultState();
+        protected static final BlockState FIRE_GRASS = BlockRegistry.FIRE_GRASS.getDefaultState();
     }
 }

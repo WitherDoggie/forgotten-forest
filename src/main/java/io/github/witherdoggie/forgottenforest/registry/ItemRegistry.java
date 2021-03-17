@@ -65,6 +65,9 @@ public class ItemRegistry {
         Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "gloomy_plank_slab"), new BlockItem(BlockRegistry.GLOOMY_PLANK_SLAB, new Item.Settings().group(ModItemGroups.BLOCKS)));
         Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "gloomy_bricks_slab"), new BlockItem(BlockRegistry.GLOOMY_BRICKS_SLAB, new Item.Settings().group(ModItemGroups.BLOCKS)));
         Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "gloomy_bricks_stairs"), new BlockItem(BlockRegistry.GLOOMY_BRICKS_STAIRS, new Item.Settings().group(ModItemGroups.BLOCKS)));
+        Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "fire_grass_block"), new BlockItem(BlockRegistry.FIRE_GRASS_BLOCK, new Item.Settings().group(ModItemGroups.BLOCKS)));
+        Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "fire_dirt"), new BlockItem(BlockRegistry.FIRE_DIRT, new Item.Settings().group(ModItemGroups.BLOCKS)));
+        Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "fire_stone"), new BlockItem(BlockRegistry.FIRE_STONE, new Item.Settings().group(ModItemGroups.BLOCKS)));
 
         Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "mod_iron_ore"), new BlockItem(BlockRegistry.FF_IRON_ORE, new Item.Settings().group(ModItemGroups.BLOCKS)));
         Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "mod_gold_ore"), new BlockItem(BlockRegistry.FF_GOLD_ORE, new Item.Settings().group(ModItemGroups.BLOCKS)));
@@ -89,6 +92,5 @@ public class ItemRegistry {
         Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "orchium_hoe"), ORCHIUM_HOE);
         Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "orchium_sword"), ORCHIUM_SWORD);
         Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "orchium_shovel"), ORCHIUM_SHOVEL);
-
     }
 }

@@ -37,6 +37,7 @@ public class ForgottenForest implements ModInitializer {
         Registry.CARVER.forEach(carver -> {
             HashSet<Block> newList = new HashSet<>(ImmutableSet.copyOf(((CarverAccessor) carver).getCarvableBlocks()));
             newList.add(BlockRegistry.GLOOMY_STONE);
+            newList.add(BlockRegistry.FIRE_STONE);
             ((CarverAccessor) carver).setCarvableBlocks(newList);
         });
 
