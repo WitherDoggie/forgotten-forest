@@ -1,0 +1,35 @@
+{
+  "type": "forgotten_forest:fire_pits_surface_builder",
+  "config": {
+    "top_material": {
+      "Name": "forgotten_forest:fire_grass_block",
+      "Properties": {
+        "snowy": "false"
+      }
+    },
+    "under_material": {
+      "Name": "forgotten_forest:fire_dirt",
+      "Properties": {
+
+      }
+    },
+    "underwater_material": {
+      "Name": "forgotten_forest:fire_dirt",
+      "Properties": {
+
+      }
+    },
+    "default_block": {
+      "Name": "forgotten_forest:fire_stone",
+      "Properties": {
+
+      }
+    },
+    "default_fluid": {
+      "Name": "minecraft:lava",
+      "Properties": {
+        "level": "0"
+      }
+    }
+  }
+}
