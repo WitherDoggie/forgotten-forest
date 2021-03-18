@@ -32,7 +32,7 @@ public class EntityRegistry {
         Registry.register(Registry.ENTITY_TYPE, new Identifier(ForgottenForest.MODID, "ghost"), GHOST);
         FabricDefaultAttributeRegistry.register(GHOST, GhostEntity.createGhostAttributes());
 
-        //Registry.register(Registry.ENTITY_TYPE, new Identifier(ForgottenForest.MODID, "fire_pig"), FIRE_PIG);
-        //FabricDefaultAttributeRegistry.register(FIRE_PIG, FirePigEntity.createFirePigAttributes());
+        Registry.register(Registry.ENTITY_TYPE, new Identifier(ForgottenForest.MODID, "fire_pig"), FIRE_PIG);
+        FabricDefaultAttributeRegistry.register(FIRE_PIG, FirePigEntity.createFirePigAttributes());
     }
 }

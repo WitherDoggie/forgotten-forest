@@ -35,18 +35,20 @@ import java.util.function.Supplier;
 
 public class FFGoldOre implements BakedModel, UnbakedModel, FabricBakedModel {
 
-    private Mesh [] meshes = new Mesh[2];
+    private Mesh [] meshes = new Mesh[3];
     private Mesh mesh_gloomy = meshes[0];
     private Mesh mesh_arkian = meshes[1];
+    private Mesh mesh_fire = meshes[2];
     private int inBiome = 0;
     private ModelTransformation transformation;
     private static final Identifier DEFAULT_BLOCK_MODEL = new Identifier("minecraft:block/block");
 
     private static final SpriteIdentifier[] SPRITE_IDENTIFIERS = new SpriteIdentifier[] {
             new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, new Identifier(ForgottenForest.MODID, "block/mod_gold_ore_gloomy")),
-            new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, new Identifier("minecraft:block/gold_ore"))
+            new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, new Identifier("minecraft:block/gold_ore")),
+            new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, new Identifier(ForgottenForest.MODID, "block/mod_gold_ore_fire"))
     };
-    private Sprite[] SPRITES = new Sprite[2];
+    private Sprite[] SPRITES = new Sprite[3];
 
     @Override
     public boolean isVanillaAdapter() {
@@ -62,6 +64,9 @@ public class FFGoldOre implements BakedModel, UnbakedModel, FabricBakedModel {
 
         if(BiomeRegistry.biomeMatches(world, biome, BiomeRegistry.GLOOMY_FOREST_KEY) || BiomeRegistry.biomeMatches(world, biome, BiomeRegistry.GLOOMY_MOUNTAINS_KEY)){
             inBiome = 0;
+        }
+        else if(BiomeRegistry.biomeMatches(world, biome, BiomeRegistry.FIRE_PITS_KEY) || BiomeRegistry.biomeMatches(world, biome, BiomeRegistry.FIRE_PLAINS_KEY)){
+            inBiome = 2;
         }
         else {
             inBiome = 1;
@@ -130,7 +135,7 @@ public class FFGoldOre implements BakedModel, UnbakedModel, FabricBakedModel {
     @Override
     public BakedModel bake(ModelLoader loader, Function<SpriteIdentifier, Sprite> textureGetter, ModelBakeSettings rotationContainer, Identifier modelId) {
 
-        for(int i = 0; i < 2; i++) {
+        for(int i = 0; i < 3; i++) {
             SPRITES[i] = textureGetter.apply(SPRITE_IDENTIFIERS[i]);
         }
 
