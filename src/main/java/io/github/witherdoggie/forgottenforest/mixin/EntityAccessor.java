@@ -17,10 +17,4 @@ public interface EntityAccessor {
     @Nullable
     @Invoker("getTeleportTarget")
     TeleportTarget invokeGetTeleportTarget(ServerWorld destination);
-
-    @Accessor("firstUpdate")
-    boolean getFirstUpdate();
-
-    @Accessor("fluidHeight")
-    Object2DoubleMap<Tag<Fluid>> getFluidHeight();
 }

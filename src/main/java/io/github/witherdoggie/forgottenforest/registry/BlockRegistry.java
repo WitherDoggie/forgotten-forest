@@ -63,12 +63,12 @@ public class BlockRegistry {
     //Arkian Blocks
     public static Block ARKIAN_STONE = new Block(AbstractBlock.Settings.of(Material.STONE).requiresTool().strength(1.5F, 6.0F));
 
-    public static final Tag<Fluid> POISON_WATER_TAG = TagRegistry.fluid(new Identifier(ForgottenForest.MODID, "poison_water"));
-
     //Fluids
     public static Block POISON_WATER;
     public static FlowableFluid STILL_POISON_WATER;
     public static FlowableFluid FLOWING_POISON_WATER;
+
+    public static final Tag<Fluid> POISON_WATER_TAG = TagRegistry.fluid(new Identifier(ForgottenForest.MODID, "poison_water"));
 
     public static void initBlocks() {
 
