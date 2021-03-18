@@ -16,6 +16,8 @@ import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.*;
 import net.minecraft.fluid.FlowableFluid;
 import net.minecraft.fluid.Fluid;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
@@ -70,41 +72,54 @@ public class BlockRegistry {
 
     public static final Tag<Fluid> POISON_WATER_TAG = TagRegistry.fluid(new Identifier(ForgottenForest.MODID, "poison_water"));
 
+    public static Item.Settings modBlocksTab = new Item.Settings().group(ModItemGroups.BLOCKS);
+
     public static void initBlocks() {
 
-        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "gloomy_grass_block"), GLOOMY_GRASS_BLOCK);
-        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "gloomy_dirt"), GLOOMY_DIRT);
-        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "gloomy_bricks"), GLOOMY_BRICKS);
-        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "chiseled_gloomy_bricks"), CHISELED_GLOOMY_BRICKS);
-        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "cracked_gloomy_bricks"), CRACKED_GLOOMY_BRICKS);
-        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "gloomy_log"), GLOOMY_LOG);
-        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "gloomy_planks"), GLOOMY_PLANKS);
-        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "gloomy_leaves"), GLOOMY_LEAVES);
-        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "gloomy_sapling"), GLOOMY_SAPLING);
-        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "arkian_stone"), ARKIAN_STONE);
-        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "gloomy_stone"), GLOOMY_STONE);
-        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "gloomy_grass"), GLOOMY_GRASS);
-        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "gloomy_plank_slab"), GLOOMY_PLANK_SLAB);
-        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "gloomy_plank_stairs"), GLOOMY_PLANK_STAIRS);
-        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "gloomy_bricks_slab"), GLOOMY_BRICKS_SLAB);
-        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "gloomy_bricks_stairs"), GLOOMY_BRICKS_STAIRS);
+        registerBlockAndItem("gloomy_grass_block", GLOOMY_GRASS_BLOCK, modBlocksTab);
+        registerBlockAndItem("gloomy_dirt", GLOOMY_DIRT, modBlocksTab);
+        registerBlockAndItem("gloomy_bricks", GLOOMY_BRICKS, modBlocksTab);
+        registerBlockAndItem("chiseled_gloomy_bricks", CHISELED_GLOOMY_BRICKS, modBlocksTab);
+        registerBlockAndItem("cracked_gloomy_bricks", CRACKED_GLOOMY_BRICKS, modBlocksTab);
+        registerBlockAndItem("gloomy_log", GLOOMY_LOG, modBlocksTab);
+        registerBlockAndItem("gloomy_planks", GLOOMY_PLANKS, modBlocksTab);
+        registerBlockAndItem("gloomy_leaves", GLOOMY_LEAVES, modBlocksTab);
+        registerBlockAndItem("gloomy_sapling", GLOOMY_SAPLING, modBlocksTab);
+        registerBlockAndItem("arkian_stone", ARKIAN_STONE, modBlocksTab);
+        registerBlockAndItem("gloomy_stone", GLOOMY_STONE, modBlocksTab);
+        registerBlockAndItem("gloomy_grass", GLOOMY_GRASS, modBlocksTab);
+        registerBlockAndItem("gloomy_plank_slab", GLOOMY_PLANK_SLAB, modBlocksTab);
+        registerBlockAndItem("gloomy_plank_stairs", GLOOMY_PLANK_STAIRS,  modBlocksTab);
+        registerBlockAndItem("gloomy_bricks_slab", GLOOMY_BRICKS_SLAB, modBlocksTab);
+        registerBlockAndItem("gloomy_bricks_stairs", GLOOMY_BRICKS_STAIRS, modBlocksTab);
 
-        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "fire_grass_block"), FIRE_GRASS_BLOCK);
-        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "fire_dirt"), FIRE_DIRT);
-        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "fire_stone"), FIRE_STONE);
-        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "fire_grass"), FIRE_GRASS);
+        registerBlockAndItem("fire_grass_block", FIRE_GRASS_BLOCK, modBlocksTab);
+        registerBlockAndItem("fire_dirt", FIRE_DIRT, modBlocksTab);
+        registerBlockAndItem("fire_stone", FIRE_STONE, modBlocksTab);
+        registerBlockAndItem("fire_grass", FIRE_GRASS, modBlocksTab);
 
-        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "mod_iron_ore"), FF_IRON_ORE);
-        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "mod_gold_ore"), FF_GOLD_ORE);
-        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "mod_coal_ore"), FF_COAL_ORE);
-        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "mod_lapis_ore"), FF_LAPIS_ORE);
-        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "mod_diamond_ore"), FF_DIAMOND_ORE);
-        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "mod_redstone_ore"), FF_REDSTONE_ORE);
-        Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "orchium_ore"), ORCHIUM_ORE);
+        registerBlockAndItem("mod_iron_ore", FF_IRON_ORE, modBlocksTab);
+        registerBlockAndItem("mod_gold_ore", FF_GOLD_ORE, modBlocksTab);
+        registerBlockAndItem("mod_coal_ore", FF_COAL_ORE, modBlocksTab);
+        registerBlockAndItem("mod_lapis_ore", FF_LAPIS_ORE, modBlocksTab);
+        registerBlockAndItem("mod_diamond_ore", FF_DIAMOND_ORE, modBlocksTab);
+        registerBlockAndItem("mod_redstone_ore", FF_REDSTONE_ORE, modBlocksTab);
+        registerBlockAndItem("orchium_ore", ORCHIUM_ORE, modBlocksTab);
 
         STILL_POISON_WATER = Registry.register(Registry.FLUID, new Identifier(ForgottenForest.MODID, "poison_water"), new PoisonWaterFluid.Still());
         FLOWING_POISON_WATER = Registry.register(Registry.FLUID, new Identifier(ForgottenForest.MODID, "flowing_poison_water"), new PoisonWaterFluid.Flowing());
         POISON_WATER = Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "poison_water"), new FluidBlock(STILL_POISON_WATER, FabricBlockSettings.copy(Blocks.WATER)){});
 
+    }
+
+    /* Registers a block with a block item */
+    private static <T extends Block> T registerBlockAndItem(String id, T block, Item.Settings settings) {
+        Registry.register(Registry.ITEM, ForgottenForest.id(id), new BlockItem(block, settings));
+        return Registry.register(Registry.BLOCK, ForgottenForest.id(id), block);
+    }
+
+    /* Registers a block with no block item */
+    private static <T extends Block> T registerBlockNoItem(String id, T block) {
+       return Registry.register(Registry.BLOCK, ForgottenForest.id(id), block);
     }
 }
