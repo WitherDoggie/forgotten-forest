@@ -1,7 +1,7 @@
 package io.github.witherdoggie.forgottenforest.client;
 
 import io.github.witherdoggie.forgottenforest.registry.EntityRenderersRegistry;
-import io.github.witherdoggie.forgottenforest.render.BlockRenderLayerUtil;
+import io.github.witherdoggie.forgottenforest.render.ClientRender;
 import io.github.witherdoggie.forgottenforest.render.ForgottenForestModelProvider;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
@@ -15,7 +15,7 @@ public class ForgottenForestClient implements ClientModInitializer {
     public void onInitializeClient() {
 
         ModelLoadingRegistry.INSTANCE.registerResourceProvider(rm -> new ForgottenForestModelProvider());
-        BlockRenderLayerUtil.initRenderFixes();
+        ClientRender.initRenderFixes();
         EntityRenderersRegistry.initRenderers();
     }
 }

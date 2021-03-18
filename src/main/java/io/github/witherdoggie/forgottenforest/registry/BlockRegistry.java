@@ -8,11 +8,16 @@ import io.github.witherdoggie.forgottenforest.block.base.FireGrassBlock;
 import io.github.witherdoggie.forgottenforest.block.base.ModFernBlock;
 import io.github.witherdoggie.forgottenforest.block.base.ModSaplingBlock;
 import io.github.witherdoggie.forgottenforest.block.base.ModStairsBlock;
+import io.github.witherdoggie.forgottenforest.block.fluid.PoisonWaterFluid;
 import io.github.witherdoggie.forgottenforest.generator.GloomySaplingGenerator;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.tag.TagRegistry;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.*;
+import net.minecraft.fluid.FlowableFluid;
+import net.minecraft.fluid.Fluid;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -58,6 +63,13 @@ public class BlockRegistry {
     //Arkian Blocks
     public static Block ARKIAN_STONE = new Block(AbstractBlock.Settings.of(Material.STONE).requiresTool().strength(1.5F, 6.0F));
 
+    public static final Tag<Fluid> POISON_WATER_TAG = TagRegistry.fluid(new Identifier(ForgottenForest.MODID, "poison_water"));
+
+    //Fluids
+    public static Block POISON_WATER;
+    public static FlowableFluid STILL_POISON_WATER;
+    public static FlowableFluid FLOWING_POISON_WATER;
+
     public static void initBlocks() {
 
         Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "gloomy_grass_block"), GLOOMY_GRASS_BLOCK);
@@ -89,6 +101,10 @@ public class BlockRegistry {
         Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "mod_diamond_ore"), FF_DIAMOND_ORE);
         Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "mod_redstone_ore"), FF_REDSTONE_ORE);
         Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "orchium_ore"), ORCHIUM_ORE);
+
+        STILL_POISON_WATER = Registry.register(Registry.FLUID, new Identifier(ForgottenForest.MODID, "poison_water"), new PoisonWaterFluid.Still());
+        FLOWING_POISON_WATER = Registry.register(Registry.FLUID, new Identifier(ForgottenForest.MODID, "flowing_poison_water"), new PoisonWaterFluid.Flowing());
+        POISON_WATER = Registry.register(Registry.BLOCK, new Identifier(ForgottenForest.MODID, "poison_water"), new FluidBlock(STILL_POISON_WATER, FabricBlockSettings.copy(Blocks.WATER)){});
 
     }
 }

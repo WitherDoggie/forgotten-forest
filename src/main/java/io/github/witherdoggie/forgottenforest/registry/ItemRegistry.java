@@ -44,6 +44,7 @@ public class ItemRegistry {
     public static final Item SOUL_SPIDER_SPAWN_EGG = new SpawnEggItem(EntityRegistry.SOUL_SPIDER, 0xe3e3e3, 0xFFFFFF, new Item.Settings().group(ItemGroup.MISC));
     public static final Item SOUL_CHICKEN_SPAWN_EGG = new SpawnEggItem(EntityRegistry.SOUL_CHICKEN, 0xffb8b8, 0xFFFFFF, new Item.Settings().group(ItemGroup.MISC));
 
+    public static Item POISON_WATER_BUCKET;
 
     public static void initItems() {
 
@@ -92,5 +93,7 @@ public class ItemRegistry {
         Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "orchium_hoe"), ORCHIUM_HOE);
         Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "orchium_sword"), ORCHIUM_SWORD);
         Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "orchium_shovel"), ORCHIUM_SHOVEL);
+
+        POISON_WATER_BUCKET = Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "poison_water_bucket"), new BucketItem(BlockRegistry.STILL_POISON_WATER, new Item.Settings().recipeRemainder(Items.BUCKET).maxCount(1)));
     }
 }
