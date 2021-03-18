@@ -23,7 +23,7 @@ public class AbstractBlockStateMixin {
             entity.setOnFireFor(2);
         }
 
-        if(world.getBlockState(pos).getBlock() == BlockRegistry.POISON_WATER){
+        if(entity instanceof LivingEntity && world.getBlockState(pos).getBlock() == BlockRegistry.POISON_WATER){
             ((LivingEntity)entity).addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 100, 1));
         }
     }
