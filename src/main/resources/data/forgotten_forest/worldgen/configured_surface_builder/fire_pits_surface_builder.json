@@ -26,9 +26,9 @@
       }
     },
     "default_fluid": {
-      "Name": "minecraft:lava",
+      "Name": "forgotten_forest:poison_water",
       "Properties": {
-        "level": "0"
+        "level": "8"
       }
     }
   }

@@ -2,6 +2,7 @@ package io.github.witherdoggie.forgottenforest.world.surface;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.Chunk;
@@ -62,12 +63,14 @@ public class ModBiomeSurfaceBuilderFluid extends SurfaceBuilder<QuinteroSurfaceC
                 } else if (i > 0) {
                     --i;
                     chunk.setBlockState(mutable, blockState2, false);
-
-                } else {
+                }
+                else {
                     chunk.setBlockState(mutable, defaultBlock, false);
                 }
             }
+            else {
+                chunk.setBlockState(mutable, fluidBlock, false);
+            }
         }
     }
-
 }
