@@ -4,7 +4,7 @@ import io.github.witherdoggie.forgottenforest.ForgottenForest;
 import io.github.witherdoggie.forgottenforest.block.GloomyGrassBlock;
 import io.github.witherdoggie.forgottenforest.block.OrchiumOreBlock;
 import io.github.witherdoggie.forgottenforest.block.ShadowGrassBlock;
-import io.github.witherdoggie.forgottenforest.block.base.FireGrassBlock;
+import io.github.witherdoggie.forgottenforest.block.FireGrassBlock;
 import io.github.witherdoggie.forgottenforest.block.base.ModFernBlock;
 import io.github.witherdoggie.forgottenforest.block.base.ModSaplingBlock;
 import io.github.witherdoggie.forgottenforest.block.base.ModStairsBlock;

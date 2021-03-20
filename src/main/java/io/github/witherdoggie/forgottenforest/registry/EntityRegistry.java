@@ -4,11 +4,14 @@ import io.github.witherdoggie.forgottenforest.ForgottenForest;
 import io.github.witherdoggie.forgottenforest.entity.*;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
+import net.fabricmc.fabric.mixin.object.builder.SpawnRestrictionAccessor;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
+import net.minecraft.entity.SpawnRestriction;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.Heightmap;
 
 public class EntityRegistry {
 
@@ -34,5 +37,7 @@ public class EntityRegistry {
 
         Registry.register(Registry.ENTITY_TYPE, new Identifier(ForgottenForest.MODID, "fire_pig"), FIRE_PIG);
         FabricDefaultAttributeRegistry.register(FIRE_PIG, FirePigEntity.createFirePigAttributes());
+
+        SpawnRestrictionAccessor.callRegister(SOUL_SPIDER,  SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, (type, world, reason, pos, random) -> true);
     }
 }

@@ -1,5 +1,6 @@
-package io.github.witherdoggie.forgottenforest.block.base;
+package io.github.witherdoggie.forgottenforest.block;
 
+import io.github.witherdoggie.forgottenforest.block.base.ModBlockSpreadable;
 import io.github.witherdoggie.forgottenforest.registry.BlockRegistry;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -8,7 +9,7 @@ import net.minecraft.util.math.BlockPos;
 
 import java.util.Random;
 
-public class FireGrassBlock extends ModBlockSpreadable{
+public class FireGrassBlock extends ModBlockSpreadable {
 
     public FireGrassBlock(Settings settings) {
         super(settings);
