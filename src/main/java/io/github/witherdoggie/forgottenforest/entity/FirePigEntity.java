@@ -1,5 +1,7 @@
 package io.github.witherdoggie.forgottenforest.entity;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -15,5 +17,10 @@ public class FirePigEntity extends PigEntity {
 
     public static DefaultAttributeContainer.Builder createFirePigAttributes() {
         return MobEntity.createMobAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 10.0D).add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.25D);
+    }
+
+    @Environment(EnvType.CLIENT)
+    public boolean doesRenderOnFire() {
+        return true;
     }
 }
