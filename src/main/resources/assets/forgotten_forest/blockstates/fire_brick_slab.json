@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "forgotten_forest:block/fire_brick_slab"
+    },
+    "type=double": {
+      "model": "forgotten_forest:block/fire_bricks"
+    },
+    "type=top": {
+      "model": "forgotten_forest:block/fire_brick_slab_top"
+    }
+  }
+}

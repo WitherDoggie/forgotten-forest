@@ -10,7 +10,7 @@
     }
   },
   "default_fluid": {
-    "Name": "minecraft:water",
+    "Name": "forgotten_forest:poison_water",
     "Properties": {
       "level": "0"
     }

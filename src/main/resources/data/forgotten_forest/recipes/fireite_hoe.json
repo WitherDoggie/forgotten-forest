@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XX",
+    " #",
+    " #"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "forgotten_forest:fireite_gem"
+    }
+  },
+  "result": {
+    "item": "forgotten_forest:fireite_hoe"
+  }
+}

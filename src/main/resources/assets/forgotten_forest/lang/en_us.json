@@ -21,6 +21,7 @@
   "item.forgotten_forest.soulless_soul.tooltip" : "I wonder what happens if I try to brew with it...",
   "item.forgotten_forest.soulless_soul" : "Soulless Soul",
   "effect.forgotten_forest.soul_serum" : "Soul Serum",
+  "effect.forgotten_forest.anti_poison" : "Anti Poison",
   "entity.forgotten_forest.soul_skeleton" : "Soul Skeleton",
   "entity.forgotten_forest.soul_chicken" : "Soul Chicken",
   "item.minecraft.potion.effect.soul_serum" : "Potion of Soul Serum",
@@ -41,5 +42,19 @@
   "item.forgotten_forest.orchium_axe" : "Orchium Axe",
   "item.forgotten_forest.orchium_shovel" : "Orchium Shovel",
   "item.forgotten_forest.orchium_hoe" : "Orchium Hoe",
-  "item.forgotten_forest.orchium_sword" : "Orchium Sword"
+  "item.forgotten_forest.orchium_sword" : "Orchium Sword",
+  "block.forgotten_forest.fire_grass_block" : "Fire Grass Block",
+  "block.forgotten_forest.fire_dirt" : "Fire Dirt",
+  "block.forgotten_forest.fire_stone" : "Fire Stone",
+  "block.forgotten_forest.fire_grass" : "Fire Grass",
+  "block.forgotten_forest.fire_bricks" : "Fire Bricks",
+  "block.forgotten_forest.cracked_fire_bricks" : "Cracked Fire Bricks",
+  "block.forgotten_forest.chiseled_fire_bricks" : "Chiseled Fire Bricks",
+  "block.forgotten_forest.gloomy_bricks_stairs" : "Gloomy Brick Stairs",
+  "block.forgotten_forest.gloomy_bricks_slab" : "Gloomy Brick Slab",
+  "block.forgotten_forest.fire_brick_stairs" : "Fire Brick Stairs",
+  "block.forgotten_forest.fire_brick_slab" : "Fire Brick Slab",
+  "entity.forgotten_forest.fire_pig" : "Fire Pig",
+  "item.forgotten_forest.fire_porkchop" : "Fire Porkchop",
+  "item.forgotten_forest.fire_porkchop.tooltip" : "Meat of the flaming pig. I should eat this."
 }

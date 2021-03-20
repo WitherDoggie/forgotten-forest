@@ -39,5 +39,8 @@ public class EntityRegistry {
         FabricDefaultAttributeRegistry.register(FIRE_PIG, FirePigEntity.createFirePigAttributes());
 
         SpawnRestrictionAccessor.callRegister(SOUL_SPIDER,  SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, (type, world, reason, pos, random) -> true);
+        SpawnRestrictionAccessor.callRegister(SOUL_SKELETON,  SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, (type, world, reason, pos, random) -> true);
+        SpawnRestrictionAccessor.callRegister(SOUL_CHICKEN,  SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, (type, world, reason, pos, random) -> true);
+        SpawnRestrictionAccessor.callRegister(FIRE_PIG,  SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, (type, world, reason, pos, random) -> true);
     }
 }

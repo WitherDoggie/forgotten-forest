@@ -1,0 +1,65 @@
+{
+  "surface_builder": "forgotten_forest:fire_pits_surface_builder",
+  "depth": -1,
+  "scale": 0.1,
+  "temperature": 0.5,
+  "downfall": 0.5,
+  "precipitation": "none",
+  "category": "ocean",
+  "player_spawn_friendly": false,
+  "effects": {
+    "sky_color": 7907327,
+    "fog_color": 12638463,
+    "water_color": 4159204,
+    "water_fog_color": 329011,
+    "mood_sound": {
+      "sound": "minecraft:ambient.cave",
+      "tick_delay": 6000,
+      "block_search_extent": 8,
+      "offset": 2
+    }
+  },
+  "starts": [
+    "minecraft:mineshaft"
+  ],
+  "spawners": {
+    "monster": [
+
+    ]
+  },
+  "spawn_costs": {},
+  "carvers": {
+    "air": [
+      "minecraft:ocean_cave",
+      "minecraft:canyon"
+    ],
+    "liquid": [
+      "minecraft:underwater_canyon",
+      "minecraft:underwater_cave"
+    ]
+  },
+  "features": [
+    [],
+    [
+    ],
+    [],
+    [
+    ],
+    [],
+    [],
+    [
+      "forgotten_forest:ore_mod_iron",
+      "forgotten_forest:ore_mod_coal",
+      "forgotten_forest:ore_mod_gold",
+      "forgotten_forest:ore_mod_diamond",
+      "forgotten_forest:ore_mod_redstone",
+      "forgotten_forest:ore_mod_lapis",
+      "forgotten_forest:ore_orchium_overworld"
+    ],
+    [],
+    [
+    ],
+    [
+    ]
+  ]
+}

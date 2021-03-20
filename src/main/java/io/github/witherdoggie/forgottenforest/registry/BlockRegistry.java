@@ -1,10 +1,7 @@
 package io.github.witherdoggie.forgottenforest.registry;
 
 import io.github.witherdoggie.forgottenforest.ForgottenForest;
-import io.github.witherdoggie.forgottenforest.block.GloomyGrassBlock;
-import io.github.witherdoggie.forgottenforest.block.OrchiumOreBlock;
-import io.github.witherdoggie.forgottenforest.block.ShadowGrassBlock;
-import io.github.witherdoggie.forgottenforest.block.FireGrassBlock;
+import io.github.witherdoggie.forgottenforest.block.*;
 import io.github.witherdoggie.forgottenforest.block.base.ModFernBlock;
 import io.github.witherdoggie.forgottenforest.block.base.ModSaplingBlock;
 import io.github.witherdoggie.forgottenforest.block.base.ModStairsBlock;
@@ -27,6 +24,7 @@ public class BlockRegistry {
 
     //Ores
     public static final OrchiumOreBlock ORCHIUM_ORE = new OrchiumOreBlock(FabricBlockSettings.of(Material.STONE, MaterialColor.STONE).sounds(BlockSoundGroup.STONE).requiresTool().strength(3.0f, 3.0f).breakByTool(FabricToolTags.PICKAXES, 3));
+    public static final FireiteOreBlock FIREITE_ORE = new FireiteOreBlock(FabricBlockSettings.of(Material.STONE, MaterialColor.STONE).sounds(BlockSoundGroup.STONE).requiresTool().strength(3.0f, 3.0f).breakByTool(FabricToolTags.PICKAXES, 3));
     public static final Block FF_IRON_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(3.0F, 3.0F));
     public static final Block FF_GOLD_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(3.0F, 3.0F));
     public static final Block FF_COAL_ORE = new OreBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(3.0F, 3.0F));
@@ -115,6 +113,7 @@ public class BlockRegistry {
         registerBlockAndItem("mod_diamond_ore", FF_DIAMOND_ORE, modBlocksTab);
         registerBlockAndItem("mod_redstone_ore", FF_REDSTONE_ORE, modBlocksTab);
         registerBlockAndItem("orchium_ore", ORCHIUM_ORE, modBlocksTab);
+        registerBlockAndItem("fireite_ore", FIREITE_ORE, modBlocksTab);
 
         STILL_POISON_WATER = Registry.register(Registry.FLUID, new Identifier(ForgottenForest.MODID, "poison_water"), new PoisonWaterFluid.Still());
         FLOWING_POISON_WATER = Registry.register(Registry.FLUID, new Identifier(ForgottenForest.MODID, "flowing_poison_water"), new PoisonWaterFluid.Flowing());
