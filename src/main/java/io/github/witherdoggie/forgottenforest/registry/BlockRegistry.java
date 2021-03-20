@@ -61,6 +61,11 @@ public class BlockRegistry {
     public static final Block FIRE_DIRT = new Block(AbstractBlock.Settings.of(Material.SOIL, MaterialColor.DIRT).strength(0.5F).sounds(BlockSoundGroup.GRAVEL));
     public static final Block FIRE_GRASS_BLOCK = new FireGrassBlock(AbstractBlock.Settings.of(Material.SOLID_ORGANIC).ticksRandomly().strength(0.6F).sounds(BlockSoundGroup.GRASS));
     public static final Block FIRE_GRASS = new ModFernBlock(FabricBlockSettings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
+    public static final Block FIRE_BRICKS = new Block(FabricBlockSettings.of(Material.STONE).requiresTool().strength(1.5F, 6.0F));
+    public static final Block CHISELED_FIRE_BRICKS = new Block(AbstractBlock.Settings.of(Material.STONE).requiresTool().strength(1.5F, 6.0F));
+    public static final Block CRACKED_FIRE_BRICKS = new Block(AbstractBlock.Settings.of(Material.STONE).requiresTool().strength(1.5F, 6.0F));
+    public static final Block FIRE_BRICK_SLAB = new SlabBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(1.5F, 6.0F));
+    public static final Block FIRE_BRICK_STAIRS = new ModStairsBlock(GLOOMY_BRICKS.getDefaultState(), FabricBlockSettings.copyOf(FIRE_BRICKS));
 
     //Arkian Blocks
     public static Block ARKIAN_STONE = new Block(AbstractBlock.Settings.of(Material.STONE).requiresTool().strength(1.5F, 6.0F));
@@ -97,6 +102,11 @@ public class BlockRegistry {
         registerBlockAndItem("fire_dirt", FIRE_DIRT, modBlocksTab);
         registerBlockAndItem("fire_stone", FIRE_STONE, modBlocksTab);
         registerBlockAndItem("fire_grass", FIRE_GRASS, modBlocksTab);
+        registerBlockAndItem("fire_bricks", FIRE_BRICKS, modBlocksTab);
+        registerBlockAndItem("chiseled_fire_bricks", CHISELED_FIRE_BRICKS, modBlocksTab);
+        registerBlockAndItem("cracked_fire_bricks", CRACKED_FIRE_BRICKS, modBlocksTab);
+        registerBlockAndItem("fire_brick_stairs", FIRE_BRICK_STAIRS, modBlocksTab);
+        registerBlockAndItem("fire_brick_slab", FIRE_BRICK_SLAB, modBlocksTab);
 
         registerBlockAndItem("mod_iron_ore", FF_IRON_ORE, modBlocksTab);
         registerBlockAndItem("mod_gold_ore", FF_GOLD_ORE, modBlocksTab);

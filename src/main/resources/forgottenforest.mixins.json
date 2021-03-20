@@ -11,7 +11,8 @@
     "BrewingRecipeRegistryMixin",
     "EntityAccessor",
     "CarverAccessor",
-    "AbstractBlockStateMixin"
+    "AbstractBlockStateMixin",
+    "StatusEffectMixin"
   ],
   "client": [
 
