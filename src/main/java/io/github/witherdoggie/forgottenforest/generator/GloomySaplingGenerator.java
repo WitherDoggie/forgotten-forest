@@ -12,7 +12,8 @@ public class GloomySaplingGenerator extends SaplingGenerator {
 
     @Nullable
     @Override
-    protected ConfiguredFeature<TreeFeatureConfig, ?> createTreeFeature(Random random, boolean bl) {
+    protected ConfiguredFeature<TreeFeatureConfig, ?> getTreeFeature(Random random, boolean bl) {
         return (ConfiguredFeature<TreeFeatureConfig, ?>) Features.GLOOMY_TREE;
     }
+
 }
