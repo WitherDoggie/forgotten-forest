@@ -5,12 +5,16 @@ import io.github.witherdoggie.forgottenforest.ForgottenForest;
 import net.minecraft.structure.MarginedStructureStart;
 import net.minecraft.structure.PoolStructurePiece;
 import net.minecraft.structure.StructureManager;
+import net.minecraft.structure.StructurePiece;
 import net.minecraft.structure.pool.StructurePoolBasedGenerator;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.ChunkPos;
+import net.minecraft.util.math.Vec3i;
 import net.minecraft.util.registry.DynamicRegistryManager;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.HeightLimitView;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
@@ -29,26 +33,33 @@ public class CryptFeature extends StructureFeature<DefaultFeatureConfig> {
     }
 
     public static class Start extends MarginedStructureStart<DefaultFeatureConfig> {
-        public Start(StructureFeature<DefaultFeatureConfig> feature, int chunkX, int chunkZ, BlockBox box, int references, long seed) {
-            super(feature, chunkX, chunkZ, box, references, seed);
+        public Start(StructureFeature<DefaultFeatureConfig> structureIn, ChunkPos chunkPos, int referenceIn, long seedIn) {
+            super(structureIn, chunkPos, referenceIn, seedIn);
         }
 
         @Override
-        public void init(DynamicRegistryManager registryManager, ChunkGenerator chunkGenerator, StructureManager manager, int chunkX, int chunkZ, Biome biome, DefaultFeatureConfig config) {
+        public void init(DynamicRegistryManager dynamicRegistryManager, ChunkGenerator chunkGenerator, StructureManager structureManager, ChunkPos chunkPos, Biome biome, DefaultFeatureConfig defaultFeatureConfig, HeightLimitView heightLimitView) {
 
-            int x = (chunkX << 4) + 7;
-            int z = (chunkZ << 4) + 7;
-            BlockPos.Mutable blockpos = new BlockPos.Mutable(x, 0, z);
+            int x = (chunkPos.x << 4) + 7;
+            int z = (chunkPos.z << 4) + 7;
+            BlockPos.Mutable blockPos = new BlockPos.Mutable(x, 0, z);
 
-            StructurePoolBasedGenerator.method_30419(
-                    registryManager,
-                    new StructurePoolFeatureConfig(() -> registryManager.get(Registry.TEMPLATE_POOL_WORLDGEN)
+            StructurePoolBasedGenerator.generate(
+                    dynamicRegistryManager,
+                    new StructurePoolFeatureConfig(() -> dynamicRegistryManager.get(Registry.STRUCTURE_POOL_KEY)
                             .get(new Identifier(ForgottenForest.MODID, "crypt_pool_top")), 10), PoolStructurePiece::new,
-                    chunkGenerator, manager, blockpos, this.children, this.random, false, true);
+                    chunkGenerator, structureManager, blockPos, this, this.random, false, true, heightLimitView);
 
             this.children.forEach(piece -> piece.translate(0, 1, 0));
-            this.children.forEach(piece -> piece.getBoundingBox().minY -= 1);
+            this.children.forEach(piece -> piece.getBoundingBox().move(0, -1, 0));
             this.setBoundingBoxFromChildren();
+
+            Vec3i structureCenter = this.children.get(0).getBoundingBox().getCenter();
+            int xOffset = blockPos.getX() - structureCenter.getX();
+            int zOffset = blockPos.getZ() - structureCenter.getZ();
+            for(StructurePiece structurePiece : this.children){
+                structurePiece.translate(xOffset, 0, zOffset);
+            }
         }
     }
 }
