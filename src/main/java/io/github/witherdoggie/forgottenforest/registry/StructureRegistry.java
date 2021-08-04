@@ -18,22 +18,18 @@ import net.minecraft.world.gen.feature.StructureFeature;
 
 public class StructureRegistry {
 
-    public static final StructurePieceType PIECE = CryptGenerator.Piece::new;
     public static final StructureFeature<DefaultFeatureConfig> CRYPT = new CryptFeature(DefaultFeatureConfig.CODEC);
     public static final ConfiguredStructureFeature<?, ?> CRYPT_CONFIGURED = CRYPT.configure(DefaultFeatureConfig.DEFAULT);
 
     public static void initStructures() {
 
-        Registry.register(Registry.STRUCTURE_PIECE, new Identifier(ForgottenForest.MODID, "piece"), PIECE);
         FabricStructureBuilder.create(new Identifier(ForgottenForest.MODID, "crypt"), CRYPT)
                 .step(GenerationStep.Feature.SURFACE_STRUCTURES)
                 .defaultConfig(32, 8, 12345)
                 .adjustsSurface()
                 .register();
 
-        RegistryKey<ConfiguredStructureFeature<?, ?>> myConfigured = RegistryKey.of(Registry.CONFIGURED_STRUCTURE_FEATURE_WORLDGEN,
-                new Identifier(ForgottenForest.MODID, "crypt"));
-        BuiltinRegistries.add(BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE, myConfigured.getValue(), CRYPT_CONFIGURED);
-        BiomeModifications.addStructure(BiomeSelectors.all(), myConfigured);
+        Registry<ConfiguredStructureFeature<?, ?>> myConfigured = (BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE);
+        Registry.register(myConfigured, ForgottenForest.id("crypt"), CRYPT_CONFIGURED);
     }
 }

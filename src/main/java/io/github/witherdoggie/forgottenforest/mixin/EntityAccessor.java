@@ -17,4 +17,10 @@ public interface EntityAccessor {
     @Nullable
     @Invoker("getTeleportTarget")
     TeleportTarget invokeGetTeleportTarget(ServerWorld destination);
+
+    @Accessor("yaw")
+    float getYaw();
+
+    @Accessor("pitch")
+    float getPitch();
 }

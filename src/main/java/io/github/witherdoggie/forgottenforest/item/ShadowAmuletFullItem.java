@@ -1,5 +1,6 @@
 package io.github.witherdoggie.forgottenforest.item;
 
+import io.github.witherdoggie.forgottenforest.mixin.EntityAccessor;
 import io.github.witherdoggie.forgottenforest.world.dimension.ForgottenForestDimension;
 import net.fabricmc.fabric.api.dimension.v1.FabricDimensions;
 import net.minecraft.client.item.TooltipContext;
@@ -55,7 +56,7 @@ public class ShadowAmuletFullItem extends Item {
             if (serverWorld2 != null) {
                 serverWorld2.getChunk(serverWorld2.getSpawnPos());
                 blockPos2 = serverWorld2.getTopPosition(Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, serverWorld2.getSpawnPos());
-                FabricDimensions.teleport(user, serverWorld2, (new TeleportTarget(new Vec3d((double)blockPos2.getX() + 0.5D, (double)blockPos2.getY(), (double)blockPos2.getZ() + 0.5D), user.getVelocity(), user.yaw, user.pitch)));
+                FabricDimensions.teleport(user, serverWorld2, (new TeleportTarget(new Vec3d((double)blockPos2.getX() + 0.5D, (double)blockPos2.getY(), (double)blockPos2.getZ() + 0.5D), user.getVelocity(), ((EntityAccessor)user).getYaw(), ((EntityAccessor)user).getPitch())));
             }
 
             return TypedActionResult.success(itemStack);

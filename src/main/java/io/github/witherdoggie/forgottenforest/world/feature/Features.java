@@ -2,18 +2,15 @@ package io.github.witherdoggie.forgottenforest.world.feature;
 
 import io.github.witherdoggie.forgottenforest.ForgottenForest;
 import io.github.witherdoggie.forgottenforest.registry.BlockRegistry;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.client.gl.Uniform;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
-import net.minecraft.world.gen.UniformIntDistribution;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.decorator.CountNoiseDecoratorConfig;
 import net.minecraft.world.gen.decorator.Decorator;
-import net.minecraft.world.gen.decorator.DepthAverageDecoratorConfig;
 import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
@@ -64,12 +61,9 @@ public class Features {
 
     public static void initFeatures() {
 
-        GLOOMY_TREE = register(ForgottenForest.MODID + ":gloomy_tree", Feature.TREE.configure(
-                (new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(States.GLOOMY_LOG),
-                        new SimpleBlockStateProvider(Features.States.GLOOMY_LEAVES),
-                        new BlobFoliagePlacer(UniformIntDistribution.of(2), UniformIntDistribution.of(0), 3),
-                        new StraightTrunkPlacer(4, 2, 0),
-                        new TwoLayersFeatureSize(0, 0, 0))).ignoreVines().build()));
+        GLOOMY_TREE = register(ForgottenForest.MODID + ":gloomy_tree", Feature.TREE.configure((
+                new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(States.GLOOMY_LOG), new StraightTrunkPlacer(4, 2, 0), new SimpleBlockStateProvider(States.GLOOMY_LEAVES), new SimpleBlockStateProvider(States.GLOOMY_SAPLING),
+                new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3), new TwoLayersFeatureSize(1, 0, 1))).ignoreVines().build()));
 
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, oreOrchiumOverworld.getValue(), ORCHIUM_ORE);
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, modIronOre.getValue(), FF_IRON_ORE);
@@ -98,6 +92,7 @@ public class Features {
 
         protected static final BlockState GLOOMY_LOG = BlockRegistry.GLOOMY_LOG.getDefaultState();
         protected static final BlockState GLOOMY_LEAVES = BlockRegistry.GLOOMY_LEAVES.getDefaultState();
+        protected static final BlockState GLOOMY_SAPLING = BlockRegistry.GLOOMY_SAPLING.getDefaultState();
         protected static final BlockState GLOOMY_GRASS = BlockRegistry.GLOOMY_GRASS.getDefaultState();
         protected static final BlockState FIRE_GRASS = BlockRegistry.FIRE_GRASS.getDefaultState();
     }

@@ -3,6 +3,7 @@ package io.github.witherdoggie.forgottenforest.generator;
 import io.github.witherdoggie.forgottenforest.ForgottenForest;
 import io.github.witherdoggie.forgottenforest.registry.StructureRegistry;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.structure.*;
 import net.minecraft.structure.processor.BlockIgnoreStructureProcessor;
 import net.minecraft.util.BlockMirror;
@@ -35,7 +36,7 @@ public class CryptGenerator {
             this.initializeStructureData(manager);
         }
 
-        public Piece(StructureManager manager, CompoundTag tag) {
+        public Piece(StructureManager manager, NbtCompound tag) {
             super(StructureRegistry.PIECE, tag);
             this.template = new Identifier(tag.getString("Template"));
             this.rotation = BlockRotation.valueOf(tag.getString("Rot"));
