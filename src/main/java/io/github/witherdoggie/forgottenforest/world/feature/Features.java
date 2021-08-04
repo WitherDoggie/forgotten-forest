@@ -4,11 +4,13 @@ import io.github.witherdoggie.forgottenforest.ForgottenForest;
 import io.github.witherdoggie.forgottenforest.registry.BlockRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.client.gl.Uniform;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.gen.UniformIntDistribution;
+import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.decorator.CountNoiseDecoratorConfig;
 import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.decorator.DepthAverageDecoratorConfig;
@@ -16,6 +18,7 @@ import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
+import net.minecraft.world.gen.heightprovider.UniformHeightProvider;
 import net.minecraft.world.gen.placer.SimpleBlockPlacer;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
@@ -28,36 +31,36 @@ public class Features {
             .decorate(Decorator.COUNT_NOISE.configure(new CountNoiseDecoratorConfig(-0.8D, 5, 10)));
 
     public static ConfiguredFeature<?, ?> ORCHIUM_ORE = Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, BlockRegistry.ORCHIUM_ORE.getDefaultState(),
-                        8)).decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(0, 0, 16))).spreadHorizontally().repeat(3);
+                        8)).range(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.aboveBottom(0), YOffset.fixed(16)))).spreadHorizontally().repeat(3);
 
     public static ConfiguredFeature<?, ?> FF_IRON_ORE = Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, BlockRegistry.FF_IRON_ORE.getDefaultState(),
-            9)).decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(0, 0, 64))).spreadHorizontally().repeat(20);
+            9)).range(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.aboveBottom(0), YOffset.fixed(64)))).spreadHorizontally().repeat(20);
 
     public static ConfiguredFeature<?, ?> FF_GOLD_ORE = Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, BlockRegistry.FF_GOLD_ORE.getDefaultState(),
-            9)).decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(0, 0, 32))).spreadHorizontally().repeat(2);
+            9)).range(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.aboveBottom(0), YOffset.fixed(32)))).spreadHorizontally().repeat(2);
 
     public static ConfiguredFeature<?, ?> FF_COAL_ORE = Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, BlockRegistry.FF_COAL_ORE.getDefaultState(),
-            17)).decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(0, 0, 128))).spreadHorizontally().repeat(20);
+            17)).range(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.aboveBottom(0), YOffset.fixed(128)))).spreadHorizontally().repeat(20);
 
     public static ConfiguredFeature<?, ?> FF_LAPIS_ORE = Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, BlockRegistry.FF_LAPIS_ORE.getDefaultState(),
-            9)).decorate(Decorator.DEPTH_AVERAGE.configure(new DepthAverageDecoratorConfig(16, 16))).spreadHorizontally();
+            9)).triangleRange(YOffset.aboveBottom(0), YOffset.fixed(32)).spreadHorizontally();
 
     public static ConfiguredFeature<?, ?> FF_DIAMOND_ORE = Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, BlockRegistry.FF_DIAMOND_ORE.getDefaultState(),
-            8)).rangeOf(16).spreadHorizontally();
+            8)).uniformRange(YOffset.getBottom(), YOffset.aboveBottom(15)).spreadHorizontally();
 
     public static ConfiguredFeature<?, ?> FF_REDSTONE_ORE = Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, BlockRegistry.FF_REDSTONE_ORE.getDefaultState(),
             8)).spreadHorizontally().repeat(8);
 
-    public static RegistryKey<ConfiguredFeature<?, ?>> oreOrchiumOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN, new Identifier(ForgottenForest.MODID, "ore_orchium_overworld"));
-    public static RegistryKey<ConfiguredFeature<?, ?>> modIronOre = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN, new Identifier(ForgottenForest.MODID, "ore_mod_iron"));
-    public static RegistryKey<ConfiguredFeature<?, ?>> modGoldOre = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN, new Identifier(ForgottenForest.MODID, "ore_mod_gold"));
-    public static RegistryKey<ConfiguredFeature<?, ?>> modCoalOre = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN, new Identifier(ForgottenForest.MODID, "ore_mod_coal"));
-    public static RegistryKey<ConfiguredFeature<?, ?>> modLapisOre = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN, new Identifier(ForgottenForest.MODID, "ore_mod_lapis"));
-    public static RegistryKey<ConfiguredFeature<?, ?>> modDiamondOre = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN, new Identifier(ForgottenForest.MODID, "ore_mod_diamond"));
-    public static RegistryKey<ConfiguredFeature<?, ?>> modRedstoneOre = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN, new Identifier(ForgottenForest.MODID, "ore_mod_redstone"));
+    public static RegistryKey<ConfiguredFeature<?, ?>> oreOrchiumOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY, new Identifier(ForgottenForest.MODID, "ore_orchium_overworld"));
+    public static RegistryKey<ConfiguredFeature<?, ?>> modIronOre = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY, new Identifier(ForgottenForest.MODID, "ore_mod_iron"));
+    public static RegistryKey<ConfiguredFeature<?, ?>> modGoldOre = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY, new Identifier(ForgottenForest.MODID, "ore_mod_gold"));
+    public static RegistryKey<ConfiguredFeature<?, ?>> modCoalOre = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY, new Identifier(ForgottenForest.MODID, "ore_mod_coal"));
+    public static RegistryKey<ConfiguredFeature<?, ?>> modLapisOre = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY, new Identifier(ForgottenForest.MODID, "ore_mod_lapis"));
+    public static RegistryKey<ConfiguredFeature<?, ?>> modDiamondOre = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY, new Identifier(ForgottenForest.MODID, "ore_mod_diamond"));
+    public static RegistryKey<ConfiguredFeature<?, ?>> modRedstoneOre = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY, new Identifier(ForgottenForest.MODID, "ore_mod_redstone"));
 
-    public static RegistryKey<ConfiguredFeature<?, ?>> gloomyGrass = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN, new Identifier(ForgottenForest.MODID, "gloomy_grass_gen"));
-    public static RegistryKey<ConfiguredFeature<?, ?>> fireGrass = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN, new Identifier(ForgottenForest.MODID, "fire_grass_gen"));
+    public static RegistryKey<ConfiguredFeature<?, ?>> gloomyGrass = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY, new Identifier(ForgottenForest.MODID, "gloomy_grass_gen"));
+    public static RegistryKey<ConfiguredFeature<?, ?>> fireGrass = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY, new Identifier(ForgottenForest.MODID, "fire_grass_gen"));
 
     public static void initFeatures() {
 

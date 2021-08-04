@@ -25,6 +25,7 @@
       "io.github.witherdoggie.forgottenforest.client.ForgottenForestClient"
     ]
   },
+  "accessWidener": "forgotten_forest.accesswidener",
   "mixins": [
     "forgottenforest.mixins.json"
   ],
