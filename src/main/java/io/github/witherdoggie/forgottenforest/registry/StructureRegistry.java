@@ -3,8 +3,6 @@ package io.github.witherdoggie.forgottenforest.registry;
 import io.github.witherdoggie.forgottenforest.ForgottenForest;
 import io.github.witherdoggie.forgottenforest.generator.CryptGenerator;
 import io.github.witherdoggie.forgottenforest.world.structure.CryptFeature;
-import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
-import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.structure.v1.FabricStructureBuilder;
 import net.minecraft.structure.StructurePieceType;
 import net.minecraft.util.Identifier;
@@ -20,6 +18,7 @@ public class StructureRegistry {
 
     public static final StructureFeature<DefaultFeatureConfig> CRYPT = new CryptFeature(DefaultFeatureConfig.CODEC);
     public static final ConfiguredStructureFeature<?, ?> CRYPT_CONFIGURED = CRYPT.configure(DefaultFeatureConfig.DEFAULT);
+    public static final StructurePieceType CRYPT_PIECE = StructurePieceType.register(CryptGenerator.Piece::new, "crypt");
 
     public static void initStructures() {
 

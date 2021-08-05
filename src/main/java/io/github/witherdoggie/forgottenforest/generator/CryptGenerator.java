@@ -2,8 +2,8 @@ package io.github.witherdoggie.forgottenforest.generator;
 
 import io.github.witherdoggie.forgottenforest.ForgottenForest;
 import io.github.witherdoggie.forgottenforest.registry.StructureRegistry;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.structure.*;
 import net.minecraft.structure.processor.BlockIgnoreStructureProcessor;
 import net.minecraft.util.BlockMirror;
@@ -13,51 +13,40 @@ import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.ServerWorldAccess;
 
-import java.util.List;
 import java.util.Random;
 
 public class CryptGenerator {
 
     private static final Identifier CRYPT = new Identifier(ForgottenForest.MODID, "crypt");
 
-    public static void addPiece(StructureManager manager, BlockPos pos, BlockRotation rotation, List<StructurePiece> pieces) {
-        pieces.add(new Piece(manager, pos, CRYPT, rotation));
+    public static void addPieces(StructureManager manager,StructurePiecesHolder structurePiecesHolder, Random random, BlockPos pos) {
+        BlockRotation blockRotation = BlockRotation.random(random);
+        structurePiecesHolder.addPiece(new CryptGenerator.Piece(manager, CRYPT, pos, blockRotation));
     }
 
     public static class Piece extends SimpleStructurePiece {
-        private final Identifier template;
-        private final BlockRotation rotation;
+        private boolean shifted = false;
 
-        public Piece(StructureManager manager, BlockPos pos, Identifier template, BlockRotation rotation) {
-            super(StructureRegistry.PIECE, 0);
-            this.template = template;
-            this.pos = pos;
-            this.rotation = rotation;
-            this.initializeStructureData(manager);
+        public Piece(StructureManager manager, Identifier template, BlockPos pos, BlockRotation rotation) {
+            super(StructureRegistry.CRYPT_PIECE, 0, manager, template, template.toString(), createPlacementData(rotation), pos);
         }
 
-        public Piece(StructureManager manager, NbtCompound tag) {
-            super(StructureRegistry.PIECE, tag);
-            this.template = new Identifier(tag.getString("Template"));
-            this.rotation = BlockRotation.valueOf(tag.getString("Rot"));
-            this.initializeStructureData(manager);
+        public Piece(ServerWorld world, NbtCompound nbt) {
+            super(StructureRegistry.CRYPT_PIECE, nbt, world, (identifier1 -> createPlacementData(BlockRotation.valueOf(nbt.getString("Rot")))));
         }
 
-        private void initializeStructureData(StructureManager manager) {
-            Structure structure = manager.getStructureOrBlank(this.template);
-            StructurePlacementData placementData = (new StructurePlacementData()).setRotation(this.rotation).setMirror(BlockMirror.NONE).addProcessor(BlockIgnoreStructureProcessor.IGNORE_STRUCTURE_BLOCKS);
-            this.setStructureData(structure, this.pos, placementData);
+        private static StructurePlacementData createPlacementData(BlockRotation rotation) {
+            return (new StructurePlacementData()).setRotation(rotation).setMirror(BlockMirror.NONE).addProcessor(BlockIgnoreStructureProcessor.IGNORE_AIR_AND_STRUCTURE_BLOCKS);
         }
 
-        protected void toNbt(CompoundTag tag) {
-            super.toNbt(tag);
-            tag.putString("Template", this.template.toString());
-            tag.putString("Rot", this.rotation.name());
+        protected void writeNbt(ServerWorld world, NbtCompound nbt) {
+            super.writeNbt(world, nbt);
+            nbt.putString("Rot", this.placementData.getRotation().name());
         }
 
         protected void handleMetadata(String metadata, BlockPos pos, ServerWorldAccess serverWorldAccess, Random random, BlockBox boundingBox) {
 
-
         }
     }
 }
+

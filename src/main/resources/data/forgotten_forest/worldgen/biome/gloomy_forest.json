@@ -14,7 +14,8 @@
     "grass_color_modifier": "none"
   },
   "starts": [
-    "minecraft:mineshaft"
+    "minecraft:mineshaft",
+    "forgotten_forest:crypt"
   ],
   "spawners": {
     "monster": [
@@ -51,7 +52,6 @@
 [],
 [],
 [
-"forgotten_forest:crypt"
 ],
 [],
     [

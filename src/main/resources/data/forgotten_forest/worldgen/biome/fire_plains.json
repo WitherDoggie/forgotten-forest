@@ -21,7 +21,8 @@
   },
 
   "starts": [
-    "minecraft:mineshaft"
+    "minecraft:mineshaft",
+    "forgotten_forest:crypt"
   ],
   "spawners": {
     "monster": [
@@ -60,7 +61,6 @@
     [],
     [],
     [
-      "forgotten_forest:crypt"
     ],
     [],
     [
