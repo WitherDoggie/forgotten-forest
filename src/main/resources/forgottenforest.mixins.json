@@ -4,8 +4,6 @@
   "package": "io.github.witherdoggie.forgottenforest.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "FeatureMixin",
-    "LakeFeatureMixin",
     "LivingEntityAccessor",
     "BrewingRecipeRegistryAccessor",
     "BrewingRecipeRegistryMixin",

@@ -72,7 +72,7 @@ public class GhostEntity extends HostileEntity implements Monster {
             this.setVelocity(this.getVelocity().multiply((double)f));
         }
 
-        this.method_29242(this, false);
+        this.updateLimbs(this, false);
     }
 
     public boolean isClimbing() {

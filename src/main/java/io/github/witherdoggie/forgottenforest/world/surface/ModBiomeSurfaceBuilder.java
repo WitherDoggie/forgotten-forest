@@ -15,53 +15,50 @@ public class ModBiomeSurfaceBuilder extends SurfaceBuilder<QuadarySurfaceConfig>
         super(QuadarySurfaceConfig.CODEC);
     }
 
-    public void generate(Random random, Chunk chunk, Biome biome, int i, int j, int k, double d, BlockState blockState, BlockState blockState2, int l, long m, QuadarySurfaceConfig quadarySurfaceConfig) {
-        this.generate(random, chunk, biome, i, j, k, d, quadarySurfaceConfig.getDefaultBlock(), blockState2, quadarySurfaceConfig.getTopMaterial(), quadarySurfaceConfig.getUnderMaterial(), quadarySurfaceConfig.getUnderwaterMaterial(), l);
-    }
-
-    protected void generate(Random random, Chunk chunk, Biome biome, int x, int z, int height, double noise, BlockState defaultBlock, BlockState fluidBlock, BlockState topBlock, BlockState underBlock, BlockState underwaterBlock, int seaLevel) {
-        BlockState blockState = topBlock;
-        BlockState blockState2 = underBlock;
+    @Override
+    public void generate(Random random, Chunk chunk, Biome biome, int x, int z, int height, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, int i, long l, QuadarySurfaceConfig surfaceConfig) {
+        BlockState topState = surfaceConfig.getTopMaterial();
+        BlockState underState = surfaceConfig.getUnderMaterial();
         BlockPos.Mutable mutable = new BlockPos.Mutable();
-        int i = -1;
+        int maxDepth = -1;
         int j = (int)(noise / 3.0D + 3.0D + random.nextDouble() * 0.25D);
         int k = x & 15;
-        int l = z & 15;
+        int lx = z & 15;
 
         for(int m = height; m >= 0; --m) {
-            mutable.set(k, m, l);
+            mutable.set(k, m, lx);
             BlockState blockState3 = chunk.getBlockState(mutable);
             if (blockState3.isAir()) {
-                i = -1;
+                maxDepth = -1;
             } else if (blockState3.getFluidState().isEmpty()) {
-                if (i == -1) {
+                if (maxDepth == -1) {
                     if (j <= 0) {
-                        blockState = Blocks.AIR.getDefaultState();
-                        blockState2 = defaultBlock;
+                        topState = Blocks.AIR.getDefaultState();
+                        underState = defaultBlock;
                     } else if (m >= seaLevel - 4 && m <= seaLevel + 1) {
-                        blockState = topBlock;
-                        blockState2 = underBlock;
+                        topState = surfaceConfig.getTopMaterial();
+                        underState = surfaceConfig.getUnderMaterial();
                     }
 
-                    if (m < seaLevel && (blockState == null || blockState.isAir())) {
-                        blockState = fluidBlock;
+                    if (m < seaLevel && (topState == null || topState.isAir())) {
+                        topState = defaultFluid;
 
                         mutable.set(k, m, l);
                     }
 
-                    i = j;
+                    maxDepth = j;
                     if (m >= seaLevel - 1) {
-                        chunk.setBlockState(mutable, blockState, false);
+                        chunk.setBlockState(mutable, topState, false);
                     } else if (m < seaLevel - 7 - j) {
-                        blockState = Blocks.AIR.getDefaultState();
-                        blockState2 = defaultBlock;
-                        chunk.setBlockState(mutable, underwaterBlock, false);
+                        topState = Blocks.AIR.getDefaultState();
+                        underState = defaultBlock;
+                        chunk.setBlockState(mutable, surfaceConfig.getUnderwaterMaterial(), false);
                     } else {
-                        chunk.setBlockState(mutable, blockState2, false);
+                        chunk.setBlockState(mutable, underState, false);
                     }
-                } else if (i > 0) {
-                    --i;
-                    chunk.setBlockState(mutable, blockState2, false);
+                } else if (maxDepth > 0) {
+                    --maxDepth;
+                    chunk.setBlockState(mutable, underState, false);
 
                 } else {
                     chunk.setBlockState(mutable, defaultBlock, false);

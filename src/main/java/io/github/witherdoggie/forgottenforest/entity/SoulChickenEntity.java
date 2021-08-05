@@ -13,7 +13,7 @@ import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.ChickenEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
@@ -50,7 +50,7 @@ public class SoulChickenEntity extends ChickenEntity {
             Explosion.DestructionType destructionType = this.world.getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING) ? Explosion.DestructionType.DESTROY : Explosion.DestructionType.NONE;
             this.dead = true;
             this.world.createExplosion(this, this.getX(), this.getY(), this.getZ(), (float) 4.0, destructionType);
-            this.remove();
+            this.discard();
         }
     }
 
@@ -89,8 +89,8 @@ public class SoulChickenEntity extends ChickenEntity {
         this.dataTracker.startTracking(FUSE, -1);
     }
 
-    public void readCustomDataFromTag(CompoundTag tag) {
-        super.readCustomDataFromTag(tag);
+    public void readCustomDataFromNbt(NbtCompound tag) {
+        super.readCustomDataFromNbt(tag);
 
         if (tag.contains("Fuse", 99)) {
             this.fuseTime = tag.getShort("Fuse");
@@ -101,8 +101,8 @@ public class SoulChickenEntity extends ChickenEntity {
         }
     }
 
-    public void writeCustomDataToTag(CompoundTag tag) {
-        super.writeCustomDataToTag(tag);
+    public void writeCustomDataToNbt(NbtCompound tag) {
+        super.writeCustomDataToNbt(tag);
         tag.putBoolean("ignited", this.getIgnited());
         tag.putShort("Fuse", (short) this.fuseTime);
     }

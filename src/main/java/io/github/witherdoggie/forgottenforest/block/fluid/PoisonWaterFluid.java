@@ -28,7 +28,7 @@ public class PoisonWaterFluid extends ModFluid {
 
     @Override
     protected BlockState toBlockState(FluidState state) {
-        return BlockRegistry.POISON_WATER.getDefaultState().with(Properties.LEVEL_15, method_15741(state));
+        return BlockRegistry.POISON_WATER.getDefaultState().with(Properties.LEVEL_15, getBlockStateLevel(state));
     }
 
     @Override
@@ -73,3 +73,4 @@ public class PoisonWaterFluid extends ModFluid {
         }
     }
 }
+
