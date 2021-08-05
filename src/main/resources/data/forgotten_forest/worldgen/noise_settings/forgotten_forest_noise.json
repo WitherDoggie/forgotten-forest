@@ -1,8 +1,14 @@
 {
-  "bedrock_roof_position": -10,
+  "noise_caves_enabled": true,
+  "deepslate_enabled": false,
+  "ore_veins_enabled": true,
+  "noodle_caves_enabled": false,
+  "min_surface_level": 0,
+  "disable_mob_generation": false,
+  "aquifers_enabled": false,
+  "bedrock_roof_position": -2147483648,
   "bedrock_floor_position": 0,
   "sea_level": 57,
-  "disable_mob_generation": false,
   "default_block": {
     "Name": "forgotten_forest:gloomy_stone",
     "Properties": {
@@ -16,7 +22,9 @@
     }
   },
   "noise": {
+    "min_y": 0,
     "height": 256,
+    "logical_height": 256,
     "density_factor": 0.645,
     "density_offset": -0.26875,
     "size_horizontal": 1,
@@ -32,7 +40,7 @@
       "y_factor": 160
     },
     "bottom_slide": {
-      "target": -30,
+      "target": 15,
       "size": 3,
       "offset": 0
     },
