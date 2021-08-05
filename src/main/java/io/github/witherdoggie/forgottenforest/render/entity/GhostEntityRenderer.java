@@ -2,15 +2,17 @@ package io.github.witherdoggie.forgottenforest.render.entity;
 
 import io.github.witherdoggie.forgottenforest.ForgottenForest;
 import io.github.witherdoggie.forgottenforest.entity.GhostEntity;
+import io.github.witherdoggie.forgottenforest.registry.EntityRenderersRegistry;
 import io.github.witherdoggie.forgottenforest.render.entity.model.GhostEntityModel;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
+import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.util.Identifier;
 
 public class GhostEntityRenderer extends MobEntityRenderer<GhostEntity, GhostEntityModel> {
 
-    public GhostEntityRenderer(EntityRenderDispatcher entityRenderDispatcher) {
-        super(entityRenderDispatcher, new GhostEntityModel(), 0.1f);
+    public GhostEntityRenderer(EntityRendererFactory.Context entityRenderDispatcher) {
+        super(entityRenderDispatcher, new GhostEntityModel(entityRenderDispatcher.getPart(EntityRenderersRegistry.MODEL_GHOST_LAYER)), 0.1f);
     }
 
     @Override

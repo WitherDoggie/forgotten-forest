@@ -3,13 +3,14 @@ package io.github.witherdoggie.forgottenforest.render.entity;
 import io.github.witherdoggie.forgottenforest.ForgottenForest;
 import io.github.witherdoggie.forgottenforest.entity.SoulSpiderEntity;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
+import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.SpiderEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 
 public class SoulSpiderEntityRenderer extends SpiderEntityRenderer<SoulSpiderEntity> {
 
-    public SoulSpiderEntityRenderer(EntityRenderDispatcher entityRenderDispatcher) {
+    public SoulSpiderEntityRenderer(EntityRendererFactory.Context entityRenderDispatcher) {
         super(entityRenderDispatcher);
         this.shadowRadius *= 0.4F;
     }

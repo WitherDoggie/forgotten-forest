@@ -1,21 +1,29 @@
 package io.github.witherdoggie.forgottenforest.render.entity.model;
 
 import io.github.witherdoggie.forgottenforest.entity.GhostEntity;
-import net.minecraft.client.model.ModelPart;
+import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
+import net.minecraft.client.render.entity.model.EntityModelPartNames;
 import net.minecraft.client.util.math.MatrixStack;
 
 public class GhostEntityModel extends EntityModel<GhostEntity> {
     private final ModelPart bone;
 
-    public GhostEntityModel() {
-        textureWidth = 64;
-        textureHeight = 32;
-        bone = new ModelPart(this);
-        bone.setPivot(0.0F, 24.0F, 0.0F);
-        bone.setTextureOffset(0, 0).addCuboid(-6.0F, -17.0F, -2.0F, 11.0F, 17.0F, 5.0F, 0.0F, false);
+    public GhostEntityModel(ModelPart modelPart) {
 
+        this.bone = modelPart.getChild(EntityModelPartNames.CUBE);
+        bone.setPivot(0.0F, 24.0F, 0.0F);
+        //bone.setTextureOffset(0, 0).addCuboid(-6.0F, -17.0F, -2.0F, 11.0F, 17.0F, 5.0F, 0.0F, false);
+
+    }
+
+    public static TexturedModelData getTexturedModelData(){
+
+        ModelData modelData = new ModelData();
+        ModelPartData modelPartData = modelData.getRoot();
+        modelPartData.addChild(EntityModelPartNames.CUBE, ModelPartBuilder.create().uv(0,0).cuboid(-6.0F, -17.0F, -2.0F, 11.0F, 17.0F, 5.0F), ModelTransform.pivot(0F, 0F, 0F));
+        return TexturedModelData.of(modelData, 64, 32);
     }
 
     @Override

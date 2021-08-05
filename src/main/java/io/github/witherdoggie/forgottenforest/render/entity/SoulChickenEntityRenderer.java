@@ -3,13 +3,14 @@ package io.github.witherdoggie.forgottenforest.render.entity;
 import io.github.witherdoggie.forgottenforest.ForgottenForest;
 import net.minecraft.client.render.entity.ChickenEntityRenderer;
 import net.minecraft.client.render.entity.EntityRenderDispatcher;
+import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.passive.ChickenEntity;
 import net.minecraft.util.Identifier;
 
 public class SoulChickenEntityRenderer extends ChickenEntityRenderer {
 
-    public SoulChickenEntityRenderer(EntityRenderDispatcher entityRenderDispatcher) {
+    public SoulChickenEntityRenderer(EntityRendererFactory.Context entityRenderDispatcher) {
         super(entityRenderDispatcher);
     }
 
