@@ -1,5 +1,5 @@
 {
-  "noise_caves_enabled": true,
+  "noise_caves_enabled": false,
   "deepslate_enabled": false,
   "ore_veins_enabled": true,
   "noodle_caves_enabled": false,
