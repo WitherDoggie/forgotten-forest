@@ -23,4 +23,10 @@ public interface EntityAccessor {
 
     @Accessor("pitch")
     float getPitch();
+
+    @Accessor("yaw")
+    void setYaw(float y);
+
+    @Accessor("pitch")
+    void setPitch(float p);
 }

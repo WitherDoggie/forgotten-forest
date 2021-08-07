@@ -55,6 +55,8 @@ public class ItemRegistry {
     public static final Item GHOST_SPAWN_EGG = new SpawnEggItem(EntityRegistry.GHOST, 0x403e3e, 0x808080, new Item.Settings().group(ItemGroup.MISC));
     public static final Item FIRE_PIG_SPAWN_EGG = new SpawnEggItem(EntityRegistry.FIRE_PIG, 0xfa732f, 0xfc0000, new Item.Settings().group(ItemGroup.MISC));
 
+    public static final Item EGG_OF_LIFE_ITEM = new EggOfLifeItem(new FabricItemSettings().group(ItemGroup.MISC).maxCount(16));
+
     public static Item POISON_WATER_BUCKET;
 
     public static void initItems() {
@@ -83,6 +85,8 @@ public class ItemRegistry {
         register("fireite_hoe", FIREITE_HOE);
         register("fireite_sword", FIREITE_SWORD);
         register("fireite_shovel", FIREITE_SHOVEL);
+
+        register("egg_of_life_item", EGG_OF_LIFE_ITEM);
 
         POISON_WATER_BUCKET = Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "poison_water_bucket"), new BucketItem(BlockRegistry.STILL_POISON_WATER, new Item.Settings().recipeRemainder(Items.BUCKET).maxCount(1)));
     }
