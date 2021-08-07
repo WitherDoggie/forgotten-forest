@@ -1,12 +1,14 @@
 package io.github.witherdoggie.forgottenforest.mixin;
 
 import io.github.witherdoggie.forgottenforest.registry.StructureRegistry;
+import net.minecraft.entity.Entity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkSectionPos;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.LakeFeature;
 import net.minecraft.world.gen.feature.SingleStateFeatureConfig;
+import net.minecraft.world.gen.feature.util.FeatureContext;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -23,9 +25,9 @@ public class LakeFeatureMixin {
             at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/world/StructureWorldAccess;getStructures(Lnet/minecraft/util/math/ChunkSectionPos;Lnet/minecraft/world/gen/feature/StructureFeature;)Ljava/util/stream/Stream;"),
             cancellable = true
     )
-    private void stopLakeGeneration(StructureWorldAccess structureWorldAccess, ChunkGenerator chunkGenerator, Random random, BlockPos blockPos, SingleStateFeatureConfig singleStateFeatureConfig, CallbackInfoReturnable<Boolean> cir) {
-
-        if (structureWorldAccess.getStructures(ChunkSectionPos.from(blockPos), StructureRegistry.CRYPT).findAny().isPresent()) {
+    private void stopLakeGeneration(FeatureContext<SingleStateFeatureConfig> context, CallbackInfoReturnable<Boolean> cir) {
+        ChunkSectionPos pos = ChunkSectionPos.from(context.getOrigin());
+        if (context.getWorld().getStructures(pos, StructureRegistry.CRYPT).findAny().isPresent()) {
             cir.setReturnValue(false);
         }
     }
