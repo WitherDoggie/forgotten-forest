@@ -1,4 +1,4 @@
-package io.github.witherdoggie.forgottenforest.generator;
+package io.github.witherdoggie.forgottenforest.world.generator;
 
 import io.github.witherdoggie.forgottenforest.world.feature.ConfiguredFeatures;
 import net.minecraft.block.sapling.SaplingGenerator;
