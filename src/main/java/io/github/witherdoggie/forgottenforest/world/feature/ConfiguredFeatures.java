@@ -8,6 +8,7 @@ import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
+import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.decorator.CountNoiseDecoratorConfig;
 import net.minecraft.world.gen.decorator.Decorator;
@@ -20,11 +21,11 @@ import net.minecraft.world.gen.placer.SimpleBlockPlacer;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 
-public class Features {
+public class ConfiguredFeatures {
 
     public static ConfiguredFeature<?, ?> GLOOMY_TREE;
-    public static ConfiguredFeature<?, ?> GLOOMY_GRASS = Feature.RANDOM_PATCH.configure(Configs.GLOOMY_GRASS_CONFIG).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(2);
-    public static ConfiguredFeature<?, ?> FIRE_GRASS = Feature.RANDOM_PATCH.configure(Configs.FIRE_GRASS_CONFIG).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE)
+    public static ConfiguredFeature<?, ?> GLOOMY_GRASS = Feature.RANDOM_PATCH.configure(Configs.GLOOMY_GRASS_CONFIG).decorate(net.minecraft.world.gen.feature.ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(2);
+    public static ConfiguredFeature<?, ?> FIRE_GRASS = Feature.RANDOM_PATCH.configure(Configs.FIRE_GRASS_CONFIG).decorate(net.minecraft.world.gen.feature.ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE)
             .decorate(Decorator.COUNT_NOISE.configure(new CountNoiseDecoratorConfig(-0.8D, 5, 10)));
 
     public static ConfiguredFeature<?, ?> ORCHIUM_ORE = Feature.ORE.configure(new OreFeatureConfig(OreFeatureConfig.Rules.BASE_STONE_OVERWORLD, BlockRegistry.ORCHIUM_ORE.getDefaultState(),
@@ -59,7 +60,7 @@ public class Features {
     public static RegistryKey<ConfiguredFeature<?, ?>> gloomyGrass = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY, new Identifier(ForgottenForest.MODID, "gloomy_grass_gen"));
     public static RegistryKey<ConfiguredFeature<?, ?>> fireGrass = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY, new Identifier(ForgottenForest.MODID, "fire_grass_gen"));
 
-    public static void initFeatures() {
+    public static void initConfiguredFeatures() {
 
         GLOOMY_TREE = register(ForgottenForest.MODID + ":gloomy_tree", Feature.TREE.configure((
                 new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(States.GLOOMY_LOG), new StraightTrunkPlacer(4, 2, 0), new SimpleBlockStateProvider(States.GLOOMY_LEAVES), new SimpleBlockStateProvider(States.GLOOMY_SAPLING),
@@ -75,11 +76,14 @@ public class Features {
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, gloomyGrass.getValue(), GLOOMY_GRASS);
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, fireGrass.getValue(), FIRE_GRASS);
 
+
     }
 
     private static <FC extends FeatureConfig> ConfiguredFeature<FC, ?> register(String id, ConfiguredFeature<?, ?> configuredFeature) {
         return (ConfiguredFeature) Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, id, configuredFeature);
     }
+
+
 
     public static class Configs {
 

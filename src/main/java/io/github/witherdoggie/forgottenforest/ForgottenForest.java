@@ -3,7 +3,8 @@ package io.github.witherdoggie.forgottenforest;
 import com.google.common.collect.ImmutableSet;
 import io.github.witherdoggie.forgottenforest.mixin.CarverAccessor;
 import io.github.witherdoggie.forgottenforest.registry.*;
-import io.github.witherdoggie.forgottenforest.world.feature.Features;
+import io.github.witherdoggie.forgottenforest.world.feature.ConfiguredFeatures;
+import io.github.witherdoggie.forgottenforest.world.feature.FFFeatures;
 import io.github.witherdoggie.forgottenforest.world.surface.SurfaceBuilders;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.block.Block;
@@ -36,7 +37,8 @@ public class ForgottenForest implements ModInitializer {
         StatusEffectRegistry.initEffects();
         PotionRegistry.initPotions();
         EntityRegistry.initEntities();
-        Features.initFeatures();
+        FFFeatures.initFeatures();
+        ConfiguredFeatures.initConfiguredFeatures();
         BiomeRegistry.initBiomes();
 
         Registry.CARVER.forEach(carver -> {
