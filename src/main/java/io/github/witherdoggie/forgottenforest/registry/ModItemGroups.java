@@ -9,9 +9,11 @@ import net.minecraft.util.Identifier;
 public class ModItemGroups {
 
     public static ItemGroup BLOCKS;
+    public static ItemGroup ITEMS;
 
     public static void initItemGroups() {
 
         BLOCKS = FabricItemGroupBuilder.build(new Identifier(ForgottenForest.MODID, "blocks"), () -> new ItemStack(BlockRegistry.GLOOMY_GRASS_BLOCK));
+        ITEMS = FabricItemGroupBuilder.build(ForgottenForest.id("items"), () -> new ItemStack(ItemRegistry.FULL_SHADOW_AMULET));
     }
 }
