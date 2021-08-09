@@ -2,7 +2,12 @@ package io.github.witherdoggie.forgottenforest.registry;
 
 import io.github.witherdoggie.forgottenforest.ForgottenForest;
 import io.github.witherdoggie.forgottenforest.world.generator.CryptGenerator;
+import io.github.witherdoggie.forgottenforest.world.generator.FireRuinsGenerator;
 import io.github.witherdoggie.forgottenforest.world.structure.CryptFeature;
+import io.github.witherdoggie.forgottenforest.world.structure.FireRuinsFeature;
+import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
+import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
+import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
 import net.fabricmc.fabric.api.structure.v1.FabricStructureBuilder;
 import net.minecraft.structure.StructurePieceType;
 import net.minecraft.util.Identifier;
@@ -19,6 +24,10 @@ public class StructureRegistry {
     public static final ConfiguredStructureFeature<?, ?> CRYPT_CONFIGURED = CRYPT.configure(DefaultFeatureConfig.DEFAULT);
     public static final StructurePieceType CRYPT_PIECE = StructurePieceType.register(CryptGenerator.Piece::new, "crypt");
 
+    public static final StructureFeature<DefaultFeatureConfig> FIRE_RUINS = new FireRuinsFeature(DefaultFeatureConfig.CODEC);
+    public static final ConfiguredStructureFeature<?, ?> FIRE_RUINS_CONFIGURED = FIRE_RUINS.configure(DefaultFeatureConfig.DEFAULT);
+    public static final StructurePieceType FIRE_RUINS_PIECE = StructurePieceType.register(FireRuinsGenerator.Piece::new, "fire_ruins");
+
     public static void initStructures() {
 
         FabricStructureBuilder.create(new Identifier(ForgottenForest.MODID, "crypt"), CRYPT)
@@ -27,7 +36,18 @@ public class StructureRegistry {
                 .adjustsSurface()
                 .register();
 
+        FabricStructureBuilder.create(new Identifier(ForgottenForest.MODID, "fire_ruins"), FIRE_RUINS)
+                .step(GenerationStep.Feature.SURFACE_STRUCTURES)
+                .defaultConfig(32, 8, 12345)
+                .adjustsSurface()
+                .register();
+
         Registry<ConfiguredStructureFeature<?, ?>> myConfigured = (BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE);
         Registry.register(myConfigured, ForgottenForest.id("crypt"), CRYPT_CONFIGURED);
+
+        Registry<ConfiguredStructureFeature<?, ?>> configuredFireRuins = BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE;
+        Registry.register(configuredFireRuins, ForgottenForest.id("fire_ruins"), FIRE_RUINS_CONFIGURED);
+
+        BiomeModifications.create(ForgottenForest.id("fire_ruins")).add(ModificationPhase.ADDITIONS, BiomeSelectors.all(), context -> {context.getGenerationSettings().addBuiltInStructure(FIRE_RUINS_CONFIGURED);});
     }
 }
