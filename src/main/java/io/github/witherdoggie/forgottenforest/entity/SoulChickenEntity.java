@@ -1,7 +1,13 @@
 package io.github.witherdoggie.forgottenforest.entity;
 
 import io.github.witherdoggie.forgottenforest.entity.goal.ChickenIgniteGoal;
+import io.github.witherdoggie.forgottenforest.registry.EntityRegistry;
+import io.github.witherdoggie.forgottenforest.registry.ItemRegistry;
+import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ExperienceOrbEntity;
+import net.minecraft.entity.ItemEntity;
+import net.minecraft.entity.ai.goal.AnimalMateGoal;
 import net.minecraft.entity.ai.goal.FollowTargetGoal;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.ai.goal.RevengeGoal;
@@ -12,18 +18,29 @@ import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.ChickenEntity;
+import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemConvertible;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.recipe.Ingredient;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.stat.Stats;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
 
+import java.util.Random;
+
 public class SoulChickenEntity extends ChickenEntity {
 
     private static TrackedData<Boolean> IGNITE = DataTracker.registerData(ChickenEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
-    ;
     private static TrackedData<Integer> FUSE = DataTracker.registerData(ChickenEntity.class, TrackedDataHandlerRegistry.INTEGER);
+    private static Ingredient BREEDING_ITEM = Ingredient.ofItems(new ItemConvertible[]{
+            Items.WHEAT_SEEDS.asItem()});
     private int lastFuseTime;
     private int currentFuseTime;
     private int fuseTime = 30;
@@ -39,6 +56,7 @@ public class SoulChickenEntity extends ChickenEntity {
         this.goalSelector.add(4, new MeleeAttackGoal(this, 1.0D, false));
         this.targetSelector.add(1, new FollowTargetGoal(this, PlayerEntity.class, true));
         this.targetSelector.add(2, new RevengeGoal(this, new Class[0]));
+        this.goalSelector.add(1, new SoulChickenEntity.MateGoal(this, 1.0D));
     }
 
     public static DefaultAttributeContainer.Builder createSoulChickenAttributes() {
@@ -121,5 +139,41 @@ public class SoulChickenEntity extends ChickenEntity {
 
     public void ignite() {
         this.dataTracker.set(IGNITE, true);
+    }
+
+    public ChickenEntity createChild(ServerWorld world, PassiveEntity entity) {
+        return EntityRegistry.SOUL_CHICKEN.create(world);
+    }
+
+    private static class MateGoal extends AnimalMateGoal {
+        private final SoulChickenEntity chicken;
+
+        MateGoal(SoulChickenEntity chicken, double speed) {
+            super(chicken, speed);
+            this.chicken = chicken;
+        }
+
+        protected void breed() {
+            ServerPlayerEntity serverPlayerEntity = this.animal.getLovingPlayer();
+            if (serverPlayerEntity == null && this.mate.getLovingPlayer() != null) {
+                serverPlayerEntity = this.mate.getLovingPlayer();
+            }
+
+            if (serverPlayerEntity != null) {
+                serverPlayerEntity.incrementStat(Stats.ANIMALS_BRED);
+                Criteria.BRED_ANIMALS.trigger(serverPlayerEntity, this.animal, this.mate, (PassiveEntity)null);
+            }
+
+            this.animal.resetLoveTicks();
+            this.mate.resetLoveTicks();
+            Random random = this.animal.getRandom();
+
+            ItemEntity spawnedItem = new ItemEntity(this.world, animal.getX(), animal.getY(), animal.getZ(), new ItemStack(ItemRegistry.EGG_OF_LIFE_ITEM, 1));
+            this.world.spawnEntity(spawnedItem);
+            if (this.world.getGameRules().getBoolean(GameRules.DO_MOB_LOOT)) {
+                this.world.spawnEntity(new ExperienceOrbEntity(this.world, this.animal.getX(), this.animal.getY(), this.animal.getZ(), random.nextInt(7) + 1));
+            }
+
+        }
     }
 }
