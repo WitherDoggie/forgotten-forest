@@ -34,7 +34,7 @@ public class ModBiomeSurfaceBuilder extends SurfaceBuilder<QuadarySurfaceConfig>
                 if (maxDepth == -1) {
                     if (j <= 0) {
                         topState = Blocks.AIR.getDefaultState();
-                        underState = defaultBlock;
+                        underState = surfaceConfig.getDefaultBlock();
                     } else if (m >= seaLevel - 4 && m <= seaLevel + 1) {
                         topState = surfaceConfig.getTopMaterial();
                         underState = surfaceConfig.getUnderMaterial();
@@ -51,7 +51,7 @@ public class ModBiomeSurfaceBuilder extends SurfaceBuilder<QuadarySurfaceConfig>
                         chunk.setBlockState(mutable, topState, false);
                     } else if (m < seaLevel - 7 - j) {
                         topState = Blocks.AIR.getDefaultState();
-                        underState = defaultBlock;
+                        underState = surfaceConfig.getDefaultBlock();
                         chunk.setBlockState(mutable, surfaceConfig.getUnderwaterMaterial(), false);
                     } else {
                         chunk.setBlockState(mutable, underState, false);
@@ -61,7 +61,7 @@ public class ModBiomeSurfaceBuilder extends SurfaceBuilder<QuadarySurfaceConfig>
                     chunk.setBlockState(mutable, underState, false);
 
                 } else {
-                    chunk.setBlockState(mutable, defaultBlock, false);
+                    chunk.setBlockState(mutable, surfaceConfig.getDefaultBlock(), false);
                 }
             }
         }

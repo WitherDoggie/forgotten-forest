@@ -10,7 +10,9 @@
     "EntityAccessor",
     "CarverAccessor",
     "AbstractBlockStateMixin",
-    "StatusEffectMixin"
+    "StatusEffectMixin",
+    "PlayerEntityAccessor",
+    "LakeFeatureMixin"
   ],
   "client": [
 

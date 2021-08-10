@@ -1,31 +1,31 @@
-package io.github.witherdoggie.forgottenforest.item.materials;
+package io.github.witherdoggie.forgottenforest.item.materials.tool;
 
 import io.github.witherdoggie.forgottenforest.registry.ItemRegistry;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 
-public class OrchiumToolMaterial implements ToolMaterial {
+public class FireiteToolMaterial implements ToolMaterial {
 
-    public static final OrchiumToolMaterial INSTANCE = new OrchiumToolMaterial();
+    public static final FireiteToolMaterial INSTANCE = new FireiteToolMaterial();
 
     @Override
     public int getDurability() {
-        return 1178;
+        return 2018;
     }
 
     @Override
     public float getMiningSpeedMultiplier() {
-        return 7.0F;
+        return 9.0F;
     }
 
     @Override
     public float getAttackDamage() {
-        return 2.5F;
+        return 4.0F;
     }
 
     @Override
     public int getMiningLevel() {
-        return 3;
+        return 4;
     }
 
     @Override
@@ -35,6 +35,6 @@ public class OrchiumToolMaterial implements ToolMaterial {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(ItemRegistry.ORCHIUM_INGOT);
+        return Ingredient.ofItems(ItemRegistry.FIREITE_GEM);
     }
 }

@@ -22,7 +22,8 @@
 
   "starts": [
     "minecraft:mineshaft",
-    "forgotten_forest:crypt"
+    "forgotten_forest:crypt",
+    "forgotten_forest:fire_ruins"
   ],
   "spawners": {
     "monster": [
@@ -56,7 +57,7 @@
   "features": [
     [],
     [
-      "minecraft:lake_lava"
+      "forgotten_forest:fire_lava_lake"
     ],
     [],
     [],

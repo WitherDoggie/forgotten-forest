@@ -7,7 +7,7 @@ import io.github.witherdoggie.forgottenforest.block.base.ModSaplingBlock;
 import io.github.witherdoggie.forgottenforest.block.base.ModStairsBlock;
 //import io.github.witherdoggie.forgottenforest.block.fluid.PoisonWaterFluid;
 import io.github.witherdoggie.forgottenforest.block.fluid.PoisonWaterFluid;
-import io.github.witherdoggie.forgottenforest.generator.GloomySaplingGenerator;
+import io.github.witherdoggie.forgottenforest.world.generator.GloomySaplingGenerator;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tag.TagRegistry;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
