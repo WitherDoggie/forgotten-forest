@@ -1,6 +1,7 @@
 package io.github.witherdoggie.forgottenforest.entity;
 
 import io.github.witherdoggie.forgottenforest.entity.goal.ChickenIgniteGoal;
+import io.github.witherdoggie.forgottenforest.entity.goal.CreateItemWhenBreedingGoal;
 import io.github.witherdoggie.forgottenforest.registry.EntityRegistry;
 import io.github.witherdoggie.forgottenforest.registry.ItemRegistry;
 import net.minecraft.advancement.criterion.Criteria;
@@ -39,8 +40,7 @@ public class SoulChickenEntity extends ChickenEntity {
 
     private static TrackedData<Boolean> IGNITE = DataTracker.registerData(ChickenEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     private static TrackedData<Integer> FUSE = DataTracker.registerData(ChickenEntity.class, TrackedDataHandlerRegistry.INTEGER);
-    private static Ingredient BREEDING_ITEM = Ingredient.ofItems(new ItemConvertible[]{
-            Items.WHEAT_SEEDS.asItem()});
+    private static Ingredient BREEDING_ITEM = Ingredient.ofItems(new ItemConvertible[]{Items.WHEAT_SEEDS.asItem()});
     private int lastFuseTime;
     private int currentFuseTime;
     private int fuseTime = 30;
@@ -56,7 +56,7 @@ public class SoulChickenEntity extends ChickenEntity {
         this.goalSelector.add(4, new MeleeAttackGoal(this, 1.0D, false));
         this.targetSelector.add(1, new FollowTargetGoal(this, PlayerEntity.class, true));
         this.targetSelector.add(2, new RevengeGoal(this, new Class[0]));
-        this.goalSelector.add(1, new SoulChickenEntity.MateGoal(this, 1.0D));
+        this.goalSelector.add(0, new CreateItemWhenBreedingGoal(this, 2.0D, new ItemStack(ItemRegistry.EGG_OF_LIFE_ITEM, 1)));
     }
 
     public static DefaultAttributeContainer.Builder createSoulChickenAttributes() {
@@ -96,7 +96,6 @@ public class SoulChickenEntity extends ChickenEntity {
                 this.explode();
             }
         }
-
         super.tick();
     }
 
@@ -143,37 +142,5 @@ public class SoulChickenEntity extends ChickenEntity {
 
     public ChickenEntity createChild(ServerWorld world, PassiveEntity entity) {
         return EntityRegistry.SOUL_CHICKEN.create(world);
-    }
-
-    private static class MateGoal extends AnimalMateGoal {
-        private final SoulChickenEntity chicken;
-
-        MateGoal(SoulChickenEntity chicken, double speed) {
-            super(chicken, speed);
-            this.chicken = chicken;
-        }
-
-        protected void breed() {
-            ServerPlayerEntity serverPlayerEntity = this.animal.getLovingPlayer();
-            if (serverPlayerEntity == null && this.mate.getLovingPlayer() != null) {
-                serverPlayerEntity = this.mate.getLovingPlayer();
-            }
-
-            if (serverPlayerEntity != null) {
-                serverPlayerEntity.incrementStat(Stats.ANIMALS_BRED);
-                Criteria.BRED_ANIMALS.trigger(serverPlayerEntity, this.animal, this.mate, (PassiveEntity)null);
-            }
-
-            this.animal.resetLoveTicks();
-            this.mate.resetLoveTicks();
-            Random random = this.animal.getRandom();
-
-            ItemEntity spawnedItem = new ItemEntity(this.world, animal.getX(), animal.getY(), animal.getZ(), new ItemStack(ItemRegistry.EGG_OF_LIFE_ITEM, 1));
-            this.world.spawnEntity(spawnedItem);
-            if (this.world.getGameRules().getBoolean(GameRules.DO_MOB_LOOT)) {
-                this.world.spawnEntity(new ExperienceOrbEntity(this.world, this.animal.getX(), this.animal.getY(), this.animal.getZ(), random.nextInt(7) + 1));
-            }
-
-        }
     }
 }
