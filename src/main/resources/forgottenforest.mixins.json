@@ -12,7 +12,8 @@
     "AbstractBlockStateMixin",
     "StatusEffectMixin",
     "PlayerEntityAccessor",
-    "LakeFeatureMixin"
+    "LakeFeatureMixin",
+    "PlayerEntityMixin"
   ],
   "client": [
 

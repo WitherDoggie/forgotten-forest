@@ -1,0 +1,37 @@
+package io.github.witherdoggie.forgottenforest.mixin;
+
+import io.github.witherdoggie.forgottenforest.registry.ItemRegistry;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
+import net.minecraft.world.World;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+@Mixin(PlayerEntity.class)
+public abstract class PlayerEntityMixin extends LivingEntity{
+
+    protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
+        super(entityType, world);
+    }
+
+    @Inject(method = "tick", at = @At("HEAD"), cancellable = true)
+    private void orchiumArmorEffects(CallbackInfo ci){
+
+        Item helmet = getEquippedStack(EquipmentSlot.HEAD).getItem();
+        Item chest = getEquippedStack(EquipmentSlot.CHEST).getItem();
+        Item legs = getEquippedStack(EquipmentSlot.LEGS).getItem();
+        Item boots = getEquippedStack(EquipmentSlot.FEET).getItem();
+
+        if(helmet == ItemRegistry.ORCHIUM_HELMET && chest == ItemRegistry.ORCHIUM_CHESTPLATE && legs == ItemRegistry.ORCHIUM_LEGGINGS && boots == ItemRegistry.ORCHIUM_BOOTS){
+            this.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 42, 2, false, false));
+            this.addStatusEffect(new StatusEffectInstance(StatusEffects.HEALTH_BOOST, 42, 1, false, false));
+        }
+    }
+}

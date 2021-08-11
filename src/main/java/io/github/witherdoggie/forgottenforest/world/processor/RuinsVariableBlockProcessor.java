@@ -3,7 +3,6 @@ package io.github.witherdoggie.forgottenforest.world.processor;
 import com.google.common.collect.ImmutableList;
 import io.github.witherdoggie.forgottenforest.registry.BiomeRegistry;
 import io.github.witherdoggie.forgottenforest.registry.BlockRegistry;
-import it.unimi.dsi.fastutil.longs.Long2ObjectMap;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -16,13 +15,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.ChunkRegion;
-import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.biome.Biome;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /************************************************************************************
  *
@@ -47,9 +44,11 @@ public class RuinsVariableBlockProcessor extends StructureProcessor {
             key = ((ChunkRegion) world).getRegistryManager().get(Registry.BIOME_KEY).getKey(world.getBiome(structureBlockInfo.pos)).get();
         }
 
-        if(key.equals(BiomeRegistry.GLOOMY_FOREST_KEY)){
-
+        if(key.equals(BiomeRegistry.GLOOMY_FOREST_KEY) || key.equals(BiomeRegistry.GLOOMY_MOUNTAINS_KEY)){
             return new Structure.StructureBlockInfo(structureBlockInfo2.pos, changeBlockToBiome(structureBlockInfo, world.getBlockState(pos), GLOOMY_BLOCKS), structureBlockInfo2.nbt);
+        }
+        else if(key.equals(BiomeRegistry.FIRE_PLAINS_KEY) || key.equals(BiomeRegistry.FIRE_PITS_KEY)){
+            return new Structure.StructureBlockInfo(structureBlockInfo2.pos, changeBlockToBiome(structureBlockInfo, world.getBlockState(pos), FIRE_BLOCKS), structureBlockInfo2.nbt);
         }
 
         return structureBlockInfo;
