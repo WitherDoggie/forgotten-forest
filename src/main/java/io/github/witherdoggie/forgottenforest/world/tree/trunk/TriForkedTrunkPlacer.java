@@ -3,6 +3,7 @@ package io.github.witherdoggie.forgottenforest.world.tree.trunk;
 import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import io.github.witherdoggie.forgottenforest.world.feature.ConfiguredFeatures;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.TestableWorld;
@@ -11,7 +12,6 @@ import net.minecraft.world.gen.foliage.FoliagePlacer;
 import net.minecraft.world.gen.trunk.ForkingTrunkPlacer;
 import net.minecraft.world.gen.trunk.TrunkPlacer;
 import net.minecraft.world.gen.trunk.TrunkPlacerType;
-import org.lwjgl.system.CallbackI;
 
 import java.util.List;
 import java.util.Random;
@@ -29,7 +29,7 @@ public class TriForkedTrunkPlacer extends TrunkPlacer {
 
     @Override
     protected TrunkPlacerType<?> getType() {
-        return null;
+        return null;//ConfiguredFeatures.TRI_FORKED_TRUNK_PLACER;
     }
 
     @Override
@@ -40,6 +40,16 @@ public class TriForkedTrunkPlacer extends TrunkPlacer {
 
         for(int i = 0; i < baseHeight; i++) {
 
+           if(i < 3){
+               getAndSetState(world, replacer, random, startPos, config);
+               startPos = startPos.up();
+           }
+           else if(i >= 3){
+               getAndSetState(world, replacer, random, startPos.east().north(), config);
+               getAndSetState(world, replacer, random, startPos.west().south(), config);
+               getAndSetState(world, replacer, random, startPos.south(), config);
+               startPos = startPos.up();
+           }
         }
 
         return nodes;

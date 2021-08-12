@@ -13,7 +13,8 @@
     "StatusEffectMixin",
     "PlayerEntityAccessor",
     "LakeFeatureMixin",
-    "PlayerEntityMixin"
+    "PlayerEntityMixin",
+    "TrunkPlacerTypeMixin"
   ],
   "client": [
 

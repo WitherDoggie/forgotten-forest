@@ -1,7 +1,13 @@
 package io.github.witherdoggie.forgottenforest.world.feature;
 
 import io.github.witherdoggie.forgottenforest.ForgottenForest;
+import io.github.witherdoggie.forgottenforest.mixin.TrunkPlacerTypeMixin;
 import io.github.witherdoggie.forgottenforest.registry.BlockRegistry;
+import io.github.witherdoggie.forgottenforest.world.tree.trunk.TriForkedTrunkPlacer;
+import net.fabricmc.fabric.api.biome.v1.BiomeModification;
+import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
+import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
+import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
@@ -20,10 +26,13 @@ import net.minecraft.world.gen.heightprovider.UniformHeightProvider;
 import net.minecraft.world.gen.placer.SimpleBlockPlacer;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
+import net.minecraft.world.gen.trunk.TrunkPlacerType;
 
 public class ConfiguredFeatures {
 
+    public static final TrunkPlacerType<TriForkedTrunkPlacer> TRI_FORKED_TRUNK_PLACER = TrunkPlacerTypeMixin.callRegister("tri_forked_trunk_placer", TriForkedTrunkPlacer.CODEC);
     public static ConfiguredFeature<?, ?> GLOOMY_TREE;
+    public static ConfiguredFeature<?,?> TEST_TREE;
     public static ConfiguredFeature<?, ?> GLOOMY_GRASS = Feature.RANDOM_PATCH.configure(Configs.GLOOMY_GRASS_CONFIG).decorate(net.minecraft.world.gen.feature.ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(2);
     public static ConfiguredFeature<?, ?> FIRE_GRASS = Feature.RANDOM_PATCH.configure(Configs.FIRE_GRASS_CONFIG).decorate(net.minecraft.world.gen.feature.ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE)
             .decorate(Decorator.COUNT_NOISE.configure(new CountNoiseDecoratorConfig(-0.8D, 5, 10)));
@@ -66,6 +75,10 @@ public class ConfiguredFeatures {
                 new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(States.GLOOMY_LOG), new StraightTrunkPlacer(4, 2, 0), new SimpleBlockStateProvider(States.GLOOMY_LEAVES), new SimpleBlockStateProvider(States.GLOOMY_SAPLING),
                 new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3), new TwoLayersFeatureSize(1, 0, 1))).ignoreVines().build()));
 
+        //TEST_TREE = register(ForgottenForest.MODID + ":test_tree", Feature.TREE.configure((
+         //      new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(States.GLOOMY_LOG), new TriForkedTrunkPlacer(4, 2, 0), new SimpleBlockStateProvider(States.GLOOMY_LEAVES), new SimpleBlockStateProvider(States.GLOOMY_SAPLING),
+           //             new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3), new TwoLayersFeatureSize(1, 0, 1))).ignoreVines().build()));
+
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, oreOrchiumOverworld.getValue(), ORCHIUM_ORE);
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, modIronOre.getValue(), FF_IRON_ORE);
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, modGoldOre.getValue(), FF_GOLD_ORE);
@@ -75,7 +88,6 @@ public class ConfiguredFeatures {
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, modRedstoneOre.getValue(), FF_REDSTONE_ORE);
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, gloomyGrass.getValue(), GLOOMY_GRASS);
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, fireGrass.getValue(), FIRE_GRASS);
-
 
     }
 

@@ -12,6 +12,12 @@ import net.minecraft.world.GameRules;
 
 import java.util.Random;
 
+/****************************************************************
+ *
+ * MateGoal that allows for an ItemEntity to be created instead
+ * of a child when breeding animals.
+ *
+ ****************************************************************/
 public class CreateItemWhenBreedingGoal extends AnimalMateGoal {
 
     private ItemStack itemStack;
@@ -41,6 +47,5 @@ public class CreateItemWhenBreedingGoal extends AnimalMateGoal {
         if (this.world.getGameRules().getBoolean(GameRules.DO_MOB_LOOT)) {
             this.world.spawnEntity(new ExperienceOrbEntity(this.world, this.animal.getX(), this.animal.getY(), this.animal.getZ(), random.nextInt(7) + 1));
         }
-
     }
 }

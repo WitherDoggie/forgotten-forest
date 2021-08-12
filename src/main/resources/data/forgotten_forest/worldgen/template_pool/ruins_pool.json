@@ -1,0 +1,47 @@
+{
+
+  "name": "forgotten_forest:ruins_pool",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+
+        "location": "forgotten_forest:ruins_01",
+        "processors": "forgotten_forest:ruins_variable_block_processor",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+
+        "location": "forgotten_forest:ruins_02",
+        "processors": "forgotten_forest:ruins_variable_block_processor",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+
+        "location": "forgotten_forest:ruins_03",
+        "processors": "forgotten_forest:ruins_variable_block_processor",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+
+        "location": "forgotten_forest:ruins_04",
+        "processors": "forgotten_forest:ruins_variable_block_processor",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

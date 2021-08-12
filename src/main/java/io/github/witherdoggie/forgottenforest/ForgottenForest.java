@@ -52,6 +52,7 @@ public class ForgottenForest implements ModInitializer {
             ((CarverAccessor) carver).setCarvableBlocks(newList);
         });
 
+        ProcessorRegistry.initStructureProcessors();
         StructureRegistry.initStructures();
 
         LOGGER.info("Finished Loading Forgotten Forest");

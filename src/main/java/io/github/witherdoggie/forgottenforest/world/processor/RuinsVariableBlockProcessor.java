@@ -1,8 +1,10 @@
 package io.github.witherdoggie.forgottenforest.world.processor;
 
 import com.google.common.collect.ImmutableList;
+import com.mojang.serialization.Codec;
 import io.github.witherdoggie.forgottenforest.registry.BiomeRegistry;
 import io.github.witherdoggie.forgottenforest.registry.BlockRegistry;
+import io.github.witherdoggie.forgottenforest.registry.ProcessorRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -30,6 +32,8 @@ import java.util.ArrayList;
 
 public class RuinsVariableBlockProcessor extends StructureProcessor {
 
+    public static final Codec<RuinsVariableBlockProcessor> CODEC = Codec.unit(RuinsVariableBlockProcessor::new);
+
     //private static final Long2ObjectMap<Biome> CACHED_BIOMES = new Long2ObjectMap<Biome>(200) {};
     private final ArrayList<Block> GLOOMY_BLOCKS = new ArrayList<>(ImmutableList.of(BlockRegistry.GLOOMY_BRICKS, BlockRegistry.GLOOMY_BRICKS_SLAB, BlockRegistry.GLOOMY_BRICKS_STAIRS, BlockRegistry.GLOOMY_STONE));
     private final ArrayList<Block> FIRE_BLOCKS = new ArrayList<>(ImmutableList.of(BlockRegistry.FIRE_BRICKS, BlockRegistry.FIRE_BRICK_SLAB, BlockRegistry.FIRE_BRICK_STAIRS, BlockRegistry.FIRE_STONE));
@@ -38,6 +42,7 @@ public class RuinsVariableBlockProcessor extends StructureProcessor {
     @Override
     public Structure.StructureBlockInfo process(WorldView world, BlockPos pos, BlockPos pivot, Structure.StructureBlockInfo structureBlockInfo, Structure.StructureBlockInfo structureBlockInfo2, StructurePlacementData data) {
 
+        /* TODO: Still need to implement some sort of biome caching to reduce resource use */
         RegistryKey<Biome> key = null;
 
         if(world instanceof ChunkRegion) {
@@ -56,7 +61,7 @@ public class RuinsVariableBlockProcessor extends StructureProcessor {
 
     @Override
     protected StructureProcessorType<?> getType() {
-        return null;
+        return ProcessorRegistry.RUINS_BLOCK_PROCESSOR;
     }
 
     private <T extends Comparable<T>> BlockState copyProperties(BlockState originalState, BlockState copyState, Property<T> property){

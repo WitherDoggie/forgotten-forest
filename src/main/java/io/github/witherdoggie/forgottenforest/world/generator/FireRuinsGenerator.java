@@ -20,7 +20,7 @@ import java.util.Random;
 
 public class FireRuinsGenerator {
 
-    private static final Identifier RUINS = new Identifier(ForgottenForest.MODID, "fire_ruins");
+    private static final Identifier RUINS = new Identifier(ForgottenForest.MODID, "ruins");
 
     public static void addPieces(StructureManager manager, StructurePiecesHolder structurePiecesHolder, Random random, BlockPos pos) {
         BlockRotation blockRotation = BlockRotation.random(random);

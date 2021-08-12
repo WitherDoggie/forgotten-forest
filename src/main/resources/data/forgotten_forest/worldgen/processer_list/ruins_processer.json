@@ -1,0 +1,7 @@
+{
+  "processors": [
+    {
+      "processor_type": "forgotten_forest:ruins_variable_block_processor"
+    }
+  ]
+}

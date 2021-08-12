@@ -26,7 +26,7 @@ public class StructureRegistry {
 
     public static final StructureFeature<DefaultFeatureConfig> FIRE_RUINS = new FireRuinsFeature(DefaultFeatureConfig.CODEC);
     public static final ConfiguredStructureFeature<?, ?> FIRE_RUINS_CONFIGURED = FIRE_RUINS.configure(DefaultFeatureConfig.DEFAULT);
-    public static final StructurePieceType FIRE_RUINS_PIECE = StructurePieceType.register(FireRuinsGenerator.Piece::new, "fire_ruins");
+    public static final StructurePieceType FIRE_RUINS_PIECE = StructurePieceType.register(FireRuinsGenerator.Piece::new, "ruins");
 
     public static void initStructures() {
 
@@ -36,9 +36,9 @@ public class StructureRegistry {
                 .adjustsSurface()
                 .register();
 
-        FabricStructureBuilder.create(new Identifier(ForgottenForest.MODID, "fire_ruins"), FIRE_RUINS)
+        FabricStructureBuilder.create(new Identifier(ForgottenForest.MODID, "ruins"), FIRE_RUINS)
                 .step(GenerationStep.Feature.SURFACE_STRUCTURES)
-                .defaultConfig(32, 8, 12345)
+                .defaultConfig(20, 8, 1237986756)
                 .adjustsSurface()
                 .register();
 
@@ -46,8 +46,6 @@ public class StructureRegistry {
         Registry.register(myConfigured, ForgottenForest.id("crypt"), CRYPT_CONFIGURED);
 
         Registry<ConfiguredStructureFeature<?, ?>> configuredFireRuins = BuiltinRegistries.CONFIGURED_STRUCTURE_FEATURE;
-        Registry.register(configuredFireRuins, ForgottenForest.id("fire_ruins"), FIRE_RUINS_CONFIGURED);
-
-        BiomeModifications.create(ForgottenForest.id("fire_ruins")).add(ModificationPhase.ADDITIONS, BiomeSelectors.all(), context -> {context.getGenerationSettings().addBuiltInStructure(FIRE_RUINS_CONFIGURED);});
+        Registry.register(configuredFireRuins, ForgottenForest.id("ruins"), FIRE_RUINS_CONFIGURED);
     }
 }
