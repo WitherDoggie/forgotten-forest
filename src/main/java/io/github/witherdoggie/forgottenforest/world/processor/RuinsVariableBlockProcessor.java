@@ -22,6 +22,8 @@ import net.minecraft.world.biome.Biome;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /************************************************************************************
  *
@@ -34,7 +36,7 @@ public class RuinsVariableBlockProcessor extends StructureProcessor {
 
     public static final Codec<RuinsVariableBlockProcessor> CODEC = Codec.unit(RuinsVariableBlockProcessor::new);
 
-    //private static final Long2ObjectMap<Biome> CACHED_BIOMES = new Long2ObjectMap<Biome>(200) {};
+    private static final Map<WorldView, Map<Long, Biome>> MINI_BIOMEPOS_CACHE = new HashMap<>();
     private final ArrayList<Block> GLOOMY_BLOCKS = new ArrayList<>(ImmutableList.of(BlockRegistry.GLOOMY_BRICKS, BlockRegistry.GLOOMY_BRICKS_SLAB, BlockRegistry.GLOOMY_BRICKS_STAIRS, BlockRegistry.GLOOMY_STONE));
     private final ArrayList<Block> FIRE_BLOCKS = new ArrayList<>(ImmutableList.of(BlockRegistry.FIRE_BRICKS, BlockRegistry.FIRE_BRICK_SLAB, BlockRegistry.FIRE_BRICK_STAIRS, BlockRegistry.FIRE_STONE));
 
@@ -44,16 +46,20 @@ public class RuinsVariableBlockProcessor extends StructureProcessor {
 
         /* TODO: Still need to implement some sort of biome caching to reduce resource use */
         RegistryKey<Biome> key = null;
+        Biome biome = getCachedBiome(world, pos);
 
         if(world instanceof ChunkRegion) {
-            key = ((ChunkRegion) world).getRegistryManager().get(Registry.BIOME_KEY).getKey(world.getBiome(structureBlockInfo.pos)).get();
+            key = ((ChunkRegion) world).getRegistryManager().get(Registry.BIOME_KEY).getKey(world.getBiome(structureBlockInfo2.pos)).get();
         }
 
         if(key.equals(BiomeRegistry.GLOOMY_FOREST_KEY) || key.equals(BiomeRegistry.GLOOMY_MOUNTAINS_KEY)){
-            return new Structure.StructureBlockInfo(structureBlockInfo2.pos, changeBlockToBiome(structureBlockInfo, world.getBlockState(pos), GLOOMY_BLOCKS), structureBlockInfo2.nbt);
+            Structure.StructureBlockInfo temp =  new Structure.StructureBlockInfo(structureBlockInfo2.pos, changeBlockToBiome(structureBlockInfo, structureBlockInfo.state, GLOOMY_BLOCKS), structureBlockInfo2.nbt);
+            return temp;
         }
         else if(key.equals(BiomeRegistry.FIRE_PLAINS_KEY) || key.equals(BiomeRegistry.FIRE_PITS_KEY)){
-            return new Structure.StructureBlockInfo(structureBlockInfo2.pos, changeBlockToBiome(structureBlockInfo, world.getBlockState(pos), FIRE_BLOCKS), structureBlockInfo2.nbt);
+
+            Structure.StructureBlockInfo temp =  new Structure.StructureBlockInfo(structureBlockInfo2.pos, changeBlockToBiome(structureBlockInfo, structureBlockInfo.state, FIRE_BLOCKS), structureBlockInfo2.nbt);
+            return temp;
         }
 
         return structureBlockInfo;
@@ -110,5 +116,13 @@ public class RuinsVariableBlockProcessor extends StructureProcessor {
         }
 
         return newBlockState;
+    }
+
+    private Biome getCachedBiome(WorldView worldView, BlockPos structurePos) {
+        Map<Long, Biome> worldSpecificBiomes = MINI_BIOMEPOS_CACHE.computeIfAbsent(worldView, (keyPos) -> new HashMap<>());
+        BlockPos biomePos = new BlockPos(structurePos.getX() >> 2, 0, structurePos.getZ() >> 2);
+        Biome biome = worldSpecificBiomes.computeIfAbsent(biomePos.asLong(), (keyPos) -> worldView.getBiome(structurePos));
+        if(worldSpecificBiomes.size() > 20) worldSpecificBiomes.clear();
+        return biome;
     }
 }

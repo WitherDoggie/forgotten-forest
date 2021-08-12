@@ -14,8 +14,6 @@ public class GhostEntityModel extends EntityModel<GhostEntity> {
 
         this.bone = modelPart.getChild(EntityModelPartNames.CUBE);
         bone.setPivot(0.0F, 24.0F, 0.0F);
-        //bone.setTextureOffset(0, 0).addCuboid(-6.0F, -17.0F, -2.0F, 11.0F, 17.0F, 5.0F, 0.0F, false);
-
     }
 
     public static TexturedModelData getTexturedModelData(){
