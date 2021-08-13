@@ -22,7 +22,6 @@
 
   "starts": [
     "minecraft:mineshaft",
-    "forgotten_forest:crypt",
     "forgotten_forest:ruins"
   ],
   "spawners": {
@@ -44,6 +43,14 @@
         "weight": 2,
         "minCount": 3,
         "maxCount": 3
+      }
+    ],
+    "creature": [
+      {
+        "type": "forgotten_forest:fire_pig",
+        "weight": 10,
+        "minCount": 4,
+        "maxCount": 4
       }
     ]
   },
