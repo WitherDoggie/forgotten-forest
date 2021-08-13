@@ -1,6 +1,8 @@
+https://img.shields.io/badge/Requires-Fabric%20API-blue
 # The Forgotten Forest
 
 Enter the forgotten lands and face the new dangers and adventures trapped within.
+
 
 ## License
 
