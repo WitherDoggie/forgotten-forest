@@ -51,6 +51,12 @@
     }
   },
   "structures": {
-    "structures": {}
+    "structures": {
+      "minecraft:mineshaft": {
+        "spacing": 1,
+        "separation": 0,
+        "salt": 0
+      }
+    }
   }
 }
