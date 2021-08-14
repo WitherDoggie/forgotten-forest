@@ -7,7 +7,7 @@
       "weight": 1,
       "element": {
 
-        "location": "forgotten_forest:ruins_01",
+        "location": "forgotten_forest:ruins/ruins_01",
         "processors": "forgotten_forest:ruins_processor",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
@@ -17,7 +17,7 @@
       "weight": 1,
       "element": {
 
-        "location": "forgotten_forest:ruins_02",
+        "location": "forgotten_forest:ruins/ruins_02",
         "processors": "forgotten_forest:ruins_processor",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
@@ -27,7 +27,7 @@
       "weight": 1,
       "element": {
 
-        "location": "forgotten_forest:ruins_03",
+        "location": "forgotten_forest:ruins/ruins_03",
         "processors": "forgotten_forest:ruins_processor",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
@@ -37,7 +37,7 @@
       "weight": 1,
       "element": {
 
-        "location": "forgotten_forest:ruins_04",
+        "location": "forgotten_forest:ruins/ruins_04",
         "processors": "forgotten_forest:ruins_processor",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
