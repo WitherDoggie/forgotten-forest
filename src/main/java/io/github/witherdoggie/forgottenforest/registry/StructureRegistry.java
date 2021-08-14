@@ -1,13 +1,10 @@
 package io.github.witherdoggie.forgottenforest.registry;
 
 import io.github.witherdoggie.forgottenforest.ForgottenForest;
-import io.github.witherdoggie.forgottenforest.world.generator.CryptGenerator;
-import io.github.witherdoggie.forgottenforest.world.generator.FireRuinsGenerator;
+import io.github.witherdoggie.forgottenforest.world.generator.structure.CryptGenerator;
+import io.github.witherdoggie.forgottenforest.world.generator.structure.FireRuinsGenerator;
 import io.github.witherdoggie.forgottenforest.world.structure.CryptFeature;
 import io.github.witherdoggie.forgottenforest.world.structure.FireRuinsFeature;
-import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
-import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
-import net.fabricmc.fabric.api.biome.v1.ModificationPhase;
 import net.fabricmc.fabric.api.structure.v1.FabricStructureBuilder;
 import net.minecraft.structure.StructurePieceType;
 import net.minecraft.util.Identifier;

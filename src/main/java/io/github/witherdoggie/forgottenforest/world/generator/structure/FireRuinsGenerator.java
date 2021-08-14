@@ -1,4 +1,4 @@
-package io.github.witherdoggie.forgottenforest.world.generator;
+package io.github.witherdoggie.forgottenforest.world.generator.structure;
 
 import io.github.witherdoggie.forgottenforest.ForgottenForest;
 import io.github.witherdoggie.forgottenforest.registry.StructureRegistry;
