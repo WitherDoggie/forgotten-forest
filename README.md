@@ -2,6 +2,8 @@
 
 Enter the forgotten lands and face the new dangers and adventures trapped within.
 
+![](https://tokei.rs/b1/github/witherdoggie/forgotten-forest?category=code)
+![](https://img.shields.io/badge/Requires-Fabric%20API-green?link=https://www.curseforge.com/minecraft/mc-mods/fabric-api)
 
 ## License
 
