@@ -28,7 +28,7 @@ public class ForgottenTower extends StructureFeature<DefaultFeatureConfig> {
 
     @Override
     public StructureFeature.StructureStartFactory<DefaultFeatureConfig> getStructureStartFactory() {
-        return CryptFeature.Start::new;
+        return ForgottenTower.Start::new;
     }
 
     public static class Start extends MarginedStructureStart<DefaultFeatureConfig> {
@@ -46,7 +46,7 @@ public class ForgottenTower extends StructureFeature<DefaultFeatureConfig> {
             StructurePoolBasedGenerator.generate(
                     dynamicRegistryManager,
                     new StructurePoolFeatureConfig(() -> dynamicRegistryManager.get(Registry.STRUCTURE_POOL_KEY)
-                            .get(new Identifier(ForgottenForest.MODID, "forgotten_tower")), 10), PoolStructurePiece::new,
+                            .get(new Identifier(ForgottenForest.MODID, "forgotten_tower_pool")), 10), PoolStructurePiece::new,
                     chunkGenerator, structureManager, blockPos, this, this.random, false, true, heightLimitView);
 
             this.children.forEach(piece -> piece.translate(0, 1, 0));

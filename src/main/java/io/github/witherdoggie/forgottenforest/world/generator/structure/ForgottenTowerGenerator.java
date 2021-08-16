@@ -24,17 +24,17 @@ public class ForgottenTowerGenerator {
 
     public static void addPieces(StructureManager manager, StructurePiecesHolder structurePiecesHolder, Random random, BlockPos pos) {
         BlockRotation blockRotation = BlockRotation.random(random);
-        structurePiecesHolder.addPiece(new FireRuinsGenerator.Piece(manager, TOWER, pos, blockRotation));
+        structurePiecesHolder.addPiece(new ForgottenTowerGenerator.Piece(manager, TOWER, pos, blockRotation));
     }
 
     public static class Piece extends SimpleStructurePiece {
 
         public Piece(StructureManager manager, Identifier template, BlockPos pos, BlockRotation rotation) {
-            super(StructureRegistry.FIRE_RUINS_PIECE, 0, manager, template, template.toString(), createPlacementData(rotation), pos);
+            super(StructureRegistry.FORGOTTEN_TOWER_PIECE, 0, manager, template, template.toString(), createPlacementData(rotation), pos);
         }
 
         public Piece(ServerWorld world, NbtCompound nbt) {
-            super(StructureRegistry.FIRE_RUINS_PIECE, nbt, world, (identifier1 -> createPlacementData(BlockRotation.valueOf(nbt.getString("Rot")))));
+            super(StructureRegistry.FORGOTTEN_TOWER_PIECE, nbt, world, (identifier1 -> createPlacementData(BlockRotation.valueOf(nbt.getString("Rot")))));
         }
 
         private static StructurePlacementData createPlacementData(BlockRotation rotation) {

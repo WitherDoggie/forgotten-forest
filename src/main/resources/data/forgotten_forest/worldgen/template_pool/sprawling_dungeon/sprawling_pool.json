@@ -1,0 +1,51 @@
+{
+  "name": "forgotten_forest:sprawling_dungeon/sprawling_pool",
+  "fallback": "minecraft:village/desert/terminators",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "location": "forgotten_forest:sprawling_dungeon/tunnel_8",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "forgotten_forest:sprawling_dungeon/room_big_01",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "forgotten_forest:sprawling_dungeon/tunnel_16",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "forgotten_forest:sprawling_dungeon/intersection_01",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    },
+    {
+      "weight": 1,
+      "element": {
+        "location": "forgotten_forest:sprawling_dungeon/tunnel_end_02",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:legacy_single_pool_element"
+      }
+    }
+  ]
+}
