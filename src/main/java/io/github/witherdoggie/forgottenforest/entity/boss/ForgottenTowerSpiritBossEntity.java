@@ -50,20 +50,23 @@ public class ForgottenTowerSpiritBossEntity extends PathAwareEntity {
     public boolean tryAttack(Entity target) {
         boolean bl = super.tryAttack(target);
 
-        int attackValue = random.nextInt(30);
+        int attackValue = random.nextInt(20);
 
         if(attackValue == 3) {
             if (target instanceof PlayerEntity) {
                 dropPlayerItem((PlayerEntity) target);
             }
         }
-        else if(attackValue == 23){
+        else if(attackValue == 10){
             if (bl == true) {
                 heal((LivingEntity) target);
             }
         }
         else if(attackValue == 15){
             createExplosion();
+        }
+        else if(attackValue == 7){
+            heal((float)random.nextInt(30));
         }
         return bl;
     }
