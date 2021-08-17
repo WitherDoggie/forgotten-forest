@@ -71,7 +71,6 @@ public class ForgottenTowerSpiritBossEntity extends PathAwareEntity {
         }
         else if(attackValue == 17){
             summonGhosts();
-            System.out.println("SUMMONED GHOSTS");
         }
         return bl;
     }

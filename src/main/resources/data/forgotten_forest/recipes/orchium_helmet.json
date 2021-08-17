@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "X X"
+  ],
+  "key": {
+    "X": {
+      "item": "forgotten_forest:orchium_ingot"
+    }
+  },
+  "result": {
+    "item": "forgotten_forest:orchium_helmet"
+  }
+}

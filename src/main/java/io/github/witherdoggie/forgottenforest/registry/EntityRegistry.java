@@ -4,6 +4,10 @@ import io.github.witherdoggie.forgottenforest.ForgottenForest;
 import io.github.witherdoggie.forgottenforest.entity.*;
 import io.github.witherdoggie.forgottenforest.entity.boss.ForgottenTowerSpiritBossEntity;
 import io.github.witherdoggie.forgottenforest.entity.projectile.EggOfLifeEntity;
+import net.fabricmc.fabric.api.biome.v1.BiomeModification;
+import net.fabricmc.fabric.api.biome.v1.BiomeModificationContext;
+import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
+import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.fabricmc.fabric.mixin.object.builder.SpawnRestrictionAccessor;
@@ -13,7 +17,13 @@ import net.minecraft.entity.SpawnGroup;
 import net.minecraft.entity.SpawnRestriction;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.Heightmap;
+import net.minecraft.world.SpawnHelper;
+import net.minecraft.world.biome.BiomeKeys;
+import net.minecraft.world.biome.SpawnSettings;
+import net.minecraft.world.gen.Spawner;
+import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 
 public class EntityRegistry {
 
@@ -28,22 +38,22 @@ public class EntityRegistry {
 
     public static void initEntities() {
 
-        Registry.register(Registry.ENTITY_TYPE, new Identifier(ForgottenForest.MODID, "soul_spider"), SOUL_SPIDER);
+        Registry.register(Registry.ENTITY_TYPE, ForgottenForest.id("soul_spider"), SOUL_SPIDER);
         FabricDefaultAttributeRegistry.register(SOUL_SPIDER, SoulSpiderEntity.createSoulSpiderAttributes());
 
-        Registry.register(Registry.ENTITY_TYPE, new Identifier(ForgottenForest.MODID, "soul_skeleton"), SOUL_SKELETON);
+        Registry.register(Registry.ENTITY_TYPE, ForgottenForest.id("soul_skeleton"), SOUL_SKELETON);
         FabricDefaultAttributeRegistry.register(SOUL_SKELETON, SoulSkeletonEntity.createSoulSkeletonAttributes());
 
-        Registry.register(Registry.ENTITY_TYPE, new Identifier(ForgottenForest.MODID, "soul_chicken"), SOUL_CHICKEN);
+        Registry.register(Registry.ENTITY_TYPE, ForgottenForest.id("soul_chicken"), SOUL_CHICKEN);
         FabricDefaultAttributeRegistry.register(SOUL_CHICKEN, SoulChickenEntity.createSoulChickenAttributes());
 
-        Registry.register(Registry.ENTITY_TYPE, new Identifier(ForgottenForest.MODID, "ghost"), GHOST);
+        Registry.register(Registry.ENTITY_TYPE, ForgottenForest.id("ghost"), GHOST);
         FabricDefaultAttributeRegistry.register(GHOST, GhostEntity.createGhostAttributes());
 
-        Registry.register(Registry.ENTITY_TYPE, new Identifier(ForgottenForest.MODID, "fire_pig"), FIRE_PIG);
+        Registry.register(Registry.ENTITY_TYPE, ForgottenForest.id("fire_pig"), FIRE_PIG);
         FabricDefaultAttributeRegistry.register(FIRE_PIG, FirePigEntity.createFirePigAttributes());
 
-        Registry.register(Registry.ENTITY_TYPE, new Identifier(ForgottenForest.MODID, "forgotten_tower_spirit"), FORGOTTEN_TOWER_SPIRIT);
+        Registry.register(Registry.ENTITY_TYPE, ForgottenForest.id("forgotten_tower_spirit"), FORGOTTEN_TOWER_SPIRIT);
         FabricDefaultAttributeRegistry.register(FORGOTTEN_TOWER_SPIRIT, ForgottenTowerSpiritBossEntity.createForgottenTowerSpiritBossAttributes());
 
         Registry.register(Registry.ENTITY_TYPE, ForgottenForest.id("egg_of_life"), EGG_OF_LIFE);
@@ -52,5 +62,7 @@ public class EntityRegistry {
         SpawnRestrictionAccessor.callRegister(SOUL_SKELETON,  SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, (type, world, reason, pos, random) -> true);
         SpawnRestrictionAccessor.callRegister(SOUL_CHICKEN,  SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, (type, world, reason, pos, random) -> true);
         SpawnRestrictionAccessor.callRegister(FIRE_PIG,  SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, (type, world, reason, pos, random) -> true);
+
+        //BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.PLAINS), SpawnGroup.CREATURE, FIRE_PIG, 4, 10,30);
     }
 }

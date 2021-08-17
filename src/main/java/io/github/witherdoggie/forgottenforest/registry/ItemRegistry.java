@@ -2,6 +2,7 @@ package io.github.witherdoggie.forgottenforest.registry;
 
 import io.github.witherdoggie.forgottenforest.ForgottenForest;
 import io.github.witherdoggie.forgottenforest.item.*;
+import io.github.witherdoggie.forgottenforest.item.materials.armor.FireiteArmorMaterial;
 import io.github.witherdoggie.forgottenforest.item.materials.armor.OrchiumArmorMaterial;
 import io.github.witherdoggie.forgottenforest.item.materials.tool.FireiteToolMaterial;
 import io.github.witherdoggie.forgottenforest.item.materials.tool.OrchiumToolMaterial;
@@ -16,6 +17,7 @@ import net.minecraft.util.registry.Registry;
 
 public class ItemRegistry {
 
+    //public static final Item TEST_ITEM = new TestItem(new FabricItemSettings().group(ModItemGroups.ITEMS));
     public static final Item ORCHIUM_INGOT = new Item(new FabricItemSettings().group(ModItemGroups.ITEMS));
     public static final Item FIREITE_GEM = new Item(new FabricItemSettings().group(ModItemGroups.ITEMS));
 
@@ -30,6 +32,11 @@ public class ItemRegistry {
     public static final Item ORCHIUM_CHESTPLATE = new ArmorItem(OrchiumArmorMaterial.INSTANCE, EquipmentSlot.CHEST, new Item.Settings().group(ModItemGroups.ITEMS));
     public static final Item ORCHIUM_LEGGINGS = new ArmorItem(OrchiumArmorMaterial.INSTANCE, EquipmentSlot.LEGS, new Item.Settings().group(ModItemGroups.ITEMS));
     public static final Item ORCHIUM_BOOTS = new ArmorItem(OrchiumArmorMaterial.INSTANCE, EquipmentSlot.FEET, new Item.Settings().group(ModItemGroups.ITEMS));
+
+    public static final Item FIREITE_HELMET = new ArmorItem(FireiteArmorMaterial.INSTANCE, EquipmentSlot.HEAD, new Item.Settings().group(ModItemGroups.ITEMS));
+    public static final Item FIREITE_CHESTPLATE = new ArmorItem(FireiteArmorMaterial.INSTANCE, EquipmentSlot.CHEST, new Item.Settings().group(ModItemGroups.ITEMS));
+    public static final Item FIREITE_LEGGINGS = new ArmorItem(FireiteArmorMaterial.INSTANCE, EquipmentSlot.LEGS, new Item.Settings().group(ModItemGroups.ITEMS));
+    public static final Item FIREITE_BOOTS = new ArmorItem(FireiteArmorMaterial.INSTANCE, EquipmentSlot.FEET, new Item.Settings().group(ModItemGroups.ITEMS));
 
     public static ToolItem FIREITE_PICKAXE = new ModPickaxeItem(FireiteToolMaterial.INSTANCE, 2, -2.8F, new Item.Settings().group(ModItemGroups.ITEMS));
     public static ToolItem FIREITE_AXE = new ModAxeItem(FireiteToolMaterial.INSTANCE, 6.0F, -3.2F, new Item.Settings().group(ModItemGroups.ITEMS));
@@ -98,7 +105,13 @@ public class ItemRegistry {
         register("orchium_leggings", ORCHIUM_LEGGINGS);
         register("orchium_boots", ORCHIUM_BOOTS);
 
+        register("fireite_helmet", FIREITE_HELMET);
+        register("fireite_chestplate", FIREITE_CHESTPLATE);
+        register("fireite_leggings", FIREITE_LEGGINGS);
+        register("fireite_boots", FIREITE_BOOTS);
+
         register("egg_of_life_item", EGG_OF_LIFE_ITEM);
+        //register("test_item", TEST_ITEM);
 
         POISON_WATER_BUCKET = Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "poison_water_bucket"), new BucketItem(BlockRegistry.STILL_POISON_WATER, new Item.Settings().recipeRemainder(Items.BUCKET).maxCount(1)));
     }
