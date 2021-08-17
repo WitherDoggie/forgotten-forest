@@ -16,7 +16,6 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.HashSet;
 
-
 public class ForgottenForest implements ModInitializer {
 
     public static final String MODID = "forgotten_forest";

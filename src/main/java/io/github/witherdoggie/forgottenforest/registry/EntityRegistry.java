@@ -22,7 +22,7 @@ public class EntityRegistry {
     public static EntityType<SoulChickenEntity> SOUL_CHICKEN = FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, SoulChickenEntity::new).dimensions(EntityDimensions.fixed(0.7f, 0.5f)).build();
     public static EntityType<GhostEntity> GHOST = FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, GhostEntity::new).dimensions(EntityDimensions.fixed(0.7f, 1.7f)).build();
     public static EntityType<FirePigEntity> FIRE_PIG = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, FirePigEntity::new).dimensions(EntityDimensions.fixed(0.9F, 0.9F)).trackRangeBlocks(10).build();
-    public static EntityType<ForgottenTowerSpiritBossEntity> FORGOTTEN_TOWER_SPIRIT = FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, ForgottenTowerSpiritBossEntity::new).dimensions(EntityDimensions.fixed(1.0F, 1.0F)).build();
+    public static EntityType<ForgottenTowerSpiritBossEntity> FORGOTTEN_TOWER_SPIRIT = FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, ForgottenTowerSpiritBossEntity::new).dimensions(EntityDimensions.fixed(2.0F, 3.0F)).build();
 
     public static EntityType<EggOfLifeEntity> EGG_OF_LIFE = FabricEntityTypeBuilder.<EggOfLifeEntity>create(SpawnGroup.MISC, EggOfLifeEntity::new).dimensions(EntityDimensions.fixed(0.25F, 0.25F)).trackRangeBlocks(4).trackedUpdateRate(10).build();
 

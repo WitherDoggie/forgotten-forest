@@ -34,6 +34,11 @@ Available under the LGPL-3.0 license.
     - There is nothing I can do about this. Most of the world generation additions in this mod are done via datapack.  
       This is a warning Mojang added to the game. The world generation additions in this mod have been tested and no major issues have been found.  
       You can use [Disable Custom Worlds Advice](https://www.curseforge.com/minecraft/mc-mods/fabric-disable-custom-worlds-advice) to remove this warning if you wish.  
+  
+
+- Is this compatible with X mod?
+  - I can't guarantee compatibility with all mods. Nothing is done in this mod to intentionally break compatibility. If you find an incompatibility, please  
+     open an issue and I'll see what I can do to improve compatibility.
        
 
      
