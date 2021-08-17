@@ -65,6 +65,10 @@
   "item.forgotten_forest.orchium_chestplate" : "Orchium Chestplate",
   "item.forgotten_forest.orchium_leggings" : "Orchium Leggings",
   "item.forgotten_forest.orchium_boots" : "Orchium Boots",
+  "item.forgotten_forest.fireite_helmet" : "Fireite Helmet",
+  "item.forgotten_forest.fireite_chestplate" : "Fireite Chestplate",
+  "item.forgotten_forest.fireite_leggings" : "Fireite Leggings",
+  "item.forgotten_forest.fireite_boots" : "Fireite Boots",
   "item.forgotten_forest.egg_of_life_item" : "Egg Of Life",
 
   "itemGroup.forgotten_forest.blocks" : "Forgotten Blocks",
