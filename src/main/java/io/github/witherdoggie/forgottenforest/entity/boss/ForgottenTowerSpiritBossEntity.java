@@ -1,6 +1,8 @@
 package io.github.witherdoggie.forgottenforest.entity.boss;
 
+import io.github.witherdoggie.forgottenforest.entity.GhostEntity;
 import io.github.witherdoggie.forgottenforest.mixin.LivingEntityAccessor;
+import io.github.witherdoggie.forgottenforest.registry.EntityRegistry;
 import io.github.witherdoggie.forgottenforest.registry.StatusEffectRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -16,7 +18,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Hand;
-import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
 
@@ -33,7 +34,7 @@ public class ForgottenTowerSpiritBossEntity extends PathAwareEntity {
     }
 
     public static DefaultAttributeContainer.Builder createForgottenTowerSpiritBossAttributes() {
-        return HostileEntity.createHostileAttributes().add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.55D).add(EntityAttributes.GENERIC_MAX_HEALTH, 100.0D).add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 10.0D);
+        return HostileEntity.createHostileAttributes().add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.55D).add(EntityAttributes.GENERIC_MAX_HEALTH, 250.0D).add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 10.0D).add(EntityAttributes.GENERIC_ARMOR, 5.0D);
     }
 
     public void initGoals(){
@@ -67,6 +68,10 @@ public class ForgottenTowerSpiritBossEntity extends PathAwareEntity {
         }
         else if(attackValue == 7){
             heal((float)random.nextInt(30));
+        }
+        else if(attackValue == 17){
+            summonGhosts();
+            System.out.println("SUMMONED GHOSTS");
         }
         return bl;
     }
@@ -103,6 +108,14 @@ public class ForgottenTowerSpiritBossEntity extends PathAwareEntity {
         if (!this.world.isClient) {
             Explosion.DestructionType destructionType = Explosion.DestructionType.NONE;
             this.world.createExplosion(this, this.getX(), this.getY(), this.getZ(), (float) 2.0, destructionType);
+        }
+    }
+
+    private void summonGhosts(){
+        for(int i = 0; i < 5; i++){
+            GhostEntity ghost = EntityRegistry.GHOST.create(world);
+            ghost.updatePositionAndAngles(this.getX() + random.nextInt(3), this.getY(), this.getZ() + random.nextInt(3), this.getYaw(), 0.0F);
+            this.world.spawnEntity(ghost);
         }
     }
 }

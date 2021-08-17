@@ -2,7 +2,6 @@ package io.github.witherdoggie.forgottenforest.render.entity;
 
 import io.github.witherdoggie.forgottenforest.ForgottenForest;
 import io.github.witherdoggie.forgottenforest.entity.SoulSpiderEntity;
-import net.minecraft.client.render.entity.EntityRenderDispatcher;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.SpiderEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;

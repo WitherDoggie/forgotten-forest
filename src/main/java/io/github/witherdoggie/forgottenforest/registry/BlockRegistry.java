@@ -5,7 +5,6 @@ import io.github.witherdoggie.forgottenforest.block.*;
 import io.github.witherdoggie.forgottenforest.block.base.ModFernBlock;
 import io.github.witherdoggie.forgottenforest.block.base.ModSaplingBlock;
 import io.github.witherdoggie.forgottenforest.block.base.ModStairsBlock;
-//import io.github.witherdoggie.forgottenforest.block.fluid.PoisonWaterFluid;
 import io.github.witherdoggie.forgottenforest.block.fluid.PoisonWaterFluid;
 import io.github.witherdoggie.forgottenforest.world.generator.GloomySaplingGenerator;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;

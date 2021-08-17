@@ -4,11 +4,7 @@ import io.github.witherdoggie.forgottenforest.entity.goal.ChickenIgniteGoal;
 import io.github.witherdoggie.forgottenforest.entity.goal.CreateItemWhenBreedingGoal;
 import io.github.witherdoggie.forgottenforest.registry.EntityRegistry;
 import io.github.witherdoggie.forgottenforest.registry.ItemRegistry;
-import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ExperienceOrbEntity;
-import net.minecraft.entity.ItemEntity;
-import net.minecraft.entity.ai.goal.AnimalMateGoal;
 import net.minecraft.entity.ai.goal.FollowTargetGoal;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.ai.goal.RevengeGoal;
@@ -26,15 +22,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.recipe.Ingredient;
-import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.stat.Stats;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
-
-import java.util.Random;
 
 public class SoulChickenEntity extends ChickenEntity {
 

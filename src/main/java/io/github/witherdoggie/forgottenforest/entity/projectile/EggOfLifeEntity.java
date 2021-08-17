@@ -1,6 +1,5 @@
 package io.github.witherdoggie.forgottenforest.entity.projectile;
 
-import io.github.witherdoggie.forgottenforest.ForgottenForest;
 import io.github.witherdoggie.forgottenforest.registry.EntityRegistry;
 import io.github.witherdoggie.forgottenforest.registry.ItemRegistry;
 import io.github.witherdoggie.forgottenforest.registry.TagRegistry;

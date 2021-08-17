@@ -4,16 +4,16 @@
   "package": "io.github.witherdoggie.forgottenforest.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "LivingEntityAccessor",
+    "AbstractBlockStateMixin",
     "BrewingRecipeRegistryAccessor",
     "BrewingRecipeRegistryMixin",
-    "EntityAccessor",
     "CarverAccessor",
-    "AbstractBlockStateMixin",
-    "StatusEffectMixin",
-    "PlayerEntityAccessor",
+    "EntityAccessor",
     "LakeFeatureMixin",
+    "LivingEntityAccessor",
+    "PlayerEntityAccessor",
     "PlayerEntityMixin",
+    "StatusEffectMixin",
     "TrunkPlacerTypeMixin"
   ],
   "client": [

@@ -3,7 +3,6 @@ package io.github.witherdoggie.forgottenforest.world.tree.trunk;
 import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import io.github.witherdoggie.forgottenforest.world.feature.ConfiguredFeatures;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.TestableWorld;

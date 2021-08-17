@@ -1,10 +1,7 @@
 package io.github.witherdoggie.forgottenforest.mixin;
 
-import it.unimi.dsi.fastutil.objects.Object2DoubleMap;
 import net.minecraft.entity.Entity;
-import net.minecraft.fluid.Fluid;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.tag.Tag;
 import net.minecraft.world.TeleportTarget;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
