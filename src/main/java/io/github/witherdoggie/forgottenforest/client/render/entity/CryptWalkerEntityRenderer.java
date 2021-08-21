@@ -1,8 +1,8 @@
-package io.github.witherdoggie.forgottenforest.render.entity;
+package io.github.witherdoggie.forgottenforest.client.render.entity;
 
 import io.github.witherdoggie.forgottenforest.ForgottenForest;
 import io.github.witherdoggie.forgottenforest.entity.CryptWalkerEntity;
-import io.github.witherdoggie.forgottenforest.render.entity.model.CryptWalkerEntityModel;
+import io.github.witherdoggie.forgottenforest.client.render.entity.model.CryptWalkerEntityModel;
 import net.minecraft.client.render.entity.BipedEntityRenderer;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.util.Identifier;

@@ -1,7 +1,7 @@
-package io.github.witherdoggie.forgottenforest.render;
+package io.github.witherdoggie.forgottenforest.client.render;
 
 import io.github.witherdoggie.forgottenforest.ForgottenForest;
-import io.github.witherdoggie.forgottenforest.render.block.*;
+import io.github.witherdoggie.forgottenforest.client.render.block.*;
 import net.fabricmc.fabric.api.client.model.ModelProviderContext;
 import net.fabricmc.fabric.api.client.model.ModelProviderException;
 import net.fabricmc.fabric.api.client.model.ModelResourceProvider;

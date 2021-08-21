@@ -1,4 +1,4 @@
-package io.github.witherdoggie.forgottenforest.render;
+package io.github.witherdoggie.forgottenforest.client.render;
 
 import io.github.witherdoggie.forgottenforest.registry.BlockRegistry;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;

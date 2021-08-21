@@ -1,4 +1,4 @@
-package io.github.witherdoggie.forgottenforest.render.entity;
+package io.github.witherdoggie.forgottenforest.client.render.entity;
 
 import io.github.witherdoggie.forgottenforest.ForgottenForest;
 import io.github.witherdoggie.forgottenforest.entity.FirePigEntity;

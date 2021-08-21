@@ -1,4 +1,4 @@
-package io.github.witherdoggie.forgottenforest.render.entity.model;
+package io.github.witherdoggie.forgottenforest.client.render.entity.model;
 
 import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.render.entity.model.BipedEntityModel;

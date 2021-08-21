@@ -1,4 +1,4 @@
-package io.github.witherdoggie.forgottenforest.render.block;
+package io.github.witherdoggie.forgottenforest.client.render.block;
 
 import com.mojang.datafixers.util.Pair;
 import io.github.witherdoggie.forgottenforest.ForgottenForest;

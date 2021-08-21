@@ -17,7 +17,7 @@ import net.minecraft.util.registry.Registry;
 
 public class ItemRegistry {
 
-    //public static final Item TEST_ITEM = new TestItem(new FabricItemSettings().group(ModItemGroups.ITEMS));
+    public static final Item TRANSMUTATION_WAND = new TransmutationWandItem(new FabricItemSettings().group(ModItemGroups.ITEMS));
     public static final Item ORCHIUM_INGOT = new Item(new FabricItemSettings().group(ModItemGroups.ITEMS));
     public static final Item FIREITE_GEM = new Item(new FabricItemSettings().group(ModItemGroups.ITEMS));
 
@@ -111,7 +111,7 @@ public class ItemRegistry {
         register("fireite_boots", FIREITE_BOOTS);
 
         register("egg_of_life_item", EGG_OF_LIFE_ITEM);
-        //register("test_item", TEST_ITEM);
+        register("transmutation_wand", TRANSMUTATION_WAND);
 
         POISON_WATER_BUCKET = Registry.register(Registry.ITEM, new Identifier(ForgottenForest.MODID, "poison_water_bucket"), new BucketItem(BlockRegistry.STILL_POISON_WATER, new Item.Settings().recipeRemainder(Items.BUCKET).maxCount(1)));
     }

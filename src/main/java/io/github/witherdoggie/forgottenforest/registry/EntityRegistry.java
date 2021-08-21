@@ -4,10 +4,6 @@ import io.github.witherdoggie.forgottenforest.ForgottenForest;
 import io.github.witherdoggie.forgottenforest.entity.*;
 import io.github.witherdoggie.forgottenforest.entity.boss.ForgottenTowerSpiritBossEntity;
 import io.github.witherdoggie.forgottenforest.entity.projectile.EggOfLifeEntity;
-import net.fabricmc.fabric.api.biome.v1.BiomeModification;
-import net.fabricmc.fabric.api.biome.v1.BiomeModificationContext;
-import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
-import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.fabricmc.fabric.mixin.object.builder.SpawnRestrictionAccessor;
@@ -15,15 +11,8 @@ import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.entity.SpawnRestriction;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.Heightmap;
-import net.minecraft.world.SpawnHelper;
-import net.minecraft.world.biome.BiomeKeys;
-import net.minecraft.world.biome.SpawnSettings;
-import net.minecraft.world.gen.Spawner;
-import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 
 public class EntityRegistry {
 
@@ -33,6 +22,7 @@ public class EntityRegistry {
     public static EntityType<GhostEntity> GHOST = FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, GhostEntity::new).dimensions(EntityDimensions.fixed(0.7f, 1.7f)).build();
     public static EntityType<FirePigEntity> FIRE_PIG = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, FirePigEntity::new).dimensions(EntityDimensions.fixed(0.9F, 0.9F)).trackRangeBlocks(10).build();
     public static EntityType<ForgottenTowerSpiritBossEntity> FORGOTTEN_TOWER_SPIRIT = FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, ForgottenTowerSpiritBossEntity::new).dimensions(EntityDimensions.fixed(2.0F, 3.0F)).build();
+    public static EntityType<MysticCowEntity> MYSTIC_COW = FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, MysticCowEntity::new).dimensions(EntityDimensions.fixed(0.9f, 1.4f)).build();
 
     public static EntityType<EggOfLifeEntity> EGG_OF_LIFE = FabricEntityTypeBuilder.<EggOfLifeEntity>create(SpawnGroup.MISC, EggOfLifeEntity::new).dimensions(EntityDimensions.fixed(0.25F, 0.25F)).trackRangeBlocks(4).trackedUpdateRate(10).build();
 
@@ -55,6 +45,9 @@ public class EntityRegistry {
 
         Registry.register(Registry.ENTITY_TYPE, ForgottenForest.id("forgotten_tower_spirit"), FORGOTTEN_TOWER_SPIRIT);
         FabricDefaultAttributeRegistry.register(FORGOTTEN_TOWER_SPIRIT, ForgottenTowerSpiritBossEntity.createForgottenTowerSpiritBossAttributes());
+
+        Registry.register(Registry.ENTITY_TYPE, ForgottenForest.id("mystic_cow"), MYSTIC_COW);
+        FabricDefaultAttributeRegistry.register(MYSTIC_COW, SoulChickenEntity.createSoulChickenAttributes());
 
         Registry.register(Registry.ENTITY_TYPE, ForgottenForest.id("egg_of_life"), EGG_OF_LIFE);
 

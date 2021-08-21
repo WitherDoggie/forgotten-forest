@@ -1,4 +1,4 @@
-package io.github.witherdoggie.forgottenforest.render.block;
+package io.github.witherdoggie.forgottenforest.client.render.block;
 
 import com.mojang.datafixers.util.Pair;
 import io.github.witherdoggie.forgottenforest.ForgottenForest;
@@ -33,7 +33,7 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-public class FFRedstoneOre implements BakedModel, UnbakedModel, FabricBakedModel {
+public class FFIronOre implements BakedModel, UnbakedModel, FabricBakedModel {
 
     private Mesh [] meshes = new Mesh[3];
     private Mesh mesh_gloomy = meshes[0];
@@ -44,9 +44,9 @@ public class FFRedstoneOre implements BakedModel, UnbakedModel, FabricBakedModel
     private static final Identifier DEFAULT_BLOCK_MODEL = new Identifier("minecraft:block/block");
 
     private static final SpriteIdentifier[] SPRITE_IDENTIFIERS = new SpriteIdentifier[] {
-            new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, new Identifier(ForgottenForest.MODID, "block/mod_redstone_ore_gloomy")),
-            new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, new Identifier("minecraft:block/redstone_ore")),
-            new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, new Identifier(ForgottenForest.MODID, "block/mod_redstone_ore_fire"))
+            new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, new Identifier(ForgottenForest.MODID, "block/mod_iron_ore_gloomy")),
+            new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, new Identifier("minecraft:block/iron_ore")),
+            new SpriteIdentifier(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE, new Identifier(ForgottenForest.MODID, "block/mod_iron_ore_fire"))
     };
     private Sprite[] SPRITES = new Sprite[3];
 
@@ -161,4 +161,3 @@ public class FFRedstoneOre implements BakedModel, UnbakedModel, FabricBakedModel
         return this;
     }
 }
-

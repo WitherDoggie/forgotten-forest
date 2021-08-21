@@ -1,4 +1,4 @@
-package io.github.witherdoggie.forgottenforest.render.entity.model;
+package io.github.witherdoggie.forgottenforest.client.render.entity.model;
 
 import io.github.witherdoggie.forgottenforest.entity.boss.ForgottenTowerSpiritBossEntity;
 import net.minecraft.client.model.*;

@@ -70,6 +70,7 @@
   "item.forgotten_forest.fireite_leggings" : "Fireite Leggings",
   "item.forgotten_forest.fireite_boots" : "Fireite Boots",
   "item.forgotten_forest.egg_of_life_item" : "Egg Of Life",
+  "item.forgotten_forest.transmutation_wand" : "Transmutation Wand",
 
   "itemGroup.forgotten_forest.blocks" : "Forgotten Blocks",
   "itemGroup.forgotten_forest.items" : "Forgotten Items",
@@ -81,6 +82,7 @@
   "entity.forgotten_forest.ghost" : "Ghost",
   "entity.forgotten_forest.egg_of_life" : "Egg Of Life",
   "entity.forgotten_forest.forgotten_tower_spirit": "Forgotten Spirit",
+  "entity.forgotten_forest.mystic_cow": "Mystic Cow",
 
   "effect.forgotten_forest.soul_serum" : "Soul Serum",
   "effect.forgotten_forest.anti_poison" : "Anti Poison"

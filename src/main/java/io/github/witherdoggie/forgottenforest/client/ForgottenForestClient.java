@@ -1,8 +1,8 @@
 package io.github.witherdoggie.forgottenforest.client;
 
 import io.github.witherdoggie.forgottenforest.registry.EntityRenderersRegistry;
-import io.github.witherdoggie.forgottenforest.render.ClientRender;
-import io.github.witherdoggie.forgottenforest.render.ForgottenForestModelProvider;
+import io.github.witherdoggie.forgottenforest.client.render.ClientRender;
+import io.github.witherdoggie.forgottenforest.client.render.ForgottenForestModelProvider;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;

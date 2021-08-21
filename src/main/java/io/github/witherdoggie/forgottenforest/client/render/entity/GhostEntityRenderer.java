@@ -1,9 +1,9 @@
-package io.github.witherdoggie.forgottenforest.render.entity;
+package io.github.witherdoggie.forgottenforest.client.render.entity;
 
 import io.github.witherdoggie.forgottenforest.ForgottenForest;
 import io.github.witherdoggie.forgottenforest.entity.GhostEntity;
 import io.github.witherdoggie.forgottenforest.registry.EntityRenderersRegistry;
-import io.github.witherdoggie.forgottenforest.render.entity.model.GhostEntityModel;
+import io.github.witherdoggie.forgottenforest.client.render.entity.model.GhostEntityModel;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.util.Identifier;
