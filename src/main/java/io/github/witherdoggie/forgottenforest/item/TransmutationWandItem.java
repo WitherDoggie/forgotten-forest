@@ -36,10 +36,11 @@ public class TransmutationWandItem extends Item {
             case ENTITY:
                 EntityHitResult entityHit = (EntityHitResult) hit;
                 Entity entity = entityHit.getEntity();
-                if (entity.getType().getSpawnGroup() == SpawnGroup.CREATURE){
+                if (entity.getType().getSpawnGroup() == SpawnGroup.CREATURE || entity.getType().getSpawnGroup() == SpawnGroup.WATER_CREATURE || entity.getType().getSpawnGroup() == SpawnGroup.WATER_AMBIENT){
                     BlockPos pos = entity.getBlockPos();
                     entity.discard();
                     world.setBlockState(pos, TagRegistry.TRANSMUTABLE_BLOCKS.getRandom(random).getDefaultState());
+                    user.sendMessage(new TranslatableText("action.bar.transmute.success"), true);
                     return TypedActionResult.success(stack);
                 }
                 else {

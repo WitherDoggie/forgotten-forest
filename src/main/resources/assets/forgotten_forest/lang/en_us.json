@@ -85,5 +85,9 @@
   "entity.forgotten_forest.mystic_cow": "Mystic Cow",
 
   "effect.forgotten_forest.soul_serum" : "Soul Serum",
-  "effect.forgotten_forest.anti_poison" : "Anti Poison"
+  "effect.forgotten_forest.anti_poison" : "Anti Poison",
+
+  "action.bar.transmute.fail" : "You can only transmute passive mobs",
+  "action.bar.transmute.success" : "Poof! The mob is now a block!",
+  "action.bar.mystic_mob.teleport" : "A mystical mob teleports you"
 }

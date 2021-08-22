@@ -15,6 +15,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.world.World;
 
 public class MysticCowEntity extends CowEntity implements SkinOverlayOwner {
@@ -44,6 +45,7 @@ public class MysticCowEntity extends CowEntity implements SkinOverlayOwner {
 
             if(target instanceof ServerPlayerEntity){
                 ((ServerPlayerEntity) target).teleport(((ServerPlayerEntity) target).getServerWorld(), target.getX(), this.getY() + 100, target.getZ(), target.getYaw(), this.getPitch());
+                ((ServerPlayerEntity) target).sendMessage(new TranslatableText("action.bar.mystic_mob.teleport"), true);
             }
             this.dead = true;
             this.discard();
