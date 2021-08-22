@@ -4,6 +4,8 @@ import io.github.witherdoggie.forgottenforest.ForgottenForest;
 import io.github.witherdoggie.forgottenforest.entity.*;
 import io.github.witherdoggie.forgottenforest.entity.boss.ForgottenTowerSpiritBossEntity;
 import io.github.witherdoggie.forgottenforest.entity.projectile.EggOfLifeEntity;
+import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
+import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.fabricmc.fabric.mixin.object.builder.SpawnRestrictionAccessor;
@@ -55,7 +57,5 @@ public class EntityRegistry {
         SpawnRestrictionAccessor.callRegister(SOUL_SKELETON,  SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, (type, world, reason, pos, random) -> true);
         SpawnRestrictionAccessor.callRegister(SOUL_CHICKEN,  SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, (type, world, reason, pos, random) -> true);
         SpawnRestrictionAccessor.callRegister(FIRE_PIG,  SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, (type, world, reason, pos, random) -> true);
-
-        //BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.PLAINS), SpawnGroup.CREATURE, FIRE_PIG, 4, 10,30);
     }
 }

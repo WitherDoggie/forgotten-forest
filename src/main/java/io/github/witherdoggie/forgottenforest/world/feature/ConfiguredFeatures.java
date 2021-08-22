@@ -25,9 +25,9 @@ import net.minecraft.world.gen.trunk.TrunkPlacerType;
 
 public class ConfiguredFeatures {
 
-    public static final TrunkPlacerType<TriForkedTrunkPlacer> TRI_FORKED_TRUNK_PLACER = TrunkPlacerTypeMixin.callRegister("tri_forked_trunk_placer", TriForkedTrunkPlacer.CODEC);
+    public static final TrunkPlacerType<TriForkedTrunkPlacer> TRI_FORKED_TRUNK_PLACER = TrunkPlacerTypeMixin.callRegister("forgotten_forest:tri_forked_trunk_placer", TriForkedTrunkPlacer.CODEC);
     public static ConfiguredFeature<?, ?> GLOOMY_TREE;
-    public static ConfiguredFeature<?,?> TEST_TREE;
+    public static ConfiguredFeature<?,?> BURNT_TREE;
     public static ConfiguredFeature<?, ?> GLOOMY_GRASS = Feature.RANDOM_PATCH.configure(Configs.GLOOMY_GRASS_CONFIG).decorate(net.minecraft.world.gen.feature.ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE).repeat(2);
     public static ConfiguredFeature<?, ?> FIRE_GRASS = Feature.RANDOM_PATCH.configure(Configs.FIRE_GRASS_CONFIG).decorate(net.minecraft.world.gen.feature.ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE)
             .decorate(Decorator.COUNT_NOISE.configure(new CountNoiseDecoratorConfig(-0.8D, 5, 10)));
@@ -63,16 +63,16 @@ public class ConfiguredFeatures {
 
     public static RegistryKey<ConfiguredFeature<?, ?>> gloomyGrass = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY, new Identifier(ForgottenForest.MODID, "gloomy_grass_gen"));
     public static RegistryKey<ConfiguredFeature<?, ?>> fireGrass = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY, new Identifier(ForgottenForest.MODID, "fire_grass_gen"));
+    public static RegistryKey<TrunkPlacerType<?>> triForkedTrunkPlacer = RegistryKey.of(Registry.TRUNK_PLACER_TYPE_KEY, new Identifier(ForgottenForest.MODID, "tri_forked_trunk_placer"));
 
     public static void initConfiguredFeatures() {
 
         GLOOMY_TREE = register(ForgottenForest.MODID + ":gloomy_tree", Feature.TREE.configure((
                 new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(States.GLOOMY_LOG), new StraightTrunkPlacer(4, 2, 0), new SimpleBlockStateProvider(States.GLOOMY_LEAVES), new SimpleBlockStateProvider(States.GLOOMY_SAPLING),
-                new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3), new TwoLayersFeatureSize(1, 0, 1))).ignoreVines().build()));
+                        new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3), new TwoLayersFeatureSize(1, 0, 1))).ignoreVines().build()));
 
-        //TEST_TREE = register(ForgottenForest.MODID + ":test_tree", Feature.TREE.configure((
-         //      new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(States.GLOOMY_LOG), new TriForkedTrunkPlacer(4, 2, 0), new SimpleBlockStateProvider(States.GLOOMY_LEAVES), new SimpleBlockStateProvider(States.GLOOMY_SAPLING),
-           //             new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3), new TwoLayersFeatureSize(1, 0, 1))).ignoreVines().build()));
+        BURNT_TREE = register(ForgottenForest.MODID + ":test_tree", Feature.TREE.configure((new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(States.GLOOMY_LOG), new TriForkedTrunkPlacer(6, 2, 5), new SimpleBlockStateProvider(States.GLOOMY_LEAVES), new SimpleBlockStateProvider(States.GLOOMY_SAPLING),
+                new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3), new TwoLayersFeatureSize(1, 0, 1))).ignoreVines().build()));
 
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, oreOrchiumOverworld.getValue(), ORCHIUM_ORE);
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, modIronOre.getValue(), FF_IRON_ORE);
@@ -83,14 +83,11 @@ public class ConfiguredFeatures {
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, modRedstoneOre.getValue(), FF_REDSTONE_ORE);
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, gloomyGrass.getValue(), GLOOMY_GRASS);
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, fireGrass.getValue(), FIRE_GRASS);
-
     }
 
     private static <FC extends FeatureConfig> ConfiguredFeature<FC, ?> register(String id, ConfiguredFeature<?, ?> configuredFeature) {
         return (ConfiguredFeature) Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, id, configuredFeature);
     }
-
-
 
     public static class Configs {
 

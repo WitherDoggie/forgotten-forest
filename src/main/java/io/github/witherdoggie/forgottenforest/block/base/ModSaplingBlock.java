@@ -1,6 +1,7 @@
 package io.github.witherdoggie.forgottenforest.block.base;
 
 import io.github.witherdoggie.forgottenforest.registry.BlockRegistry;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SaplingBlock;
 import net.minecraft.block.sapling.SaplingGenerator;
@@ -15,6 +16,6 @@ public class ModSaplingBlock extends SaplingBlock {
 
     @Override
     protected boolean canPlantOnTop(BlockState floor, BlockView world, BlockPos pos) {
-        return floor.isOf(BlockRegistry.GLOOMY_GRASS_BLOCK) || floor.isOf(BlockRegistry.GLOOMY_DIRT);
+        return floor.isOf(BlockRegistry.GLOOMY_GRASS_BLOCK) || floor.isOf(BlockRegistry.GLOOMY_DIRT) || floor.isOf(BlockRegistry.FIRE_GRASS_BLOCK) || floor.isOf(BlockRegistry.FIRE_DIRT);
     }
 }

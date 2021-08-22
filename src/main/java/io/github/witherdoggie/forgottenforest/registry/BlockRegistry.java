@@ -6,6 +6,7 @@ import io.github.witherdoggie.forgottenforest.block.base.ModFernBlock;
 import io.github.witherdoggie.forgottenforest.block.base.ModSaplingBlock;
 import io.github.witherdoggie.forgottenforest.block.base.ModStairsBlock;
 import io.github.witherdoggie.forgottenforest.block.fluid.PoisonWaterFluid;
+import io.github.witherdoggie.forgottenforest.world.generator.BurntSaplingGenerator;
 import io.github.witherdoggie.forgottenforest.world.generator.GloomySaplingGenerator;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tag.TagRegistry;
@@ -64,6 +65,7 @@ public class BlockRegistry {
     public static final Block CRACKED_FIRE_BRICKS = new Block(AbstractBlock.Settings.of(Material.STONE).requiresTool().strength(1.5F, 6.0F));
     public static final Block FIRE_BRICK_SLAB = new SlabBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(1.5F, 6.0F));
     public static final Block FIRE_BRICK_STAIRS = new ModStairsBlock(GLOOMY_BRICKS.getDefaultState(), FabricBlockSettings.copyOf(FIRE_BRICKS));
+    public static final Block BURNT_SAPLING = new ModSaplingBlock(new BurntSaplingGenerator(), FabricBlockSettings.of(Material.PLANT).noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.GRASS));
 
     //Arkian Blocks
     public static Block ARKIAN_STONE = new Block(AbstractBlock.Settings.of(Material.STONE).requiresTool().strength(1.5F, 6.0F));
@@ -105,6 +107,7 @@ public class BlockRegistry {
         registerBlockAndItem("cracked_fire_bricks", CRACKED_FIRE_BRICKS, modBlocksTab);
         registerBlockAndItem("fire_brick_stairs", FIRE_BRICK_STAIRS, modBlocksTab);
         registerBlockAndItem("fire_brick_slab", FIRE_BRICK_SLAB, modBlocksTab);
+        registerBlockAndItem("burnt_sapling", BURNT_SAPLING, modBlocksTab);
 
         registerBlockAndItem("mod_iron_ore", FF_IRON_ORE, modBlocksTab);
         registerBlockAndItem("mod_gold_ore", FF_GOLD_ORE, modBlocksTab);
