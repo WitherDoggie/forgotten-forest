@@ -1,6 +1,5 @@
 package io.github.witherdoggie.forgottenforest.block.base;
 
-import io.github.witherdoggie.forgottenforest.registry.BlockRegistry;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
@@ -34,7 +33,6 @@ public abstract class SpawnerBlockEntityBase<T extends LivingEntity> extends Blo
             world.spawnEntity(entity);
             world.setBlockState(blockEntity.pos, Blocks.AIR.getDefaultState());
             blockEntity.hasSpawnedBoss = true;
-
         }
     }
 }
