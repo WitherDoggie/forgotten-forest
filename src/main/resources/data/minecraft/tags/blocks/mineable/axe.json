@@ -1,0 +1,9 @@
+{
+  "replace" : false,
+  "values" : [
+    "forgotten_forest:gloomy_log",
+    "forgotten_forest:gloomy_planks",
+    "forgotten_forest:gloomy_plank_slab",
+    "forgotten_forest:gloomy_plank_stairs"
+  ]
+}

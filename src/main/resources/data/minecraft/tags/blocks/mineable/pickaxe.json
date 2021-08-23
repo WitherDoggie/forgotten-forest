@@ -1,0 +1,25 @@
+{
+    "replace": false,
+    "values": [
+        "forgotten_forest:orchium_ore",
+        "forgotten_forest:fireite_ore",
+        "forgotten_forest:gloomy_stone",
+        "forgotten_forest:fire_stone",
+        "forgotten_forest:gloomy_bricks",
+        "forgotten_forest:gloomy_bricks_slab",
+        "forgotten_forest:gloomy_bricks_stairs",
+        "forgotten_forest:cracked_gloomy_bricks",
+        "forgotten_forest:chiseled_gloomy_bricks",
+        "forgotten_forest:fire_bricks",
+        "forgotten_forest:fire_brick_slab",
+        "forgotten_forest:fire_brick_stairs",
+        "forgotten_forest:cracked_fire_bricks",
+        "forgotten_forest:chiseled_fire_bricks",
+        "forgotten_forest:mod_iron_ore",
+        "forgotten_forest:mod_coal_ore",
+        "forgotten_forest:mod_gold_ore",
+        "forgotten_forest:mod_lapis_ore",
+        "forgotten_forest:mod_diamond_ore",
+        "forgotten_forest:mod_redstone_ore"
+    ]
+}

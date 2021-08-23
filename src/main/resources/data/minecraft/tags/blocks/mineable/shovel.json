@@ -1,0 +1,9 @@
+{
+  "replace" : false,
+  "values" : [
+    "forgotten_forest:gloomy_dirt",
+    "forgotten_forest:gloomy_grass_block",
+    "forgotten_forest:fire_dirt",
+    "forgotten_forest:fire_grass_block"
+  ]
+}
