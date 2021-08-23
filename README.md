@@ -38,7 +38,11 @@ Available under the LGPL-3.0 license.
 
 - Is this compatible with X mod?
   - I can't guarantee compatibility with all mods. Nothing is done in this mod to intentionally break compatibility. If you find an incompatibility, please  
-     open an issue and I'll see what I can do to improve compatibility.
+     open an issue and I'll see what I can do to improve compatibility.  
+  
+
+- Can I translate the mod?
+  - Of course! If you translate the mod to another language, please open a pull request and I can implent your translation into the mod for others to use.
        
 
      

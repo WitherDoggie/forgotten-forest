@@ -2,16 +2,16 @@ package io.github.witherdoggie.forgottenforest.registry;
 
 import io.github.witherdoggie.forgottenforest.ForgottenForest;
 import io.github.witherdoggie.forgottenforest.block.*;
-import io.github.witherdoggie.forgottenforest.block.base.ModFernBlock;
-import io.github.witherdoggie.forgottenforest.block.base.ModSaplingBlock;
-import io.github.witherdoggie.forgottenforest.block.base.ModStairsBlock;
+import io.github.witherdoggie.forgottenforest.block.base.*;
 import io.github.witherdoggie.forgottenforest.block.fluid.PoisonWaterFluid;
 import io.github.witherdoggie.forgottenforest.world.generator.BurntSaplingGenerator;
 import io.github.witherdoggie.forgottenforest.world.generator.GloomySaplingGenerator;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.tag.TagRegistry;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.*;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.fluid.FlowableFluid;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.BlockItem;
@@ -70,6 +70,9 @@ public class BlockRegistry {
     //Arkian Blocks
     public static Block ARKIAN_STONE = new Block(AbstractBlock.Settings.of(Material.STONE).requiresTool().strength(1.5F, 6.0F));
 
+    public static BlockEntityType<ForgottenSpiritBossSpawnerEntity> FORGOTTEN_SPIRIT_SPAWNER;
+    public static Block FORGOTTEN_SPIRIT_SPAWNER_BLOCK = new ForgottenSpiritBossSpawnerBlock(FabricBlockSettings.of(Material.METAL));
+
     //Fluids
     public static Block POISON_WATER;
     public static FlowableFluid STILL_POISON_WATER;
@@ -117,6 +120,9 @@ public class BlockRegistry {
         registerBlockAndItem("mod_redstone_ore", FF_REDSTONE_ORE, modBlocksTab);
         registerBlockAndItem("orchium_ore", ORCHIUM_ORE, modBlocksTab);
         registerBlockAndItem("fireite_ore", FIREITE_ORE, modBlocksTab);
+
+        registerBlockNoItem("spawner_block_base", FORGOTTEN_SPIRIT_SPAWNER_BLOCK);
+        FORGOTTEN_SPIRIT_SPAWNER = Registry.register(Registry.BLOCK_ENTITY_TYPE, "forgotten_forest:spawner_block_entity_base", FabricBlockEntityTypeBuilder.create(ForgottenSpiritBossSpawnerEntity::new, FORGOTTEN_SPIRIT_SPAWNER_BLOCK).build(null));
 
         STILL_POISON_WATER = Registry.register(Registry.FLUID, new Identifier(ForgottenForest.MODID, "poison_water"), new PoisonWaterFluid.Still());
         FLOWING_POISON_WATER = Registry.register(Registry.FLUID, new Identifier(ForgottenForest.MODID, "flowing_poison_water"), new PoisonWaterFluid.Flowing());

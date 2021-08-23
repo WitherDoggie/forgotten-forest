@@ -61,7 +61,8 @@ public class MysticCowEntity extends CowEntity implements SkinOverlayOwner {
         ItemStack itemStack = player.getStackInHand(hand);
         if (itemStack.isOf(Items.BUCKET) && !this.isBaby()) {
             player.playSound(SoundEvents.ENTITY_COW_MILK, 1.0F, 1.0F);
-            ItemStack itemStack2 = new ItemStack(ItemStack.EMPTY.getItem());
+            ItemStack itemStack2 = player.getStackInHand(hand);
+            itemStack2.decrement(1);
             player.setStackInHand(hand, itemStack2);
             return ActionResult.success(this.world.isClient);
         } else {
