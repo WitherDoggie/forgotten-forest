@@ -1,4 +1,4 @@
-package io.github.witherdoggie.forgottenforest.block;
+package io.github.witherdoggie.forgottenforest.block.spawner;
 
 import io.github.witherdoggie.forgottenforest.block.base.SpawnerBlockBase;
 import io.github.witherdoggie.forgottenforest.block.base.SpawnerBlockEntityBase;

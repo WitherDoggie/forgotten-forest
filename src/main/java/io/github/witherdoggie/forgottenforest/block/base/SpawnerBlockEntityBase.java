@@ -13,6 +13,7 @@ import net.minecraft.world.World;
 
 public abstract class SpawnerBlockEntityBase<T extends LivingEntity> extends BlockEntity {
 
+    protected static final int spawnerRange = 10;
     protected final EntityType<?> entityType;
     protected boolean hasSpawnedBoss = false;
 
@@ -22,7 +23,7 @@ public abstract class SpawnerBlockEntityBase<T extends LivingEntity> extends Blo
     }
 
     public boolean anyPlayerInRange() {
-        return world.isPlayerInRange(pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, 10);
+        return world.isPlayerInRange(pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, spawnerRange);
     }
 
     public static void tick(World world, BlockPos pos, BlockState state, SpawnerBlockEntityBase<?> blockEntity) {

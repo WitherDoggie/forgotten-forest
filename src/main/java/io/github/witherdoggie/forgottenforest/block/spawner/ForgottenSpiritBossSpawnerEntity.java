@@ -1,12 +1,10 @@
-package io.github.witherdoggie.forgottenforest.block;
+package io.github.witherdoggie.forgottenforest.block.spawner;
 
 import io.github.witherdoggie.forgottenforest.block.base.SpawnerBlockEntityBase;
 import io.github.witherdoggie.forgottenforest.entity.boss.ForgottenTowerSpiritBossEntity;
 import io.github.witherdoggie.forgottenforest.registry.BlockRegistry;
 import io.github.witherdoggie.forgottenforest.registry.EntityRegistry;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.entity.EntityType;
 import net.minecraft.util.math.BlockPos;
 
 public class ForgottenSpiritBossSpawnerEntity extends SpawnerBlockEntityBase<ForgottenTowerSpiritBossEntity> {

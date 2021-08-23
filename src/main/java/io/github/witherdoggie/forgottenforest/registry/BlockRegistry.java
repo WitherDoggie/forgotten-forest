@@ -4,6 +4,8 @@ import io.github.witherdoggie.forgottenforest.ForgottenForest;
 import io.github.witherdoggie.forgottenforest.block.*;
 import io.github.witherdoggie.forgottenforest.block.base.*;
 import io.github.witherdoggie.forgottenforest.block.fluid.PoisonWaterFluid;
+import io.github.witherdoggie.forgottenforest.block.spawner.ForgottenSpiritBossSpawnerBlock;
+import io.github.witherdoggie.forgottenforest.block.spawner.ForgottenSpiritBossSpawnerEntity;
 import io.github.witherdoggie.forgottenforest.world.generator.BurntSaplingGenerator;
 import io.github.witherdoggie.forgottenforest.world.generator.GloomySaplingGenerator;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -121,8 +123,8 @@ public class BlockRegistry {
         registerBlockAndItem("orchium_ore", ORCHIUM_ORE, modBlocksTab);
         registerBlockAndItem("fireite_ore", FIREITE_ORE, modBlocksTab);
 
-        registerBlockNoItem("spawner_block_base", FORGOTTEN_SPIRIT_SPAWNER_BLOCK);
-        FORGOTTEN_SPIRIT_SPAWNER = Registry.register(Registry.BLOCK_ENTITY_TYPE, "forgotten_forest:spawner_block_entity_base", FabricBlockEntityTypeBuilder.create(ForgottenSpiritBossSpawnerEntity::new, FORGOTTEN_SPIRIT_SPAWNER_BLOCK).build(null));
+        registerBlockNoItem("forgotten_spirit_spawner", FORGOTTEN_SPIRIT_SPAWNER_BLOCK);
+        FORGOTTEN_SPIRIT_SPAWNER = Registry.register(Registry.BLOCK_ENTITY_TYPE, "forgotten_forest:forgotten_spirit_spawner_entity", FabricBlockEntityTypeBuilder.create(ForgottenSpiritBossSpawnerEntity::new, FORGOTTEN_SPIRIT_SPAWNER_BLOCK).build(null));
 
         STILL_POISON_WATER = Registry.register(Registry.FLUID, new Identifier(ForgottenForest.MODID, "poison_water"), new PoisonWaterFluid.Still());
         FLOWING_POISON_WATER = Registry.register(Registry.FLUID, new Identifier(ForgottenForest.MODID, "flowing_poison_water"), new PoisonWaterFluid.Flowing());
