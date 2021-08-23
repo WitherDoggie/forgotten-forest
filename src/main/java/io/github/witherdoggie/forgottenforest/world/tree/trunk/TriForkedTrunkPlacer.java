@@ -37,19 +37,34 @@ public class TriForkedTrunkPlacer extends TrunkPlacer {
         setToDirt(world, replacer, random, startPos.down(), config);
         List<FoliagePlacer.TreeNode> nodes = Lists.newArrayList();
 
+
+
+
         for(int i = 0; i < baseHeight; i++) {
             getAndSetState(world, replacer, random, startPos, config);
             startPos = startPos.up();
         }
 
-        BlockPos branchOne = startPos;
-        BlockPos branchTwo = startPos;
+        startPos = startPos.down(3);
+        BlockPos lowerBranchOne = startPos;
+        BlockPos lowerBranchTwo = startPos;
+
+        for(int i = 0; i < random.nextInt(4); i++){
+            getAndSetState(world, replacer, random, lowerBranchOne.east(), config);
+            lowerBranchOne = lowerBranchOne.east().up();
+            getAndSetState(world, replacer, random, lowerBranchTwo.north(), config);
+            lowerBranchTwo = lowerBranchTwo.north().up();
+        }
+
+        startPos = startPos.up(3);
+        BlockPos upperBranchOne = startPos;
+        BlockPos upperBranchTwo = startPos;
 
         for(int i = 0; i < random.nextInt(5); i++){
-            getAndSetState(world, replacer, random, branchOne.east().north(), config);
-            branchOne = branchOne.east().north().up();
-            getAndSetState(world, replacer, random, branchTwo.west(), config);
-            branchTwo = branchTwo.west().up();
+            getAndSetState(world, replacer, random, upperBranchOne.east().north(), config);
+            upperBranchOne = upperBranchOne.east().north().up();
+            getAndSetState(world, replacer, random, upperBranchTwo.west(), config);
+            upperBranchTwo = upperBranchTwo.west().up();
             getAndSetState(world, replacer, random, startPos.south(), config);
             startPos = startPos.south().up();
         }
