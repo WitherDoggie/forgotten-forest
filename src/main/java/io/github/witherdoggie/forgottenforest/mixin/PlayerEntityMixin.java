@@ -1,6 +1,7 @@
 package io.github.witherdoggie.forgottenforest.mixin;
 
 import io.github.witherdoggie.forgottenforest.registry.ItemRegistry;
+import io.github.witherdoggie.forgottenforest.util.accessors.PlayerEntityInterface;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
@@ -8,6 +9,7 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -15,7 +17,9 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(PlayerEntity.class)
-public abstract class PlayerEntityMixin extends LivingEntity{
+public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEntityInterface {
+
+    private int currentSoulCount = 0;
 
     protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
         super(entityType, world);
@@ -33,5 +37,32 @@ public abstract class PlayerEntityMixin extends LivingEntity{
             this.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 42, 2, false, false));
             this.addStatusEffect(new StatusEffectInstance(StatusEffects.HEALTH_BOOST, 42, 1, false, false));
         }
+    }
+
+    @Inject(method = "onKilledOther", at = @At("TAIL"))
+    private void onKilledOther(ServerWorld world, LivingEntity other, CallbackInfo ci){
+
+        currentSoulCount++;
+        System.out.println("SOUL COUNT: " + currentSoulCount);
+    }
+
+    public int getCurrentSoulCount(){
+        return currentSoulCount;
+    }
+
+    public void setCurrentSoulCount(int soulCount){
+        currentSoulCount = soulCount;
+    }
+
+    public void resetSoulCount(){
+        setCurrentSoulCount(0);
+    }
+
+    public void decrementSoulCount(){
+        setCurrentSoulCount(currentSoulCount - 1);
+    }
+
+    public void incrementSoulCount(){
+        setCurrentSoulCount(currentSoulCount + 1);
     }
 }

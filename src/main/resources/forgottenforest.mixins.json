@@ -14,7 +14,8 @@
     "PlayerEntityAccessor",
     "PlayerEntityMixin",
     "StatusEffectMixin",
-    "TrunkPlacerTypeMixin"
+    "TrunkPlacerTypeMixin",
+    "ServerPlayerEntityMixin"
   ],
   "client": [
 

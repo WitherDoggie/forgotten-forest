@@ -17,10 +17,9 @@ import net.minecraft.util.registry.Registry;
 
 public class ItemRegistry {
 
-    public static final Item TRANSMUTATION_WAND = new TransmutationWandItem(new FabricItemSettings().group(ModItemGroups.ITEMS));
+    public static final Item TRANSMUTATION_WAND = new TransmutationWandItem(new FabricItemSettings().group(ModItemGroups.ITEMS).maxCount(1).maxDamage(100));
     public static final Item ORCHIUM_INGOT = new Item(new FabricItemSettings().group(ModItemGroups.ITEMS));
     public static final Item FIREITE_GEM = new Item(new FabricItemSettings().group(ModItemGroups.ITEMS));
-
 
     public static ToolItem ORCHIUM_PICKAXE = new ModPickaxeItem(OrchiumToolMaterial.INSTANCE, 1, -2.8F, new Item.Settings().group(ModItemGroups.ITEMS));
     public static ToolItem ORCHIUM_AXE = new ModAxeItem(OrchiumToolMaterial.INSTANCE, 5.0F, -3.2F, new Item.Settings().group(ModItemGroups.ITEMS));
