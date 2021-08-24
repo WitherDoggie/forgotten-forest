@@ -6,10 +6,10 @@
   ],
   "key": {
     "#": {
-      "item": "minecraft:gloomy_bricks_slab"
+      "item": "forgotten_forest:gloomy_bricks_slab"
     }
   },
   "result": {
-    "item": "minecraft:chiseled_gloomy_bricks"
+    "item": "forgotten_forest:chiseled_gloomy_bricks"
   }
 }

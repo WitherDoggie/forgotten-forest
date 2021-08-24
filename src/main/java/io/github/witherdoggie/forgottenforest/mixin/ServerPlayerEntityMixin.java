@@ -22,6 +22,8 @@ public abstract class ServerPlayerEntityMixin extends PlayerEntity {
     @Inject(method = "onDeath", at = @At("TAIL"))
     private void onDeath(DamageSource source, CallbackInfo ci){
 
-        ((PlayerEntityInterface)this).resetSoulCount();
+        /* Player loses 10% of souls on death */
+        double souls = ((PlayerEntityInterface)this).getCurrentSoulCount() * 0.1;
+        ((PlayerEntityInterface)this).setCurrentSoulCount(((PlayerEntityInterface)this).getCurrentSoulCount() - (int)souls);
     }
 }

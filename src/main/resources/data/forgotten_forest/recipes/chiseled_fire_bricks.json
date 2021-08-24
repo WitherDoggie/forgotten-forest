@@ -6,10 +6,10 @@
   ],
   "key": {
     "#": {
-      "item": "minecraft:fire_bricks_slab"
+      "item": "forgotten_forest:fire_bricks_slab"
     }
   },
   "result": {
-    "item": "minecraft:chiseled_fire_bricks"
+    "item": "forgotten_forest:chiseled_fire_bricks"
   }
 }

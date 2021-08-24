@@ -1,5 +1,10 @@
 package io.github.witherdoggie.forgottenforest.util.accessors;
 
+/********************************
+ *
+ * Duck interface for PlayerEntityMixin
+ *
+ ********************************/
 public interface PlayerEntityInterface {
 
     int getCurrentSoulCount();
@@ -10,5 +15,9 @@ public interface PlayerEntityInterface {
 
     void decrementSoulCount();
 
+    void decrementSoulCount(int amount);
+
     void incrementSoulCount();
+
+    void incrementSoulCount(int amount);
 }
