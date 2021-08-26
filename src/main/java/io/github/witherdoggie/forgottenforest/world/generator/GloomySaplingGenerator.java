@@ -1,6 +1,6 @@
 package io.github.witherdoggie.forgottenforest.world.generator;
 
-import io.github.witherdoggie.forgottenforest.world.feature.ConfiguredFeatures;
+import io.github.witherdoggie.forgottenforest.world.feature.FFConfiguredFeatures;
 import net.minecraft.block.sapling.SaplingGenerator;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.TreeFeatureConfig;
@@ -13,7 +13,7 @@ public class GloomySaplingGenerator extends SaplingGenerator {
     @Nullable
     @Override
     protected ConfiguredFeature<TreeFeatureConfig, ?> getTreeFeature(Random random, boolean bl) {
-        return (ConfiguredFeature<TreeFeatureConfig, ?>) ConfiguredFeatures.GLOOMY_TREE;
+        return (ConfiguredFeature<TreeFeatureConfig, ?>) FFConfiguredFeatures.GLOOMY_TREE;
     }
 
 }

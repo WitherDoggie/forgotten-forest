@@ -75,6 +75,9 @@ public class BlockRegistry {
     public static BlockEntityType<ForgottenSpiritBossSpawnerEntity> FORGOTTEN_SPIRIT_SPAWNER;
     public static Block FORGOTTEN_SPIRIT_SPAWNER_BLOCK = new ForgottenSpiritBossSpawnerBlock(FabricBlockSettings.of(Material.METAL));
 
+    public static BlockEntityType<RitualPedestalBlockEntity> RITUAL_PEDESTAL_BLOCK_ENTITY;
+    public static Block RITUAL_PEDESTAL_BLOCK = new RitualPedestalBlock(FabricBlockSettings.of(Material.METAL).nonOpaque());
+
     //Fluids
     public static Block POISON_WATER;
     public static FlowableFluid STILL_POISON_WATER;
@@ -125,6 +128,9 @@ public class BlockRegistry {
 
         registerBlockNoItem("forgotten_spirit_spawner", FORGOTTEN_SPIRIT_SPAWNER_BLOCK);
         FORGOTTEN_SPIRIT_SPAWNER = Registry.register(Registry.BLOCK_ENTITY_TYPE, "forgotten_forest:forgotten_spirit_spawner_entity", FabricBlockEntityTypeBuilder.create(ForgottenSpiritBossSpawnerEntity::new, FORGOTTEN_SPIRIT_SPAWNER_BLOCK).build(null));
+
+        registerBlockAndItem("ritual_pedestal_block", RITUAL_PEDESTAL_BLOCK, modBlocksTab);
+        RITUAL_PEDESTAL_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "forgotten_forest:ritual_pedestal_block_entity", FabricBlockEntityTypeBuilder.create(RitualPedestalBlockEntity::new, RITUAL_PEDESTAL_BLOCK).build(null));
 
         STILL_POISON_WATER = Registry.register(Registry.FLUID, new Identifier(ForgottenForest.MODID, "poison_water"), new PoisonWaterFluid.Still());
         FLOWING_POISON_WATER = Registry.register(Registry.FLUID, new Identifier(ForgottenForest.MODID, "flowing_poison_water"), new PoisonWaterFluid.Flowing());

@@ -1,9 +1,11 @@
 package io.github.witherdoggie.forgottenforest.registry;
 
 import io.github.witherdoggie.forgottenforest.ForgottenForest;
+import io.github.witherdoggie.forgottenforest.client.render.block_entity.PedestalBlockEntityRenderer;
 import io.github.witherdoggie.forgottenforest.client.render.entity.*;
 import io.github.witherdoggie.forgottenforest.client.render.entity.model.ForgottenTowerSpiritBossEntityModel;
 import io.github.witherdoggie.forgottenforest.client.render.entity.model.GhostEntityModel;
+import net.fabricmc.fabric.api.client.rendereregistry.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
@@ -30,5 +32,7 @@ public class EntityRenderersRegistry {
         EntityModelLayerRegistry.registerModelLayer(MODEL_GHOST_LAYER, GhostEntityModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(MODEL_TOWER_SPIRIT_LAYER, ForgottenTowerSpiritBossEntityModel::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(ENTITY_GLINT, CowEntityModel::getTexturedModelData);
+
+        BlockEntityRendererRegistry.INSTANCE.register(BlockRegistry.RITUAL_PEDESTAL_BLOCK_ENTITY, PedestalBlockEntityRenderer::new);
     }
 }

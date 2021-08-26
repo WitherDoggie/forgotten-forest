@@ -3,7 +3,7 @@ package io.github.witherdoggie.forgottenforest;
 import com.google.common.collect.ImmutableSet;
 import io.github.witherdoggie.forgottenforest.mixin.CarverAccessor;
 import io.github.witherdoggie.forgottenforest.registry.*;
-import io.github.witherdoggie.forgottenforest.world.feature.ConfiguredFeatures;
+import io.github.witherdoggie.forgottenforest.world.feature.FFConfiguredFeatures;
 import io.github.witherdoggie.forgottenforest.world.feature.FFFeatures;
 import io.github.witherdoggie.forgottenforest.world.surface.SurfaceBuilders;
 import net.fabricmc.api.ModInitializer;
@@ -38,7 +38,7 @@ public class ForgottenForest implements ModInitializer {
         PotionRegistry.initPotions();
         EntityRegistry.initEntities();
         FFFeatures.initFeatures();
-        ConfiguredFeatures.initConfiguredFeatures();
+        FFConfiguredFeatures.initConfiguredFeatures();
         BiomeRegistry.initBiomes();
 
         //Add new stone types to carvers.

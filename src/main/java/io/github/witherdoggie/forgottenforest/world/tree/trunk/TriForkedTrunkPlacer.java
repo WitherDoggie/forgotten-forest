@@ -3,7 +3,7 @@ package io.github.witherdoggie.forgottenforest.world.tree.trunk;
 import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import io.github.witherdoggie.forgottenforest.world.feature.ConfiguredFeatures;
+import io.github.witherdoggie.forgottenforest.world.feature.FFConfiguredFeatures;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.TestableWorld;
@@ -28,7 +28,7 @@ public class TriForkedTrunkPlacer extends TrunkPlacer {
 
     @Override
     protected TrunkPlacerType<?> getType() {
-        return ConfiguredFeatures.TRI_FORKED_TRUNK_PLACER;
+        return FFConfiguredFeatures.TRI_FORKED_TRUNK_PLACER;
     }
 
     @Override
