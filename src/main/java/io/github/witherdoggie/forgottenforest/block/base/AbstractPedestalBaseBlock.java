@@ -20,14 +20,14 @@ public abstract class AbstractPedestalBaseBlock extends BlockWithEntity {
     public abstract BlockEntity createBlockEntity(BlockPos pos, BlockState state);
 
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit){
-        BlockEntity blockEntity = world.getBlockEntity(pos);
+        AbstractPedestalBaseBlockEntity blockEntity = (AbstractPedestalBaseBlockEntity) world.getBlockEntity(pos);
 
-        if(blockEntity instanceof AbstractPedestalBaseBlockEntity && ((AbstractPedestalBaseBlockEntity) blockEntity).getHeldItemStack().isEmpty() == true && !player.getStackInHand(hand).isEmpty()) {
-            ((AbstractPedestalBaseBlockEntity)blockEntity).addItemToPedestal(player, hand);
+        if(blockEntity.getHeldItemStack().isEmpty() == true && player.getStackInHand(hand).isEmpty() == false) {
+            blockEntity.addItemToPedestal(player, hand);
             return ActionResult.SUCCESS;
         }
-        else if (blockEntity instanceof AbstractPedestalBaseBlockEntity && player.getStackInHand(hand).isEmpty()){
-            ((AbstractPedestalBaseBlockEntity)blockEntity).removeStack(player, hand);
+        else if (player.getStackInHand(hand).isEmpty() == true && blockEntity.getHeldItemStack().isEmpty() == false){
+            blockEntity.removeItemFromPedestal(player, hand);
             return ActionResult.CONSUME;
         }
 

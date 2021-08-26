@@ -4,18 +4,12 @@ import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.FilledMapItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.item.map.MapState;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.GameRules;
-import org.jetbrains.annotations.Nullable;
 
 public abstract class AbstractPedestalBaseBlockEntity extends BlockEntity implements BlockEntityClientSerializable {
 
@@ -30,50 +24,44 @@ public abstract class AbstractPedestalBaseBlockEntity extends BlockEntity implem
     }
 
     public void setHeldItemStack(ItemStack stack) {
-        this.setHeldItemStack(stack, true);
-    }
-
-    public void setHeldItemStack(ItemStack value, boolean update) {
-        if (!value.isEmpty()) {
-            value = value.copy();
-            value.setCount(1);
+        if (!stack.isEmpty()) {
+            stack = stack.copy();
+            stack.setCount(1);
         }
 
-        this.containedItem = value;
+        this.containedItem = stack;
     }
 
     public ActionResult addItemToPedestal(PlayerEntity player, Hand hand){
-        ItemStack itemStack = player.getStackInHand(hand);
+        ItemStack playerStackInHand = player.getStackInHand(hand);
         boolean isStackEmpty = !this.getHeldItemStack().isEmpty();
-        boolean bl2 = !itemStack.isEmpty();
+        boolean isPlayerStackEmpty = !playerStackInHand.isEmpty();
         if (!this.world.isClient) {
             if (!isStackEmpty) {
-                if (bl2 && !this.isRemoved()) {
+                if (isPlayerStackEmpty && !this.isRemoved()) {
 
-                    this.setHeldItemStack(itemStack);
+                    this.setHeldItemStack(playerStackInHand);
                     if (!player.getAbilities().creativeMode) {
-                        itemStack.decrement(1);
+                        playerStackInHand.decrement(1);
                     }
                 }
             }
             this.sync();
             return ActionResult.CONSUME;
         } else {
-            return !isStackEmpty && !bl2 ? ActionResult.PASS : ActionResult.SUCCESS;
+            return !isStackEmpty && !isPlayerStackEmpty ? ActionResult.PASS : ActionResult.SUCCESS;
         }
     }
 
-    public ActionResult removeStack(PlayerEntity player, Hand hand) {
+    public void removeItemFromPedestal(PlayerEntity player, Hand hand) {
 
         if(!this.world.isClient) {
             if (containedItem.isEmpty() == false) {
-                player.setStackInHand(hand, this.getHeldItemStack());
-                this.setHeldItemStack(ItemStack.EMPTY, true);
+                player.setStackInHand(Hand.MAIN_HAND, this.getHeldItemStack());
+                this.setHeldItemStack(ItemStack.EMPTY);
             }
             this.sync();
-            return ActionResult.CONSUME;
         }
-        return ActionResult.PASS;
     }
 
    @Override
@@ -82,7 +70,7 @@ public abstract class AbstractPedestalBaseBlockEntity extends BlockEntity implem
         NbtCompound nbtCompound = nbt.getCompound("Item");
         if (nbtCompound != null && !nbtCompound.isEmpty()) {
             ItemStack itemStack = ItemStack.fromNbt(nbtCompound);
-            this.setHeldItemStack(itemStack, false);
+            this.setHeldItemStack(itemStack);
         }
     }
 
@@ -90,6 +78,7 @@ public abstract class AbstractPedestalBaseBlockEntity extends BlockEntity implem
     public NbtCompound writeNbt(NbtCompound nbt) {
         if (!this.getHeldItemStack().isEmpty()) {
             nbt.put("Item", this.getHeldItemStack().writeNbt(new NbtCompound()));
+            markDirty();
         }
         return super.writeNbt(nbt);
     }
@@ -99,7 +88,7 @@ public abstract class AbstractPedestalBaseBlockEntity extends BlockEntity implem
         NbtCompound nbtCompound = nbt.getCompound("Item");
         if (nbtCompound != null && !nbtCompound.isEmpty()) {
             ItemStack itemStack = ItemStack.fromNbt(nbtCompound);
-            this.setHeldItemStack(itemStack, false);
+            this.setHeldItemStack(itemStack);
         }
     }
 
@@ -107,6 +96,7 @@ public abstract class AbstractPedestalBaseBlockEntity extends BlockEntity implem
     public NbtCompound toClientTag(NbtCompound nbt){
         if (!this.getHeldItemStack().isEmpty()) {
             nbt.put("Item", this.getHeldItemStack().writeNbt(new NbtCompound()));
+            this.markDirty();
         }
         return nbt;
     }
