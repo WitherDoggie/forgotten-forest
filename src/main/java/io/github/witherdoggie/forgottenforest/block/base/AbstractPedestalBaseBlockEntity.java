@@ -47,6 +47,7 @@ public abstract class AbstractPedestalBaseBlockEntity extends BlockEntity implem
                 }
             }
             this.sync();
+            System.out.println("HASH AT ADD: " + this.hashCode());
             return ActionResult.CONSUME;
         } else {
             return !isStackEmpty && !isPlayerStackEmpty ? ActionResult.PASS : ActionResult.SUCCESS;
@@ -94,10 +95,9 @@ public abstract class AbstractPedestalBaseBlockEntity extends BlockEntity implem
 
     @Override
     public NbtCompound toClientTag(NbtCompound nbt){
-        if (!this.getHeldItemStack().isEmpty()) {
-            nbt.put("Item", this.getHeldItemStack().writeNbt(new NbtCompound()));
-            this.markDirty();
-        }
+        nbt.put("Item", this.getHeldItemStack().writeNbt(new NbtCompound()));
+        this.markDirty();
+
         return nbt;
     }
 }
