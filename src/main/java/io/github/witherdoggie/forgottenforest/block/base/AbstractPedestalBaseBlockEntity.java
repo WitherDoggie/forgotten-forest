@@ -47,14 +47,13 @@ public abstract class AbstractPedestalBaseBlockEntity extends BlockEntity implem
                 }
             }
             this.sync();
-            System.out.println("HASH AT ADD: " + this.hashCode());
             return ActionResult.CONSUME;
         } else {
             return !isStackEmpty && !isPlayerStackEmpty ? ActionResult.PASS : ActionResult.SUCCESS;
         }
     }
 
-    public void removeItemFromPedestal(PlayerEntity player, Hand hand) {
+    public void removeItemFromPedestal(PlayerEntity player) {
 
         if(!this.world.isClient) {
             if (containedItem.isEmpty() == false) {
@@ -99,5 +98,9 @@ public abstract class AbstractPedestalBaseBlockEntity extends BlockEntity implem
         this.markDirty();
 
         return nbt;
+    }
+
+    public boolean contains(ItemStack stack){
+        return this.containedItem.getItem() == stack.getItem() ? true : false;
     }
 }

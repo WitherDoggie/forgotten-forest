@@ -27,7 +27,7 @@ public abstract class AbstractPedestalBaseBlock extends BlockWithEntity {
             return ActionResult.SUCCESS;
         }
         else if (player.getStackInHand(hand).isEmpty() == true && blockEntity.getHeldItemStack().isEmpty() == false){
-            blockEntity.removeItemFromPedestal(player, hand);
+            blockEntity.removeItemFromPedestal(player);
             return ActionResult.CONSUME;
         }
 

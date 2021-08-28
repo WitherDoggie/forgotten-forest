@@ -6,12 +6,18 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtList;
+import net.minecraft.nbt.NbtString;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Hand;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 
 import java.util.HashMap;
@@ -21,15 +27,19 @@ public class EntitySummoningStaffItem extends Item {
 
     private boolean isBound = false;
     private EntityType<?> boundEntity;
-    public static HashMap<EntityType<?>, Integer> entitySummonMap = new HashMap(Map.of(
-            EntityType.COW, 10,
-            EntityType.PIG, 15,
-            EntityType.CHICKEN, 20,
-            EntityType.SHEEP, 20,
-            EntityType.GOAT, 5,
-            EntityType.ZOMBIE, 10,
-            EntityType.SKELETON, 10
-    ));
+    public static HashMap<EntityType<?>, Integer> entitySummonMap = new HashMap(Map.ofEntries(
+            Map.entry(EntityType.COW, 10),
+            Map.entry(EntityType.PIG, 15),
+            Map.entry(EntityType.CHICKEN, 20),
+            Map.entry(EntityType.SHEEP, 20),
+            Map.entry(EntityType.GOAT, 5),
+            Map.entry(EntityType.ZOMBIE, 10),
+            Map.entry(EntityType.SKELETON, 10),
+            Map.entry(EntityType.CREEPER, 15),
+            Map.entry(EntityType.HORSE, 20),
+            Map.entry(EntityType.WOLF, 15),
+            Map.entry(EntityType.ENDERMAN, 20
+    )));
 
     public EntitySummoningStaffItem(Settings settings) {
         super(settings);
@@ -64,6 +74,11 @@ public class EntitySummoningStaffItem extends Item {
 
     public void bindEntityToStaff(EntityType<?> entityType){
         this.boundEntity = entityType;
+        ItemStack itemStack = this.getDefaultStack();
+        NbtCompound display1 = itemStack.getNbt().getCompound("display");
+        NbtList lore = new NbtList();
+        lore.add(NbtString.of(("Bound Entity: ") + entityType.getName()));
+        display1.put("Lore", lore);
     }
 
     private void summonEntity(World world, BlockPos pos){
