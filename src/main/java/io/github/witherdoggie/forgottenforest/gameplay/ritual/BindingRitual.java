@@ -1,5 +1,6 @@
 package io.github.witherdoggie.forgottenforest.gameplay.ritual;
 
+import com.google.common.collect.ImmutableList;
 import io.github.witherdoggie.forgottenforest.block.base.AbstractPedestalBaseBlockEntity;
 import io.github.witherdoggie.forgottenforest.item.EntitySummoningStaffItem;
 import io.github.witherdoggie.forgottenforest.registry.BlockRegistry;
@@ -7,14 +8,12 @@ import io.github.witherdoggie.forgottenforest.util.pattern.BindingRitualPattern;
 import io.github.witherdoggie.forgottenforest.util.pattern.PedestalPattern;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtList;
-import net.minecraft.nbt.NbtString;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
 
 /**
  *
@@ -31,6 +30,8 @@ public class BindingRitual extends Ritual {
     private static PedestalPattern PIG_PATTERN = new BindingRitualPattern(4, EntityType.PIG, create(Items.CARROT), create(Items.PORKCHOP), create(Items.CARROT), create(Items.PORKCHOP));
     private static PedestalPattern SHEEP_PATTERN = new BindingRitualPattern(4, EntityType.SHEEP, create(Items.WHITE_WOOL), create(Items.MUTTON), create(Items.WHITE_WOOL), create(Items.MUTTON));
 
+    private final ArrayList<PedestalPattern> patternsList = new ArrayList<>(ImmutableList.of(COW_PATTERN, PIG_PATTERN, SHEEP_PATTERN));
+
     public BindingRitual(){
 
     }
@@ -41,20 +42,12 @@ public class BindingRitual extends Ritual {
             return false;
         }
         else {
-            if(areItemStacksValid(world, pos, COW_PATTERN)){
-                patternToUse = COW_PATTERN;
-                type = ((BindingRitualPattern)COW_PATTERN).getEntityType();
-                return true;
-            }
-            else if(areItemStacksValid(world, pos, PIG_PATTERN)){
-                patternToUse = PIG_PATTERN;
-                type = ((BindingRitualPattern)PIG_PATTERN).getEntityType();
-                return true;
-            }
-            else if(areItemStacksValid(world, pos, SHEEP_PATTERN)){
-                patternToUse = SHEEP_PATTERN;
-                type = ((BindingRitualPattern)SHEEP_PATTERN).getEntityType();
-                return true;
+            for(int i = 0; i < patternsList.size(); i++){
+                if(areItemStacksValid(world, pos, patternsList.get(i))){
+                    patternToUse = patternsList.get(i);
+                    type = ((BindingRitualPattern)patternsList.get(i)).getEntityType();
+                    return true;
+                }
             }
         }
         return false;
@@ -74,7 +67,7 @@ public class BindingRitual extends Ritual {
     @Override
     public void Start(World world, BlockPos pos) {
 
-        if(canStart){
+        if(canStart(world, pos)){
             return;
         }
         else {
